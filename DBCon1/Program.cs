@@ -21,7 +21,8 @@ namespace DBCon1
     {
         static void Main(string[] args)
         {
-            new TestSchema().test();
+            testGetDistance();
+            //new TestSchema().test();
            // new ExcelTest().test();
           //  new TestUserInfoDao().test();
           //  new TestImportExcel().test();
@@ -82,6 +83,13 @@ namespace DBCon1
             //        reader.GetString(2));
             //}
             //Console.Read();
+        }
+        public static void testGetDistance()
+        {
+
+            //Console.WriteLine(LocationTest.GetDistance(104.190488,30.831672,,));
+            Console.Read();
+
         }
         public static void dept() {
             DepartmentDao dao = new DepartmentDao();

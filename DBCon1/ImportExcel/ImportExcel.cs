@@ -46,6 +46,8 @@ namespace DBCon1.test_dao
             
             }
 
+            // close the con
+            AccessOp.closeAll(con, null, null);
 
             return true;
         }
@@ -306,6 +308,8 @@ namespace DBCon1.test_dao
             if (rowCount != 0) {
                 return false;
             }
+            // close the OleDbCommand
+            cmd.Dispose();
 
             return true;
         }
