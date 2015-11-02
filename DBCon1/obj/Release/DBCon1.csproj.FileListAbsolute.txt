@@ -1,0 +1,7 @@
+G:\C#_program\mao_li_li\DBCon1\DBCon1\bin\Release\DBCon1.exe.config
+G:\C#_program\mao_li_li\DBCon1\DBCon1\obj\Release\Interop.ADOX.dll
+G:\C#_program\mao_li_li\DBCon1\DBCon1\obj\Release\DBCon1.csproj.ResolveComReference.cache
+G:\C#_program\mao_li_li\DBCon1\DBCon1\bin\Release\DBCon1.exe
+G:\C#_program\mao_li_li\DBCon1\DBCon1\bin\Release\DBCon1.pdb
+G:\C#_program\mao_li_li\DBCon1\DBCon1\obj\Release\DBCon1.exe
+G:\C#_program\mao_li_li\DBCon1\DBCon1\obj\Release\DBCon1.pdb
