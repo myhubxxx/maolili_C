@@ -36,6 +36,10 @@ namespace DBCon1.test_dao
         // use shareutil get in
         public static void  getShare(){
 
+            if (sharePath == null) {
+                return;
+            }
+            
             ShareUtil.connectState(@sharePath, userName, passWord);
 
         }
@@ -271,7 +275,7 @@ namespace DBCon1.test_dao
             OleDbConnection con = getCon(dbName);
 
             // delete the tabName in totalTable
-            string sql_totalTab = "delete from totaltable where tabName=@tabName";
+            string sql_totalTab = "delete from totaltable where tablename=@tabName";
             OleDbCommand cmd2 = new OleDbCommand(sql_totalTab, con);
             OleDbParameter param = new OleDbParameter("@tabName",tabName);
             cmd2.Parameters.Add(param);

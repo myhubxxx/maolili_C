@@ -82,6 +82,7 @@
     <Compile Include="test_dao\DepartmentDaoTest.cs" />
     <Compile Include="test_dao\ImportExcel.cs" />
     <Compile Include="test_dao\TeatTotal_Dao.cs" />
+    <Compile Include="test_dao\TestAccessOP.cs" />
     <Compile Include="test_dao\TestDbCreate.cs" />
     <Compile Include="test_dao\TestImportExcel.cs" />
     <Compile Include="test_dao\Test_dao.cs" />
