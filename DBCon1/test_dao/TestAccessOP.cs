@@ -16,7 +16,7 @@ namespace DBCon1.test_dao
         }
         public void deleteTable() {
 
-            AccessOp.DeleteAccessTab("人事部","he");
+            AccessOp.DeleteAccessTab("人事部", "testread");
 
         }
 

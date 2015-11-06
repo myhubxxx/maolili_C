@@ -127,52 +127,95 @@ namespace DBCon1.test_dao
         //  通过遍历map对象，获取字段名称,以及字段类型
         public static bool CreateAccessTab(MyDatabase domain)
         {
-            // get the database value
-            string dbName = domain.DbName;
-            string tableName = domain.TableName;
-            Dictionary<string, string> columns = domain.Columns;
-            // end get the database value
+//=====START==============================
+            //// get the database value
+            //string dbName = domain.DbName;
+            //string tableName = domain.TableName;
+            //Dictionary<string, string> columns = domain.Columns;
+            //// end get the database value
 
 
+
+            //// the head sql
+            //string tabSql = "create table ?(id int not null identity(1,1) primary key";
+            //// make suer the table name
+            //tabSql = tabSql.Replace("?", tableName);
+            //// the end ")"
+            //string end = ")";
+
+            //foreach(KeyValuePair<string, string> entry in columns)
+            //{
+            //    string column_name = entry.Key;
+            //    string column_prop = entry.Value;
+
+            //    string catSql = ", " + column_name + " " + column_prop + " not null";
+            //  //  catSql = catSql.Replace("?", column_name).Replace("?", column_prop);
+
+            //    tabSql = tabSql + catSql;
+            //}
+            //// the created SQL has finished
+            //tabSql = tabSql + end;
+            
+            //// connect the db
+            //OleDbConnection con = AccessOp.getCon(dbName);
+            //OleDbCommand cmd = con.CreateCommand(); 
+            //    cmd.Connection = con;
+            //    cmd.CommandText = tabSql;
+
+            //    try
+            //    {
+            //        cmd.ExecuteNonQuery();
+            //    }
+            //    catch (SystemException ex)
+            //    {
+            //        return false;
+            //    }
+
+            //    // close the con 
+            //    AccessOp.closeAll(con, cmd, null);
+//====END=========================================
 
             // the head sql
-            string tabSql = "create table ?(id int not null identity(1,1) primary key";
+            string tabSql = "create table ?("
+                             + "id int not null identity(1,1) primary key";
             // make suer the table name
-            tabSql = tabSql.Replace("?", tableName);
+            tabSql = tabSql.Replace("?", domain.TableName);
             // the end ")"
             string end = ")";
 
-            foreach(KeyValuePair<string, string> entry in columns)
+            foreach (var field in domain.Columns)
             {
-                string column_name = entry.Key;
-                string column_prop = entry.Value;
 
-                string catSql = ", " + column_name + " " + column_prop + " not null";
-              //  catSql = catSql.Replace("?", column_name).Replace("?", column_prop);
+                string catSql = ", " + field.FieldName + " " + field.Type.ToLower() + " not null";
+                //  catSql = catSql.Replace("?", column_name).Replace("?", column_prop);
 
                 tabSql = tabSql + catSql;
             }
             // the created SQL has finished
             tabSql = tabSql + end;
-            
+
             // connect the db
-            OleDbConnection con = AccessOp.getCon(dbName);
-            OleDbCommand cmd = con.CreateCommand(); 
-                cmd.Connection = con;
-                cmd.CommandText = tabSql;
+            OleDbConnection con = AccessOp.getCon(domain.DBName);
+            OleDbCommand cmd = con.CreateCommand();
+            cmd.Connection = con;
+            cmd.CommandText = tabSql;
+            //........
+            try
+            {
+                cmd.ExecuteNonQuery();
+                // and info to toltable 
+                TotalTable table = new TotalTable();
+                table.Tablename = domain.TableName;
+                new TotalTableDao().add(domain.DBName, table);
+            }
+            catch (SystemException ex)
+            {
+                return false;
+            }
 
-                try
-                {
-                    cmd.ExecuteNonQuery();
-                }
-                catch (SystemException ex)
-                {
-                    return false;
-                }
+            // close the con 
+            AccessOp.closeAll(con, cmd, null);
 
-                // close the con 
-                AccessOp.closeAll(con, cmd, null);
-           
             return true;
         }
 

@@ -21,9 +21,9 @@ namespace DBCon1
     {
         static void Main(string[] args)
         {
-            //new TestAccessOP().test();
+            new TestAccessOP().test();
 
-            new TestImportExcel().test1();
+          //  new TestImportExcel().test();
 
         //    bool status = ShareUtil.connectState(@"\\192.168.88.101\access", "administrator", "yangzeng,.1022");
             //         DirectoryInfo theFolder = new DirectoryInfo(@"\\192.168.88.101\access");
@@ -185,14 +185,14 @@ namespace DBCon1
         public static void create_db_tab()
         {
             MyDatabase domain = new MyDatabase();
-                domain.DbName = "管理";
+          //      domain.DbName = "管理";
                 domain.TableName = "admin";
                 Dictionary<string, string> columns = new Dictionary<string, string>();
                     columns.Add("username", "varchar(50)");
                     columns.Add("upass", "varchar(50)");
                     columns.Add("级别", "int");
-                    domain.Columns = columns;
-            AccessOp.CreateAccessDb(domain.DbName);
+        //            domain.Columns = columns;
+         //   AccessOp.CreateAccessDb(domain.DbName);
             AccessOp.CreateAccessTab(domain);    
         
         }
@@ -200,8 +200,8 @@ namespace DBCon1
         public static void test_3()
         {
             MyDatabase domain = new MyDatabase();
-            domain.DbName = "最烂的是C#";
-            Console.WriteLine(domain.DbName);
+         //   domain.DbName = "最烂的是C#";
+         //   Console.WriteLine(domain.DbName);
             Console.ReadLine();
         }
 
