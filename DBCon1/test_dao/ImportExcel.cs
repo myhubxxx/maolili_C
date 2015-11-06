@@ -33,6 +33,12 @@ namespace DBCon1.test_dao
 
             return null;
         }
+        // put the Date to table
+        public bool putDataToTable() {
+
+
+            return false;
+        }
 
 
 

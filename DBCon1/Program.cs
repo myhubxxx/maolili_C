@@ -21,9 +21,9 @@ namespace DBCon1
     {
         static void Main(string[] args)
         {
-            new TestAccessOP().test();
+            //new TestAccessOP().test();
 
-          //  new TestImportExcel().test1();
+            new TestImportExcel().test1();
 
         //    bool status = ShareUtil.connectState(@"\\192.168.88.101\access", "administrator", "yangzeng,.1022");
             //         DirectoryInfo theFolder = new DirectoryInfo(@"\\192.168.88.101\access");
