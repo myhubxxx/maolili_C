@@ -223,7 +223,8 @@ namespace DBCon1.test_dao
         public static bool CreateDeptTotalTab(string dbName)
         {
             string totaltableSql = "create table totaltable(id integer identity(1,1) primary key," +
-                                    " tablename varchar(50) not null )";
+                                    " tablename varchar(50) not null," +
+                                    "createTime Time not null )";
 
             OleDbConnection con = getCon(dbName);
             OleDbCommand cmd = con.CreateCommand();
@@ -236,6 +237,8 @@ namespace DBCon1.test_dao
                 }
                 catch (SystemException ex)
                 {
+                    Console.WriteLine(ex);
+                    Console.Read();
                     return false;
                 }
 

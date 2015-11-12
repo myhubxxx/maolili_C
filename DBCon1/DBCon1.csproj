@@ -67,10 +67,13 @@
     <Compile Include="Dao\PurviewTableDao.cs" />
     <Compile Include="Dao\ShareUtil.cs" />
     <Compile Include="Dao\TotalTableDao.cs" />
+    <Compile Include="Dao\UserInfoDao.cs" />
     <Compile Include="Domain\Department.cs" />
     <Compile Include="Domain\MyUser.cs" />
     <Compile Include="Domain\PurviewTable.cs" />
     <Compile Include="Domain\TotalTable.cs" />
+    <Compile Include="Domain\UserInfo.cs" />
+    <Compile Include="TestTotalTableDao.cs" />
     <Compile Include="test_dao\Access1.cs" />
     <Compile Include="Dao\AdminDao.cs" />
     <Compile Include="Program.cs" />
@@ -80,7 +83,7 @@
     <Compile Include="Dao\MyDatabase.cs" />
     <Compile Include="test_dao\Dao.cs" />
     <Compile Include="test_dao\DepartmentDaoTest.cs" />
-    <Compile Include="test_dao\ImportExcel.cs" />
+    <Compile Include="ImportExcel\ImportExcel.cs" />
     <Compile Include="test_dao\TeatTotal_Dao.cs" />
     <Compile Include="test_dao\TestAccessOP.cs" />
     <Compile Include="test_dao\TestDbCreate.cs" />
@@ -127,9 +130,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ImportExcel\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -21,7 +21,8 @@ namespace DBCon1
     {
         static void Main(string[] args)
         {
-            new TestAccessOP().test();
+            new TestTotalTableDao().test();
+          //  new TestAccessOP().test();
 
           //  new TestImportExcel().test();
 

@@ -14,11 +14,13 @@ namespace DBCon1.Dao
 
         // add
         public void add(string dbName,TotalTable form ) {
-            string sql = "insert into totaltable(tablename) values(@tablename)";
+            string sql = "insert into totaltable(tablename,createTime) values(@tablename,@createTime)";
             OleDbConnection con  = getCon(dbName);
             OleDbCommand cmd = new OleDbCommand(sql, con);
-            OleDbParameter param = new OleDbParameter("@tablename",form.Tablename);
-            cmd.Parameters.Add(param);
+            OleDbParameter[] param ={ new OleDbParameter("@tablename",form.Tablename),
+                                    new OleDbParameter("@createTime",form.getMyDate()),};
+
+            cmd.Parameters.AddRange(param);
 
             cmd.ExecuteNonQuery();
 
@@ -28,10 +30,12 @@ namespace DBCon1.Dao
         }
         // update
         public void update(string dbName,TotalTable form) {
-            string sql = "update totaltable set tablename=@tablename where id=@id";
+            string sql = "update totaltable set tablename=@tablename, createTime=@createTime where id=@id";
             OleDbConnection con = getCon(dbName);
             OleDbCommand cmd = new OleDbCommand(sql, con);
-            OleDbParameter[] param = {new OleDbParameter("@tablename",form.Tablename),new OleDbParameter("@id",form.Id) };
+            OleDbParameter[] param = {new OleDbParameter("@tablename",form.Tablename),
+                                       new OleDbParameter("@createTime",form.getMyDate()) ,
+                                         new OleDbParameter("@id",form.Id) };
             cmd.Parameters.AddRange(param);
 
             cmd.ExecuteNonQuery();
@@ -56,6 +60,7 @@ namespace DBCon1.Dao
 
                 bean.Id = reader.GetInt32(0);
                 bean.Tablename = reader.GetString(1);
+                bean.Createtime = reader.GetDateTime(2);
             }
 
             // close the con 
@@ -79,6 +84,8 @@ namespace DBCon1.Dao
 
                 bean.Id = reader.GetInt32(0);
                 bean.Tablename = reader.GetString(1);
+                // init the DataTime
+                bean.Createtime = reader.GetDateTime(2);
             }
 
             // close the con 
@@ -113,6 +120,8 @@ namespace DBCon1.Dao
 
                 bean.Id = reader.GetInt32(0);
                 bean.Tablename = reader.GetString(1);
+                // init the DataTime
+                bean.Createtime = reader.GetDateTime(2);
 
                 list.Add(bean);
             }
@@ -137,5 +146,42 @@ namespace DBCon1.Dao
             return ds;
         
         }
+
+        // get the data in the startTime and endTime
+        public List<TotalTable> getByDate(string DBName, DateTime startTime, DateTime endTime) {
+            // check the date is right
+            if (startTime > endTime) {
+                //return null; 
+                throw new Exception("the startTime is bigger than the endTime,please check your time");
+            }
+            // the return value
+            List<TotalTable> list = new List<TotalTable>();
+
+            //get the connect
+            OleDbConnection con = getCon(DBName);
+            string sql = "select * from totaltable where (createTime > @starttime and createTime < @endTime)";
+            OleDbCommand cmd = new OleDbCommand(sql, con);
+
+            OleDbParameter[] param = {new OleDbParameter("@startTime", startTime.ToString("d")),
+                                        new OleDbParameter("@endTime", endTime.ToString("d"))  };
+            cmd.Parameters.AddRange(param);
+            
+            OleDbDataReader reader = cmd.ExecuteReader();
+            while (reader.Read()) {
+                TotalTable total = new TotalTable();
+
+                total.Id = reader.GetInt32(0);
+                total.Tablename = reader.GetString(1);
+                total.Createtime = reader.GetDateTime(2);
+                // put the info to the set
+                list.Add(total);
+            }
+            // close the all connect
+            closeAll(con, cmd, reader);
+
+            return list;
+        
+        }
+
     }
 }

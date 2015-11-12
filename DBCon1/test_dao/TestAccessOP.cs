@@ -11,14 +11,21 @@ namespace DBCon1.test_dao
         public void test() { 
            
             // test method DeleteAccessTab
-            deleteTable();
+            //deleteTable();
+            createDB();
         
         }
+        public void createDB() {
+            AccessOp.CreateAccessDb("西瓜部门");
+        }
+
+
         public void deleteTable() {
 
             AccessOp.DeleteAccessTab("人事部", "testread");
 
         }
+        
 
 
     }

@@ -10,6 +10,17 @@ namespace DBCon1.Domain
 
         private int id;
         private string tablename;
+        private DateTime createtime = DateTime.Now;
+
+        public DateTime Createtime
+        {
+            get { return createtime; }
+            set { createtime = value; }
+        }
+
+        public string getMyDate() {
+            return createtime.ToString("d");
+        }
 
         public string Tablename
         {
