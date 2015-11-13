@@ -74,6 +74,7 @@
     <Compile Include="Domain\TotalTable.cs" />
     <Compile Include="Domain\UserInfo.cs" />
     <Compile Include="TestTotalTableDao.cs" />
+    <Compile Include="TestUserInfoDao.cs" />
     <Compile Include="test_dao\Access1.cs" />
     <Compile Include="Dao\AdminDao.cs" />
     <Compile Include="Program.cs" />

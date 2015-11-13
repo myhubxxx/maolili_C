@@ -56,13 +56,15 @@ namespace DBCon1.Domain
             get { return tele; }
             set { tele = value; }
         }
-        private string adderss;
+        private string address;
 
-        public string Adderss
+        public string Address
         {
-            get { return adderss; }
-            set { adderss = value; }
+            get { return address; }
+            set { address = value; }
         }
+
+      
         private string email;
 
         public string Email
@@ -104,3 +106,4 @@ namespace DBCon1.Domain
 
     }
 }
+
