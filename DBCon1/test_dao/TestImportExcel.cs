@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -10,7 +11,13 @@ namespace DBCon1.test_dao
     class TestImportExcel
     {
         public void test() {
-            importExcel();
+            //importExcel();
+            excelExport();
+        }
+        public void excelExport() {
+            new ImportExcel().Export("人事部","purviewtable", "E://video//C#//dd.xlsx");
+          //  Console.WriteLine(File.Exists("Template.xlsx"));
+          //  Console.Read();
         }
 
         public void test1() {

@@ -28,6 +28,22 @@ namespace DBCon1.Dao
 
             return ds;
         }
+        // find all 
+        public DataTable findAllDataTable(string dbName, string tabName)
+        {
+            string sql = "select * from " + tabName;
+            OleDbConnection con = getCon(dbName);
+            OleDbCommand cmd = new OleDbCommand(sql, con);
+
+            OleDbDataAdapter adapter = new OleDbDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+
+            // close the con
+            closeAll(con, cmd, null);
+
+            return dt;
+        }
 
         // update by the dataset from the Form
         public void Update(string dbName, string tabName)

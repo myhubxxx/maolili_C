@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DBCon1.Dao;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -27,7 +28,7 @@ namespace DBCon1.test_dao
         public static OleDbConnection getCon(string excelPath) {
 
             string conString = excelConString.Replace("?", excelPath);
-            Console.WriteLine(conString);
+        //    Console.WriteLine(conString);
             // get the con
             OleDbConnection con = new OleDbConnection(conString);
             con.Open();
@@ -130,9 +131,99 @@ namespace DBCon1.test_dao
 
             return true;
         }
+        // export the Data to the excel
+        public bool exportExcel(string DBName, string table, string exportPath) {
+            // get the access connect
+            OleDbConnection con = AccessOp.getCon(DBName);
+            string sql = "select * from " + table;
+            OleDbCommand cmd = new OleDbCommand(sql, con);
+            // execute the reader
+            OleDbDataReader reader = cmd.ExecuteReader();
+
+            // get the access table Columns
+            List<string> tableColumns = AccessOp.getColumns(DBName, table);
+
+            string insertSql = "insert into [Sheet1$]("; 
+            string endInsertSql = " values(";
+        // insert the columns name
+            int columnsNum = reader.FieldCount;
+            for (int i = 0; i < tableColumns.Count; i++)
+            {
+                if (i == 0)
+                {
+                    insertSql = insertSql + i;
+                    endInsertSql = endInsertSql + "'" + tableColumns[i] + "'";
+                }
+                else
+                {
+                    insertSql = insertSql + "," + i;
+                    endInsertSql = endInsertSql + ", '" + tableColumns[i] + "'";
+                }
+
+            }
+            string columnName = insertSql + ")" + endInsertSql + ")";
+
+           // Console.WriteLine(columnName);
+            //Console.Read();
+
+            OleDbConnection excelCon = ImportExcel.getCon(exportPath);
+            OleDbCommand cmdInserSql = new OleDbCommand(columnName, excelCon);
+            cmdInserSql.ExecuteNonQuery();
+            AccessOp.closeAll(null, cmd, null);
+        // end  insert the columns name
+
+
+        // insert the data to excel
+
+            while (reader.Read())
+            {
+
+                string dataSql = "insert into [Sheet1$](";
+                string endDataSql = " values(";
+
+                for (int i = 0; i < reader.FieldCount; i++)
+                {
+                    if (i == 0)
+                    {
+                        dataSql = dataSql + i;
+                        endDataSql = endDataSql + "'" + reader.GetValue(i).ToString() + "'";
+                    }
+                    else
+                    {
+                        dataSql = dataSql + "," + i;
+                        endDataSql = endDataSql + ", '" + reader.GetValue(i).ToString() + "'";
+                    }
+
+                }
+                string allDataSql = dataSql + ")" + endDataSql + ")";
+                
+
+                OleDbCommand dataCmd = new OleDbCommand(allDataSql, excelCon);
+                dataCmd.ExecuteNonQuery();
+
+                dataCmd.Dispose();
+            }
+            AccessOp.closeAll(excelCon, null, null);
+        // end insert the data to excel
 
 
 
+            // clsoe the connect
+            AccessOp.closeAll(con, cmd, reader);
+
+           return true;
+        }
+        // the file export
+        public bool Export(String DBName, string tabName, string excelPath){
+
+            File.Copy(@"Template.xlsx", excelPath, true);
+
+            exportExcel(DBName, tabName, excelPath);
+
+
+
+            return true;
+        }
 
 
 
