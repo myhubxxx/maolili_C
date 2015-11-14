@@ -167,7 +167,36 @@ namespace DBCon1.Dao
             return ds;
         
         }
-        
+        // get all info
+        public List<UserInfo> getAllByList() {
+            OleDbConnection con = getCon(null);
+            string sql = "select * from userinfo";
+            OleDbCommand cmd = new OleDbCommand(sql, con);
+
+            OleDbDataReader reader = cmd.ExecuteReader();
+            List<UserInfo> list = new List<UserInfo>();
+            while( reader.Read() ){
+
+               UserInfo userinfo = new UserInfo();
+
+                userinfo.Id = reader.GetInt32(0);
+                userinfo.Name = reader.GetString(1);
+                userinfo.Age = reader.GetInt32(2);
+                userinfo.Sex = reader.GetString(3);
+                userinfo.Birthday = reader.GetDateTime(4);
+                userinfo.Nation = reader.GetString(5);
+                userinfo.Tele = reader.GetString(6);
+                userinfo.Address = reader.GetString(7);
+                userinfo.Email = reader.GetString(8);
+                userinfo.Ndress = reader.GetString(9);
+                userinfo.Idcard = reader.GetString(10);
+                userinfo.Grede = reader.GetString(11);
+                userinfo.Hunying = reader.GetString(12);
+
+                list.Add(userinfo);
+            }
+            return list;
+        }
 
 
     }

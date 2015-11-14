@@ -14,3 +14,4 @@ G:\C#_program\mao_li_li\DBCon1\maolili_C\DBCon1\obj\Debug\DBCon1.csproj.ResolveC
 G:\C#_program\mao_li_li\DBCon1\maolili_C\DBCon1\obj\Debug\DBCon1.exe
 G:\C#_program\mao_li_li\DBCon1\maolili_C\DBCon1\obj\Debug\DBCon1.pdb
 G:\C#_program\mao_li_li\DBCon1\maolili_C\DBCon1\bin\Debug\ExcelLibrary.dll
+G:\C#_program\mao_li_li\DBCon1\maolili_C\DBCon1\obj\Debug\DBCon1.csprojResolveAssemblyReference.cache

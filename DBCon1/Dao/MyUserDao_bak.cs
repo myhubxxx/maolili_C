@@ -70,38 +70,6 @@ namespace DBCon1.Dao
             return domain;
 
         }
-        //load by dept_id
-        public List<MyUser> loadbydepet_id(int dept_id)
-        {
-            string sql = "select * from myuser where dept_id=@dept_id";
-            OleDbConnection con = getCon(null);
-            OleDbCommand cmd = new OleDbCommand(sql, con);
-            OleDbParameter param = new OleDbParameter("@dept_id", dept_id);
-            cmd.Parameters.Add(param);
-
-            List<MyUser> list = new List<MyUser>();
-            MyUser domain = null;
-            OleDbDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
-            {
-                domain = new MyUser();
-
-                domain.Id = reader.GetInt32(0);
-                domain.Uname = reader.GetString(1);
-                domain.Upass = reader.GetString(2);
-                domain.Userlevel = reader.GetInt32(3);
-                domain.Dept_id = reader.GetInt32(4);
-
-                list.Add(domain);
-            }
-
-
-            // close the con
-            closeAll(con, cmd, reader);
-
-            return list;
-
-        }
         // load by name
         public MyUser loadByName(string uname) {
             string sql = "select * from myuser where uname=@uname";
@@ -129,42 +97,6 @@ namespace DBCon1.Dao
 
         }
 
-        // find by department
-        public DataSet findByDept(int dept_id)
-        {
-            string sql = "select * from myuser where dept_id=" + dept_id;
-            OleDbConnection con = getCon(null);
-
-            OleDbDataAdapter adapter = new OleDbDataAdapter(sql, con);
-            DataSet ds = new DataSet();
-            adapter.Fill(ds);
-
-            //close the con
-            closeAll(con, null, null);
-
-            return ds;
-
-
-        }
-        //find by userlevel
-        public DataSet findBylevel(int id)
-        {
-            string sql = "select * from myuser where userlevel=" + id;
-            OleDbConnection con = getCon(null);
-
-            OleDbDataAdapter adapter = new OleDbDataAdapter(sql, con);
-            DataSet ds = new DataSet();
-            adapter.Fill(ds);
-
-            //close the con
-            closeAll(con, null, null);
-
-            return ds;
-
-
-        }
-
-
         // delete
         public void delete(int id) {
             string sql = "delete from myuser where id=@id";
@@ -179,6 +111,25 @@ namespace DBCon1.Dao
             closeAll(con, cmd, null);
         
         }
+
+        // find by department
+        public DataSet findByDept(int dept_id) {
+            string sql = "select * from myuser where dept_id=" + dept_id;
+            OleDbConnection con = getCon(null);
+
+            OleDbDataAdapter adapter = new OleDbDataAdapter(sql, con);
+            DataSet ds = new DataSet();
+            adapter.Fill(ds);
+
+            //close the con
+            closeAll(con, null, null);
+
+            return ds;
+
+
+        }
+
+
         // find all
         public DataSet findAll() {
             string sql = "select * from myuser";
@@ -193,6 +144,8 @@ namespace DBCon1.Dao
 
             return ds;
         }
+          
+        // find all by list 
         public List<MyUser> findAll_List()
         {
             string sql = "select * from myuser";
@@ -201,8 +154,7 @@ namespace DBCon1.Dao
 
             List<MyUser> list = new List<MyUser>();
             OleDbDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
-            {
+            while (reader.Read()) {
                 MyUser bean = new MyUser();
 
                 bean.Id = reader.GetInt32(0);
@@ -213,7 +165,7 @@ namespace DBCon1.Dao
 
                 list.Add(bean);
             }
-
+            
             //close the con
             closeAll(con, null, null);
 
@@ -227,9 +179,6 @@ namespace DBCon1.Dao
                 return list;
             }
         }
-
-            
-
 
     }
 }

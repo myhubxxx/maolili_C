@@ -16,7 +16,12 @@ namespace DBCon1
             //update();
           //  delete();
            //load();
-            getByName();
+            //getByName();
+            getByList();
+        }
+        public void getByList() {
+            List<UserInfo> list = dao.getAllByList();
+        
         }
         public void getByName() {
            UserInfo bean =  dao.getByName("测试4");
