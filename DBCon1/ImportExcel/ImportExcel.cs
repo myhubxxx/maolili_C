@@ -85,6 +85,44 @@ namespace DBCon1.test_dao
 
             return true;
         }
+        // import the excel data to the assign table of database
+        public bool importData(string DBName, string tabName, string excelPath)
+        {
+            OleDbConnection excelCon = getCon(excelPath);
+            string headSql = "select ";
+
+            // get the columns
+            List<string> columns = AccessOp.getColumns(DBName, tabName);
+            // add the info to the MyDataBase
+            MyDatabase bean = new MyDatabase();
+            bean.DBName = DBName;
+            bean.TableName = tabName;
+            for(int i=0; i < columns.Count ; i++)
+            {   // jump the ID
+                if (i != 0)
+                {
+                    if (i == 1) headSql = headSql + columns[i];
+                    else headSql = headSql + "," + columns[i];
+
+                    DBTableField field = new DBTableField();
+                    field.FieldName = columns[i];
+                    // field.Type = entry.Value;
+                    // add to the database.columns
+                    bean.Columns.Add(field);
+                }
+                
+            }
+
+            string endSql = headSql + " from [Sheet1$]";
+            OleDbCommand cmd = new OleDbCommand(endSql, excelCon);
+            OleDbDataReader reader = cmd.ExecuteReader();
+
+            putDataToTable(reader, bean);
+
+
+            return true;
+        }
+
         // put the Date to table
         public bool putDataToTable(OleDbDataReader reader, MyDatabase database) {
             // the access connection

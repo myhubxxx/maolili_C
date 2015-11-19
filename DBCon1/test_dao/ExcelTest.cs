@@ -12,8 +12,14 @@ namespace DBCon1.test_dao
 
         public void test() {
             //importLib();
-            construct();
+            //construct();
+            importData();
+        }
+        public void importData() {
 
+            new ImportExcel().importData("西瓜部门", "tempTable", "testIP.xlsx");
+        
+        
         }
         public void construct() {
             new ImportExcel().exportExcel("西瓜部门", "totaltable", "Template.xlsx");

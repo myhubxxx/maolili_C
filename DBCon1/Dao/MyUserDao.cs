@@ -163,6 +163,31 @@ namespace DBCon1.Dao
 
 
         }
+        // find by userlevel
+        public List<MyUser> findBylevelList(int id) {
+            string sql = "select * from myuser where userlevel=" + id;
+            OleDbConnection con = getCon(null);
+            OleDbCommand cmd = new OleDbCommand(sql, con);
+
+            List<MyUser> list = new List<MyUser>();
+            OleDbDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                MyUser bean = new MyUser();
+
+                bean.Id = reader.GetInt32(0);
+                bean.Uname = reader.GetString(1);
+                bean.Upass = reader.GetString(2);
+                bean.Userlevel = reader.GetInt32(3);
+                bean.Dept_id = reader.GetInt32(4);
+
+                list.Add(bean);
+            }
+            //   close con
+            closeAll(con, cmd, reader);
+
+            return list;
+        }
 
 
         // delete
