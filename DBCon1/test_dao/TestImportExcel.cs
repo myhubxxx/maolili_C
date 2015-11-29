@@ -56,7 +56,7 @@ namespace DBCon1.test_dao
                 data.Columns.Add(field);
             }
 
-            new ImportExcel().importExcel("人事部","G:\\C#_program\\mao_li_li\\DBCon1\\maolili_C\\DBCon1\\bin\\Debug\\testread.xlsx");
+          //  new ImportExcel().importExcel("人事部","G:\\C#_program\\mao_li_li\\DBCon1\\maolili_C\\DBCon1\\bin\\Debug\\testread.xlsx");
         
         }
 

@@ -90,6 +90,7 @@
     <Compile Include="test_dao\TestAccessOP.cs" />
     <Compile Include="test_dao\TestDbCreate.cs" />
     <Compile Include="test_dao\TestImportExcel.cs" />
+    <Compile Include="test_dao\TestSchema.cs" />
     <Compile Include="test_dao\Test_dao.cs" />
     <Compile Include="test_dao\Test_PurviewTableDao.cs" />
   </ItemGroup>

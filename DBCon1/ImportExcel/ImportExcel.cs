@@ -34,10 +34,27 @@ namespace DBCon1.test_dao
             con.Open();
             return con;
         }
-        // get the columns
-        public bool importExcel(string DBName,string excelPath) {
+        public bool importExcelAllTable(string DBName, string excelPath) {
+            // get the con 
+            OleDbConnection con = getCon(excelPath);
+            // get the tableNames
+            List<string> tabNames = this.getExcelTableName(con);
+            // importExcel table
+            for (int i = 0; i < tabNames.Count; i++ ){
+                
+                importExcel(DBName, excelPath, tabNames[i]);
+            
+            }
 
-            string sql = "Select * from [Sheet1$]";
+
+            return true;
+        }
+
+        // get the columns
+        public bool importExcel(string DBName,string excelPath, string tabName) {
+
+            string sql = "Select * from [" + tabName + "$]";
+       //     string sql = "select * from " + OleDbSchemaGuid.Tables;
             OleDbConnection con = getCon(excelPath);
             OleDbCommand cmd = new OleDbCommand(sql, con);
             OleDbDataReader reader = cmd.ExecuteReader();
@@ -51,7 +68,7 @@ namespace DBCon1.test_dao
             int lastIndex = excelPath.LastIndexOf("\\");
             int lastExec = excelPath.LastIndexOf(".");
 
-            String excelName = excelPath.Substring(lastIndex + 1, lastExec - lastIndex - 1);
+       //     String excelName = excelPath.Substring(lastIndex + 1, lastExec - lastIndex - 1);
 
       //Console.WriteLine(excelName);
       //Console.Read();
@@ -59,7 +76,7 @@ namespace DBCon1.test_dao
             // add the info to the MyDataBase
             MyDatabase bean = new MyDatabase();
             bean.DBName = DBName;
-            bean.TableName = excelName;
+            bean.TableName = tabName;
             foreach(KeyValuePair<string, string> entry in columns ){
                 DBTableField field = new DBTableField();
                 field.FieldName = entry.Key;
@@ -262,8 +279,36 @@ namespace DBCon1.test_dao
 
             return true;
         }
+        // get the excel's all table name
+        public List<string> getExcelTableName(OleDbConnection con) {
+            List<string> tableNames = new List<string>();
+            //  get the All Table Name
+            DataTable dt = con.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, null);
+            int tableCount = dt.Rows.Count;
+            // add the Table Name to the tableNames
+            for (int i = 0; i < tableCount; i++) {
+                // get the table name
+                string name = dt.Rows[i][2].ToString().Trim().Replace("$", "");
+                // check the table is null
+                if ( !this.tableIsNull(con, name)) {
+                    tableNames.Add(name);
+                }
+            }
 
+                return tableNames;
+        }
+        // check the table is null
+        public bool tableIsNull(OleDbConnection con, string tableName) {
+            string sql = "select count(*) from [" + tableName + "$]";
+            OleDbCommand cmd = new OleDbCommand(sql, con);
+            int rowCount = (int)cmd.ExecuteScalar();
+            
+            if (rowCount != 0) {
+                return false;
+            }
 
+            return true;
+        }
 
 
 
