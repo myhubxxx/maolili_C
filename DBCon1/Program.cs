@@ -19,9 +19,28 @@ namespace DBCon1
 {
     class Program
     {
+        static void testBumRemind() {
+            //测试 add 方法 
+        //    new TestBumRemind().testAdd();
+            //测试 update 方法
+        //      new TestBumRemind().testUpdate();
+            //测试 delete 方法
+            //new TestBumRemind().testDelete();
+            // 测试 getById
+            //new TestBumRemind().testGetById();
+            // 测试 getByUserIdList
+            new TestBumRemind().testGetByUserIdList();
+
+        }
+
         static void Main(string[] args)
         {
-            testGetDistance();
+            testBumRemind();
+              
+
+
+
+            //testGetDistance();
             //new TestSchema().test();
            // new ExcelTest().test();
           //  new TestUserInfoDao().test();

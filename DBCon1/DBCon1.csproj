@@ -62,12 +62,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dao\BumRemindDao.cs" />
     <Compile Include="Dao\DepartmentDao.cs" />
     <Compile Include="Dao\MyUserDao.cs" />
     <Compile Include="Dao\PurviewTableDao.cs" />
     <Compile Include="Dao\ShareUtil.cs" />
     <Compile Include="Dao\TotalTableDao.cs" />
     <Compile Include="Dao\UserInfoDao.cs" />
+    <Compile Include="Domain\BumRemind.cs" />
     <Compile Include="Domain\Department.cs" />
     <Compile Include="Domain\MyUser.cs" />
     <Compile Include="Domain\PurviewTable.cs" />
@@ -88,6 +90,7 @@
     <Compile Include="test_dao\ExcelTest.cs" />
     <Compile Include="test_dao\TeatTotal_Dao.cs" />
     <Compile Include="test_dao\TestAccessOP.cs" />
+    <Compile Include="test_dao\TestBumRemind.cs" />
     <Compile Include="test_dao\TestDbCreate.cs" />
     <Compile Include="test_dao\TestImportExcel.cs" />
     <Compile Include="test_dao\TestSchema.cs" />
