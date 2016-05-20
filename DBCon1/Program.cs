@@ -29,17 +29,28 @@ namespace DBCon1
             // 测试 getById
             //new TestBumRemind().testGetById();
             // 测试 getByUserIdList
-            new TestBumRemind().testGetByUserIdList();
+            //new TestBumRemind().testGetByUserIdList();
+            
 
+        }
+        static void testUserInfoDao() {
+            // test add 方法
+            //new TestUserInfoDaoNew().testAdd();
+            //test getByName 方法
+            //new TestUserInfoDaoNew().getByName();
+            // test getAllByList
+            new TestUserInfoDaoNew().getAllByList();
+
+            // test update 方法
+           // new TestUserInfoDaoNew().testUpdate();
         }
 
         static void Main(string[] args)
         {
-            testBumRemind();
-              
+            testUserInfoDao();
 
-
-
+           // testBumRemind();
+           // AccessOp.CreateAccessDb("办公室");
             //testGetDistance();
             //new TestSchema().test();
            // new ExcelTest().test();
