@@ -1,0 +1,458 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{744F091D-ABD7-4573-8CD0-A55D13800BFC}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>裕景管理系统</RootNamespace>
+    <AssemblyName>裕景管理系统</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Interop.ADOX">
+      <HintPath>obj\Debug\Interop.ADOX.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="administrator\add_department.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="administrator\add_department.Designer.cs">
+      <DependentUpon>add_department.cs</DependentUpon>
+    </Compile>
+    <Compile Include="administrator\add_manager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="administrator\add_manager.Designer.cs">
+      <DependentUpon>add_manager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="administrator\add_note.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="administrator\add_note.Designer.cs">
+      <DependentUpon>add_note.cs</DependentUpon>
+    </Compile>
+    <Compile Include="administrator\add_table.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="administrator\add_table.Designer.cs">
+      <DependentUpon>add_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="administrator\admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="administrator\admin.Designer.cs">
+      <DependentUpon>admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="administrator\checkuser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="administrator\checkuser.Designer.cs">
+      <DependentUpon>checkuser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="administrator\delete_department.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="administrator\delete_department.Designer.cs">
+      <DependentUpon>delete_department.cs</DependentUpon>
+    </Compile>
+    <Compile Include="administrator\delete_manager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="administrator\delete_manager.Designer.cs">
+      <DependentUpon>delete_manager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="administrator\delete_table.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="administrator\delete_table.Designer.cs">
+      <DependentUpon>delete_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="administrator\dept_datainfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="administrator\dept_datainfo.Designer.cs">
+      <DependentUpon>dept_datainfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="administrator\dept_query.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="administrator\dept_query.Designer.cs">
+      <DependentUpon>dept_query.cs</DependentUpon>
+    </Compile>
+    <Compile Include="administrator\DoManager.cs" />
+    <Compile Include="administrator\importtable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="administrator\importtable.Designer.cs">
+      <DependentUpon>importtable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="administrator\manage_manager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="administrator\manage_manager.Designer.cs">
+      <DependentUpon>manage_manager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="administrator\manage_note.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="administrator\manage_note.Designer.cs">
+      <DependentUpon>manage_note.cs</DependentUpon>
+    </Compile>
+    <Compile Include="administrator\manage_staff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="administrator\manage_staff.Designer.cs">
+      <DependentUpon>manage_staff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="administrator\manage_staffinfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="administrator\manage_staffinfo.Designer.cs">
+      <DependentUpon>manage_staffinfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="administrator\outport_datatable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="administrator\outport_datatable.Designer.cs">
+      <DependentUpon>outport_datatable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="administrator\show.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="administrator\show.Designer.cs">
+      <DependentUpon>show.cs</DependentUpon>
+    </Compile>
+    <Compile Include="administrator\table_query.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="administrator\table_query.Designer.cs">
+      <DependentUpon>table_query.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dao\AbstractDao.cs" />
+    <Compile Include="Dao\AccessOp.cs" />
+    <Compile Include="Dao\AdminDao.cs" />
+    <Compile Include="Dao\BumRemindDao.cs" />
+    <Compile Include="Dao\DepartmentDao.cs" />
+    <Compile Include="Dao\doentity.cs" />
+    <Compile Include="Dao\dopriview.cs" />
+    <Compile Include="Dao\entity.cs" />
+    <Compile Include="Dao\ImportExcel.cs" />
+    <Compile Include="Dao\MyDatabase.cs" />
+    <Compile Include="Dao\MyUserDao.cs" />
+    <Compile Include="Dao\puriview.cs" />
+    <Compile Include="Dao\PurviewTableDao.cs" />
+    <Compile Include="Dao\ShareUtil.cs" />
+    <Compile Include="Dao\TableDao.cs" />
+    <Compile Include="Dao\TotalTableDao.cs" />
+    <Compile Include="Dao\UserInfoDao.cs" />
+    <Compile Include="dologic.cs" />
+    <Compile Include="Domain\BumRemind.cs" />
+    <Compile Include="Domain\ConstatData.cs" />
+    <Compile Include="Domain\Department.cs" />
+    <Compile Include="Domain\DisplayEntity.cs" />
+    <Compile Include="Domain\DisplayEntity1.cs" />
+    <Compile Include="Domain\doinfo.cs" />
+    <Compile Include="Domain\MyUser.cs" />
+    <Compile Include="Domain\PurviewTable.cs" />
+    <Compile Include="Domain\showinfo.cs" />
+    <Compile Include="Domain\SystemExc.cs" />
+    <Compile Include="Domain\SytemE.cs" />
+    <Compile Include="Domain\TotalTable.cs" />
+    <Compile Include="Domain\UserInfo.cs" />
+    <Compile Include="index.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="index.Designer.cs">
+      <DependentUpon>index.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="manager\add_dept_table.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="manager\add_dept_table.Designer.cs">
+      <DependentUpon>add_dept_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="manager\add_dept_worker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="manager\add_dept_worker.Designer.cs">
+      <DependentUpon>add_dept_worker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="manager\add_level.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="manager\add_level.Designer.cs">
+      <DependentUpon>add_level.cs</DependentUpon>
+    </Compile>
+    <Compile Include="manager\add_notes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="manager\add_notes.Designer.cs">
+      <DependentUpon>add_notes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="manager\datainfo_manage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="manager\datainfo_manage.Designer.cs">
+      <DependentUpon>datainfo_manage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="manager\delete_dept_table.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="manager\delete_dept_table.Designer.cs">
+      <DependentUpon>delete_dept_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="manager\delete_dept_worker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="manager\delete_dept_worker.Designer.cs">
+      <DependentUpon>delete_dept_worker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="manager\DoRrealManager.cs" />
+    <Compile Include="manager\managerindex.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="manager\managerindex.Designer.cs">
+      <DependentUpon>managerindex.cs</DependentUpon>
+    </Compile>
+    <Compile Include="manager\manager_dept_workerinfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="manager\manager_dept_workerinfo.Designer.cs">
+      <DependentUpon>manager_dept_workerinfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="manager\manage_notes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="manager\manage_notes.Designer.cs">
+      <DependentUpon>manage_notes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="manager\manage_workerusername.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="manager\manage_workerusername.Designer.cs">
+      <DependentUpon>manage_workerusername.cs</DependentUpon>
+    </Compile>
+    <Compile Include="manager\mannage_levels.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="manager\mannage_levels.Designer.cs">
+      <DependentUpon>mannage_levels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShareLib.cs" />
+    <Compile Include="staff\add_user_info.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="staff\add_user_info.Designer.cs">
+      <DependentUpon>add_user_info.cs</DependentUpon>
+    </Compile>
+    <Compile Include="staff\dostaff.cs" />
+    <Compile Include="staff\manage_data.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="staff\manage_data.Designer.cs">
+      <DependentUpon>manage_data.cs</DependentUpon>
+    </Compile>
+    <Compile Include="staff\manage_info.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="staff\manage_info.Designer.cs">
+      <DependentUpon>manage_info.cs</DependentUpon>
+    </Compile>
+    <Compile Include="staff\staff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="staff\staff.Designer.cs">
+      <DependentUpon>staff.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="administrator\add_department.resx">
+      <DependentUpon>add_department.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="administrator\add_manager.resx">
+      <DependentUpon>add_manager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="administrator\add_note.resx">
+      <DependentUpon>add_note.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="administrator\add_table.resx">
+      <DependentUpon>add_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="administrator\admin.resx">
+      <DependentUpon>admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="administrator\checkuser.resx">
+      <DependentUpon>checkuser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="administrator\delete_department.resx">
+      <DependentUpon>delete_department.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="administrator\delete_manager.resx">
+      <DependentUpon>delete_manager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="administrator\delete_table.resx">
+      <DependentUpon>delete_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="administrator\dept_datainfo.resx">
+      <DependentUpon>dept_datainfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="administrator\dept_query.resx">
+      <DependentUpon>dept_query.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="administrator\importtable.resx">
+      <DependentUpon>importtable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="administrator\manage_manager.resx">
+      <DependentUpon>manage_manager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="administrator\manage_note.resx">
+      <DependentUpon>manage_note.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="administrator\manage_staff.resx">
+      <DependentUpon>manage_staff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="administrator\manage_staffinfo.resx">
+      <DependentUpon>manage_staffinfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="administrator\outport_datatable.resx">
+      <DependentUpon>outport_datatable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="administrator\show.resx">
+      <DependentUpon>show.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="administrator\table_query.resx">
+      <DependentUpon>table_query.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="index.resx">
+      <DependentUpon>index.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="manager\add_dept_table.resx">
+      <DependentUpon>add_dept_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="manager\add_dept_worker.resx">
+      <DependentUpon>add_dept_worker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="manager\add_level.resx">
+      <DependentUpon>add_level.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="manager\add_notes.resx">
+      <DependentUpon>add_notes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="manager\datainfo_manage.resx">
+      <DependentUpon>datainfo_manage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="manager\delete_dept_table.resx">
+      <DependentUpon>delete_dept_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="manager\delete_dept_worker.resx">
+      <DependentUpon>delete_dept_worker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="manager\managerindex.resx">
+      <DependentUpon>managerindex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="manager\manager_dept_workerinfo.resx">
+      <DependentUpon>manager_dept_workerinfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="manager\manage_notes.resx">
+      <DependentUpon>manage_notes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="manager\manage_workerusername.resx">
+      <DependentUpon>manage_workerusername.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="manager\mannage_levels.resx">
+      <DependentUpon>mannage_levels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="staff\add_user_info.resx">
+      <DependentUpon>add_user_info.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="staff\manage_data.resx">
+      <DependentUpon>manage_data.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="staff\manage_info.resx">
+      <DependentUpon>manage_info.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="staff\staff.resx">
+      <DependentUpon>staff.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="img\data.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Share\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

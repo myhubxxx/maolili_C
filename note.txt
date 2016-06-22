@@ -1,0 +1,97 @@
+outport_datatable out_table = new outport_datatable();
+out_table.TopLevel = false;
+out_table.Dock = System.Windows.Forms.DockStyle.Fill;
+out_table.FormBorderStyle = FormBorderStyle.None;
+panel1.Controls.Clear();
+panel1.Controls.Add(out_table);
+out_table.Show();
+
+
+
+
+
+typename<type T>
+void test()
+{
+	T out_table = new T();
+	out_table.TopLevel = false;
+	out_table.Dock = System.Windows.Forms.DockStyle.Fill;
+	out_table.FormBorderStyle = FormBorderStyle.None;
+	panel1.Controls.Clear();
+	panel1.Controls.Add(out_table);
+	out_table.Show();
+}
+
+if (e.Node.Text.Trim() == "新建数据表")
+	test<delete_manager>();
+if (e.Node.Text.Trim() == "新建数据表")
+	test<importtable>();
+
+
+
+
+void Test2(string funcName = "add_table")
+{
+	object out_table = new converToObject(e.Node.Tag);
+	out_table.TopLevel = false;
+	out_table.Dock = System.Windows.Forms.DockStyle.Fill;
+	out_table.FormBorderStyle = FormBorderStyle.None;
+	panel1.Controls.Clear();
+	panel1.Controls.Add(out_table);
+	out_table.Show();
+}
+
+if(true)
+{
+	DataSet.delete(...)
+}
+
+bool delete(const DataSet&, string, string)
+{
+	
+}
+
+
+
+
+configfile.json:
+{
+	"User_Info":[
+	{"部门":"1"},
+	{"姓名":"1"},
+	...
+	{"学历":"0"},
+	{"身份证号","1"}
+	],
+	
+	...
+	
+	"":[
+	]
+}
+
+
+#define REGISTER_COMPONENT \
+
+
+
+
+myclass.h
+class MyClass
+{
+	REGISTER_COMPONENT;
+	
+	publc Print();
+}
+myclass.cpp
+RESGETER_COMPONNET;
+
+
+
+main.cpp
+MyClass.Componnet().print();
+
+
+
+
+
