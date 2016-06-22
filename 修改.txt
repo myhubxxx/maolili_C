@@ -1,8 +1,13 @@
 1.编码缩进和格式
-2.异常处理函数
+
+2.异常处理函数 ： // must by zy
+
 3.所有的文字改为公共类
 4，处理BLOCK事件，不能阻止了
-5.e.node.trim 利用treeview的tag，使其自动生成对象并将panel的位置设置好
+
+5.e.node.trim 利用treeview的tag，使其自动生成对象并将panel的位置设置好// must by zy
+
+
 6.调整panel自适应大小
 7.gridview的分层不清楚，不要在这层用数据访问层
 8.备忘录事件弹出框

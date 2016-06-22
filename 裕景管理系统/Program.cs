@@ -16,10 +16,13 @@ namespace 裕景管理系统
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Login ());
-            Application.Run(new Staff_index());
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
+            ////Application.Run(new Login ());
+            //Application.Run(new Staff_index());
+
+            class_test.HandleException.HandleExceptionTest();
+
         }
     }
 }

@@ -18,20 +18,15 @@ namespace 裕景管理系统
             return mySelf;
         }
 
-        public void HandleExcption(Exception ex)
+        /// <summary>
+        ///  this method use to handle all exception.
+        ///  Attention : i just get the exception's message to return, 
+        ///  but i want to found the best solution.
+        /// </summary>
+        /// <param name="ex"></param>
+        public string HandleExcption(Exception ex)
         {
-            Debug.Assert(false, "%s", ex.ToString());
-
-            switch(ex.GetType().ToString())
-            {
-                case "syste.KeyNotFoundException":
-                    break;
-                case "System.IO.DirectoryNotFoundException":
-                    break;
-                default:
-                    //unhandle error ex.GetType().ToString(),please contact dev team. 
-                    break;
-            }
+            return ex.Message;
         }       
 
         //pulibc string
