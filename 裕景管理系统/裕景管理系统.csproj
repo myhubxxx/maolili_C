@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{744F091D-ABD7-4573-8CD0-A55D13800BFC}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>裕景管理系统</RootNamespace>
     <AssemblyName>裕景管理系统</AssemblyName>
@@ -168,6 +168,7 @@
       <DependentUpon>table_query.cs</DependentUpon>
     </Compile>
     <Compile Include="class_test\HandleException.cs" />
+    <Compile Include="class_test\TestAdmin.cs" />
     <Compile Include="Dao\AbstractDao.cs" />
     <Compile Include="Dao\AccessOp.cs" />
     <Compile Include="Dao\AdminDao.cs" />

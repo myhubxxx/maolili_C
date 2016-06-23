@@ -33,7 +33,12 @@ namespace 裕景管理系统.administrator
             panel1.Controls.Add(index);
             index.Show();
         }
-
+        /// <summary>
+        /// this method must be Reconstruction,the if-else is so toning,
+        /// must to make it small.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
             DoManager domanager = new DoManager();
@@ -41,6 +46,7 @@ namespace 裕景管理系统.administrator
                 {
                     if (domanager.checkdepartment())
                     {
+                        
                         dept_query dept = new dept_query();
 
                         dept.TopLevel = false;
@@ -49,6 +55,8 @@ namespace 裕景管理系统.administrator
                         panel1.Controls.Clear();
                         panel1.Controls.Add(dept);
                         dept.Show();
+                         
+                        ShareLib.Instance().AdminGenericMethod(sender, e, panel1);
                     }
                     else
                     {

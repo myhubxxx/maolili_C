@@ -28,39 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode96 = new System.Windows.Forms.TreeNode("查询所有部门");
-            System.Windows.Forms.TreeNode treeNode97 = new System.Windows.Forms.TreeNode("查询部门下的数据表");
-            System.Windows.Forms.TreeNode treeNode98 = new System.Windows.Forms.TreeNode("查询信息", new System.Windows.Forms.TreeNode[] {
-            treeNode96,
-            treeNode97});
-            System.Windows.Forms.TreeNode treeNode99 = new System.Windows.Forms.TreeNode("管理经理账号信息");
-            System.Windows.Forms.TreeNode treeNode100 = new System.Windows.Forms.TreeNode("管理员工账号信息");
-            System.Windows.Forms.TreeNode treeNode101 = new System.Windows.Forms.TreeNode("管理员工详细信息");
-            System.Windows.Forms.TreeNode treeNode102 = new System.Windows.Forms.TreeNode("管理员工", new System.Windows.Forms.TreeNode[] {
-            treeNode99,
-            treeNode100,
-            treeNode101});
-            System.Windows.Forms.TreeNode treeNode103 = new System.Windows.Forms.TreeNode("增加部门");
-            System.Windows.Forms.TreeNode treeNode104 = new System.Windows.Forms.TreeNode("删除部门");
-            System.Windows.Forms.TreeNode treeNode105 = new System.Windows.Forms.TreeNode("添加部门经理");
-            System.Windows.Forms.TreeNode treeNode106 = new System.Windows.Forms.TreeNode("删除部门经理");
-            System.Windows.Forms.TreeNode treeNode107 = new System.Windows.Forms.TreeNode("管理部门", new System.Windows.Forms.TreeNode[] {
-            treeNode103,
-            treeNode104,
-            treeNode105,
-            treeNode106});
-            System.Windows.Forms.TreeNode treeNode108 = new System.Windows.Forms.TreeNode("导入数据表");
-            System.Windows.Forms.TreeNode treeNode109 = new System.Windows.Forms.TreeNode("导出数据表");
-            System.Windows.Forms.TreeNode treeNode110 = new System.Windows.Forms.TreeNode("操作", new System.Windows.Forms.TreeNode[] {
-            treeNode108,
-            treeNode109});
-            System.Windows.Forms.TreeNode treeNode111 = new System.Windows.Forms.TreeNode("管理数据信息");
-            System.Windows.Forms.TreeNode treeNode112 = new System.Windows.Forms.TreeNode("新建数据表");
-            System.Windows.Forms.TreeNode treeNode113 = new System.Windows.Forms.TreeNode("删除数据表");
-            System.Windows.Forms.TreeNode treeNode114 = new System.Windows.Forms.TreeNode("管理部门数据信息", new System.Windows.Forms.TreeNode[] {
-            treeNode111,
-            treeNode112,
-            treeNode113});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("查询所有部门");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("查询部门下的数据表");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("查询信息", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2});
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("管理经理账号信息");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("管理员工账号信息");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("管理员工详细信息");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("管理员工", new System.Windows.Forms.TreeNode[] {
+            treeNode4,
+            treeNode5,
+            treeNode6});
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("增加部门");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("删除部门");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("添加部门经理");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("删除部门经理");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("管理部门", new System.Windows.Forms.TreeNode[] {
+            treeNode8,
+            treeNode9,
+            treeNode10,
+            treeNode11});
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("导入数据表");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("导出数据表");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("操作", new System.Windows.Forms.TreeNode[] {
+            treeNode13,
+            treeNode14});
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("管理数据信息");
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("新建数据表");
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("删除数据表");
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("管理部门数据信息", new System.Windows.Forms.TreeNode[] {
+            treeNode16,
+            treeNode17,
+            treeNode18});
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.共享区ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查看共享区ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -202,50 +202,50 @@
             this.treeView1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.treeView1.Location = new System.Drawing.Point(0, 61);
             this.treeView1.Name = "treeView1";
-            treeNode96.Name = "节点5";
-            treeNode96.Text = "查询所有部门";
-            treeNode97.Name = "节点6";
-            treeNode97.Text = "查询部门下的数据表";
-            treeNode98.Name = "节点0";
-            treeNode98.Text = "查询信息";
-            treeNode99.Name = "节点8";
-            treeNode99.Text = "管理经理账号信息";
-            treeNode100.Name = "节点9";
-            treeNode100.Text = "管理员工账号信息";
-            treeNode101.Name = "节点10";
-            treeNode101.Text = "管理员工详细信息";
-            treeNode102.Name = "节点1";
-            treeNode102.Text = "管理员工";
-            treeNode103.Name = "节点11";
-            treeNode103.Text = "增加部门";
-            treeNode104.Name = "节点12";
-            treeNode104.Text = "删除部门";
-            treeNode105.Name = "节点13";
-            treeNode105.Text = "添加部门经理";
-            treeNode106.Name = "节点14";
-            treeNode106.Text = "删除部门经理";
-            treeNode107.Name = "节点2";
-            treeNode107.Text = "管理部门";
-            treeNode108.Name = "节点15";
-            treeNode108.Text = "导入数据表";
-            treeNode109.Name = "节点16";
-            treeNode109.Text = "导出数据表";
-            treeNode110.Name = "节点4";
-            treeNode110.Text = "操作";
-            treeNode111.Name = "节点17";
-            treeNode111.Text = "管理数据信息";
-            treeNode112.Name = "节点18";
-            treeNode112.Text = "新建数据表";
-            treeNode113.Name = "节点19";
-            treeNode113.Text = "删除数据表";
-            treeNode114.Name = "节点3";
-            treeNode114.Text = "管理部门数据信息";
+            treeNode1.Name = "节点5";
+            treeNode1.Text = "查询所有部门";
+            treeNode2.Name = "节点6";
+            treeNode2.Text = "查询部门下的数据表";
+            treeNode3.Name = "节点0";
+            treeNode3.Text = "查询信息";
+            treeNode4.Name = "节点8";
+            treeNode4.Text = "管理经理账号信息";
+            treeNode5.Name = "节点9";
+            treeNode5.Text = "管理员工账号信息";
+            treeNode6.Name = "节点10";
+            treeNode6.Text = "管理员工详细信息";
+            treeNode7.Name = "节点1";
+            treeNode7.Text = "管理员工";
+            treeNode8.Name = "节点11";
+            treeNode8.Text = "增加部门";
+            treeNode9.Name = "节点12";
+            treeNode9.Text = "删除部门";
+            treeNode10.Name = "节点13";
+            treeNode10.Text = "添加部门经理";
+            treeNode11.Name = "节点14";
+            treeNode11.Text = "删除部门经理";
+            treeNode12.Name = "节点2";
+            treeNode12.Text = "管理部门";
+            treeNode13.Name = "节点15";
+            treeNode13.Text = "导入数据表";
+            treeNode14.Name = "节点16";
+            treeNode14.Text = "导出数据表";
+            treeNode15.Name = "节点4";
+            treeNode15.Text = "操作";
+            treeNode16.Name = "节点17";
+            treeNode16.Text = "管理数据信息";
+            treeNode17.Name = "节点18";
+            treeNode17.Text = "新建数据表";
+            treeNode18.Name = "节点19";
+            treeNode18.Text = "删除数据表";
+            treeNode19.Name = "节点3";
+            treeNode19.Text = "管理部门数据信息";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode98,
-            treeNode102,
-            treeNode107,
-            treeNode110,
-            treeNode114});
+            treeNode3,
+            treeNode7,
+            treeNode12,
+            treeNode15,
+            treeNode19});
             this.treeView1.Size = new System.Drawing.Size(187, 588);
             this.treeView1.TabIndex = 1;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);

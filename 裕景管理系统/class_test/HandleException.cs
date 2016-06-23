@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace 裕景管理系统.class_test
 {
@@ -16,10 +17,12 @@ namespace 裕景管理系统.class_test
             try {
 
                 Object a = 5;
-                DateTime d = (DateTime)a;
+              //  DateTime d = (DateTime)a;
+                
             }catch(Exception e){
-                ShareLib.Instance().HandleExcption(e);
-                //MyHandleException(e);
+
+                MessageBox.Show(e.GetType()+":"+ShareLib.Instance().HandleExcption(e));
+                
                 
             }
 

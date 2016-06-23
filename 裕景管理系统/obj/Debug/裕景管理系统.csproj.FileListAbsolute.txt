@@ -132,3 +132,4 @@ G:\C#_program\mao_li_li\DBCon1\maolili_C\裕景管理系统\obj\Debug\裕景管�
 G:\C#_program\mao_li_li\DBCon1\maolili_C\裕景管理系统\obj\Debug\裕景管理系统.csproj.GenerateResource.Cache
 G:\C#_program\mao_li_li\DBCon1\maolili_C\裕景管理系统\obj\Debug\裕景管理系统.exe
 G:\C#_program\mao_li_li\DBCon1\maolili_C\裕景管理系统\obj\Debug\裕景管理系统.pdb
+G:\C#_program\mao_li_li\DBCon1\maolili_C\裕景管理系统\obj\Debug\裕景管理系统.csprojResolveAssemblyReference.cache

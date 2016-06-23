@@ -20,6 +20,12 @@ namespace 裕景管理系统.administrator
             InitializeComponent();
         }
        private DataSet ds = null;
+
+       /* just use to test it
+        * public string Test { get; set; }
+        * private string test = "123";
+        */
+
     //  private System.Data.OleDb.OleDbDataAdapter da = null;
         private void dept_query_Load(object sender, EventArgs e)
         {     DoManager domanager = new DoManager();
