@@ -34,6 +34,7 @@ namespace DBCon1.test_dao
             con.Open();
             return con;
         }
+
         public bool importExcelAllTable(string DBName, string excelPath) {
             // get the con 
             OleDbConnection con = getCon(excelPath);
@@ -49,8 +50,60 @@ namespace DBCon1.test_dao
 
             return true;
         }
+        // Get the Excel info: the imported excle's Columns
+        public MyDatabase getExcelDesc(string DBName, string excelPath, string tabName) {
 
-        // get the columns
+            string sql = "Select top 1 * from [" + tabName + "$]";
+            //     string sql = "select * from " + OleDbSchemaGuid.Tables;
+            OleDbConnection con = getCon(excelPath);
+            OleDbCommand cmd = new OleDbCommand(sql, con);
+            OleDbDataReader reader = cmd.ExecuteReader();
+
+            // use the reader to get the table head, it mean Table's  Columns, then put all Column to Dictinary_columns
+            Dictionary<string, string> columns = new Dictionary<string, string>();
+            for (int i = 0; i < reader.FieldCount; i++)
+            {
+                // add the field name to columns
+                columns.Add(reader.GetName(i), "varchar(50)");
+            }
+            int length = excelPath.Length;
+            int lastIndex = excelPath.LastIndexOf("\\");
+            int lastExec = excelPath.LastIndexOf(".");
+
+            //     String excelName = excelPath.Substring(lastIndex + 1, lastExec - lastIndex - 1);
+
+            //Console.WriteLine(excelName);
+            //Console.Read();
+
+            // add the info to the MyDataBase
+            MyDatabase bean = new MyDatabase();
+            bean.DBName = DBName;
+            bean.TableName = tabName;
+            foreach (KeyValuePair<string, string> entry in columns)
+            {
+                DBTableField field = new DBTableField();
+                field.FieldName = entry.Key;
+                field.Type = entry.Value;
+                // add to the database.columns
+                bean.Columns.Add(field);
+            }
+
+            // close all the connection
+            AccessOp.closeAll(con, cmd, reader);
+
+            /*if the excel.Table has data,then delete the Table data, There are must appear a very important Problem. this is no data,but has a Table columns is "ID F1".
+             * so this IF is to solve the Situation. if the MyDatabase.Columns just has 1 clomu And the column is F1, mean the is't table.
+             */
+            if( bean.Columns.Count == 1 || bean.Columns[0].FieldName.Equals("F1") ){
+                // just has 1 column And the column is F1
+                throw new Exception("the Table is Null,has not column");
+            }
+
+            return bean;
+
+        }
+
+        // Import Table: include Create Table, import Data to Table
         public bool importExcel(string DBName,string excelPath, string tabName) {
 
             string sql = "Select * from [" + tabName + "$]";
@@ -59,6 +112,8 @@ namespace DBCon1.test_dao
             OleDbCommand cmd = new OleDbCommand(sql, con);
             OleDbDataReader reader = cmd.ExecuteReader();
 
+            /*
+            // use the reader to get the table head, it mean Table's  Columns, then put all Column to Dictinary_columns
             Dictionary<string, string> columns = new Dictionary<string, string>();
             for (int i = 0; i < reader.FieldCount; i++) { 
                 // add the field name to columns
@@ -83,6 +138,16 @@ namespace DBCon1.test_dao
                 field.Type = entry.Value;
                 // add to the database.columns
                 bean.Columns.Add(field);
+            }
+            */
+            MyDatabase bean = null;
+            try
+            {
+                // init the excel.table desc
+                bean = getExcelDesc(DBName, excelPath, tabName);
+            }
+            catch (Exception e) {
+                return false;
             }
 
             // create the table 
@@ -136,6 +201,8 @@ namespace DBCon1.test_dao
 
             putDataToTable(reader, bean);
 
+            // close all the Connection
+            AccessOp.closeAll(excelCon, cmd, reader);
 
             return true;
         }
@@ -258,13 +325,13 @@ namespace DBCon1.test_dao
 
                 dataCmd.Dispose();
             }
-            AccessOp.closeAll(excelCon, null, null);
+            AccessOp.closeAll(excelCon, cmdInserSql, null);
         // end insert the data to excel
 
 
 
             // clsoe the connect
-            AccessOp.closeAll(con, cmd, reader);
+            AccessOp.closeAll(con, null, reader);
 
            return true;
         }
@@ -287,12 +354,15 @@ namespace DBCon1.test_dao
             int tableCount = dt.Rows.Count;
             // add the Table Name to the tableNames
             for (int i = 0; i < tableCount; i++) {
-                // get the table name
+                // the Table's Name
+                // if the Sheet don't have any data,it don't appear.
                 string name = dt.Rows[i][2].ToString().Trim().Replace("$", "");
+
                 // check the table is null
-                if ( !this.tableIsNull(con, name)) {
+                // now,if the Sheet has (any data) or (just has Table'Head),it will be true 
+                //if ( !this.tableIsNull(con, name)) {
                     tableNames.Add(name);
-                }
+                //}
             }
 
                 return tableNames;
@@ -303,6 +373,7 @@ namespace DBCon1.test_dao
             OleDbCommand cmd = new OleDbCommand(sql, con);
             int rowCount = (int)cmd.ExecuteScalar();
             
+            // 
             if (rowCount != 0) {
                 return false;
             }
