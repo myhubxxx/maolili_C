@@ -21,17 +21,31 @@ namespace 裕景管理系统.administrator
         {
             InitializeComponent();
         }
+        public  string DEPART_NAME
+        {
+            get { return comboBox1.Text; }
+
+        }
+        public string ck_name
+        {
+
+            get
+            {
+                return label3.Text;
+            }
+        }
+      
         private DataSet ds = null;
         private void table_query_Load(object sender, EventArgs e)
         {
+            ConstatData.tab_query = this;
             DoManager domanager = new DoManager();
             List<Department> dept = domanager.getalldept_list();
             comboBox1.DataSource = dept.Select(a => a.Dept_name).ToList();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            dataGridView1.RowsDefaultCellStyle.Font = new Font("微软雅黑", 10, FontStyle.Bold);
+            dataGridView1.RowsDefaultCellStyle.Font = new Font(ShareLib.Font_Type, 10, FontStyle.Bold);
             dataGridView1.RowsDefaultCellStyle.ForeColor = Color.BurlyWood;
             DoManager domanager = new DoManager();
             this.ds = domanager.gettotaltable_ds(comboBox1.Text);
@@ -39,7 +53,19 @@ namespace 裕景管理系统.administrator
             da = domanager.gettotaltable_da(comboBox1.Text);
             da.Fill(ds, comboBox1.Text);
             this.dataGridView1.DataSource = ds.Tables[comboBox1.Text];
+        }
 
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+          // this event can't delete
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+         label3.Text =dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+         show_table_infomation sh = new show_table_infomation();
+            sh.Show();
+           
         }
     }
 }

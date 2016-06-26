@@ -110,9 +110,9 @@
             this.label5.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label5.Location = new System.Drawing.Point(79, 336);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(120, 16);
+            this.label5.Size = new System.Drawing.Size(104, 16);
             this.label5.TabIndex = 7;
-            this.label5.Text = "提前多少天提醒";
+            this.label5.Text = "提前提醒天数";
             // 
             // textBox2
             // 

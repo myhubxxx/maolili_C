@@ -20,7 +20,6 @@ namespace 裕景管理系统.administrator
         {
             InitializeComponent();
         }
-
         private void delete_manager_Load(object sender, EventArgs e)
         {
             try
@@ -28,39 +27,47 @@ namespace 裕景管理系统.administrator
                 int id = 1;
                 DoManager domanager = new DoManager();
                 List<UserInfo> list = domanager.getmangername_list(id);
-
-                //karas: here can't directly use userName to show, we just obey the userid to show it, if it have userName, replace id, if not just show userId is ok.                            
                 comboBox1.DataSource = list.Select(a => a.Name).ToList();
             }
-            catch(Exception ex)
+            catch(Exception)
             {
-                //karas: i strong suggest use this function to debug
-                //Debug.Assert(false, "%s", ex.ToString());
+                //here need to modify
                 MessageBox.Show("还存在未填写详细信息的经理账号，请先请填写详细信息");
             }
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            if (comboBox1.Text == "")
+            {
+                MessageBox.Show("请选择要删除的经理");
+            }
              System.Windows.Forms.DialogResult result =
                  System.Windows.Forms.MessageBox.Show(
-                         "确实要删除该经理吗",
-                         "确认",
+                         ShareLib.Confirm_DeletManager,
+                         ShareLib.Make_Sure,
                          MessageBoxButtons.OKCancel,
                          MessageBoxIcon.Question);
              if (result == System.Windows.Forms.DialogResult.OK)
              {
                  DoManager domanger = new DoManager();
                  domanger.delete_woker(comboBox1.Text);
-                 MessageBox.Show("该经理已经删除");
+                 MessageBox.Show(ShareLib.Mnager_Delete_Success);
+                 int id = 1;
+                 DoManager domanager = new DoManager();
+                 List<UserInfo> list = domanager.getmangername_list(id);
+                 if (list == null || list.Count() == 0)
+                 { 
+                     comboBox1.DataSource = null;
+                 }
+                 comboBox1.DataSource = list.Select(a => a.Name).ToList();
+                 
+               
              }
              else
              {
                  return;
              }
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             ConstatData.admin.Show();

@@ -20,7 +20,6 @@ namespace 裕景管理系统.staff
         {
             InitializeComponent();
         }
-
         private void manage_info_Load(object sender, EventArgs e)
         {
             dostaff dst = new dostaff();
@@ -45,20 +44,16 @@ namespace 裕景管理系统.staff
             info_biyeyuanxiao.Text = userinfo.Graduateschool;
             info_beizhu.Text = userinfo.Remark;
             textBox1.Text = userinfo.Id.ToString();
-
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             dostaff dst = new dostaff();
             dst.mdf(int .Parse (textBox1.Text), info_name.Text, info_sex.Text, dept_name.Text, info_nation.Text, info_jiguan.Text,
-                DateTime.Parse(info_birthday.Text), DateTime.Parse(info_startworktime.Text), DateTime.Parse(info_joinworktime.Text), info_idcard.Text, Info_zhiwu.Text, info_zhiyezhuce.Text,
-                info_biyeyuanxiao.Text, info_xueli.Text, info_jiatingzhuzhi.Text, info_ssn.Text, info_zhichengzheng.Text, info_beizhu.Text, info_tele.Text);
+            DateTime.Parse(info_birthday.Text), DateTime.Parse(info_startworktime.Text), DateTime.Parse(info_joinworktime.Text), info_idcard.Text, Info_zhiwu.Text, info_zhiyezhuce.Text,
+            info_biyeyuanxiao.Text, info_xueli.Text, info_jiatingzhuzhi.Text, info_ssn.Text, info_zhichengzheng.Text, info_beizhu.Text, info_tele.Text);
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
-          //  ConstatData.staff.Show();
             this.Close();
         }
     }

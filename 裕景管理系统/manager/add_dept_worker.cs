@@ -24,13 +24,13 @@ namespace 裕景管理系统.manager
             if (drm.check_dept_worker(textBox1.Text, textBox2.Text))
             {
                 drm.add_dept_worker(textBox1.Text, textBox2.Text, ConstatData.department.Dept_name);
-                MessageBox.Show("员工账号添加成功");
+                MessageBox.Show(ShareLib.Add_Staff_Success);
 
             }
             else
             {
 
-                MessageBox.Show("账号或密码已经存在");
+                MessageBox.Show(ShareLib.Staff_Username_Exsist);
             }
         }
 

@@ -47,15 +47,19 @@
             treeNode9});
             System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("新建数据表格");
             System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("删除数据表格");
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("管理部门数据表", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("导入数据表");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("导出数据表");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("管理部门数据表", new System.Windows.Forms.TreeNode[] {
             treeNode11,
-            treeNode12});
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("录入个人信息");
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("录入个人信息", new System.Windows.Forms.TreeNode[] {
+            treeNode12,
+            treeNode13,
             treeNode14});
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("修改个人信息");
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("修改个人信息", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("录入个人信息");
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("录入个人信息", new System.Windows.Forms.TreeNode[] {
             treeNode16});
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("修改个人信息");
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("修改个人信息", new System.Windows.Forms.TreeNode[] {
+            treeNode18});
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.共享区ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查看共享区ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -76,6 +80,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -131,21 +136,21 @@
             // 添加备忘录ToolStripMenuItem
             // 
             this.添加备忘录ToolStripMenuItem.Name = "添加备忘录ToolStripMenuItem";
-            this.添加备忘录ToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.添加备忘录ToolStripMenuItem.Size = new System.Drawing.Size(148, 24);
             this.添加备忘录ToolStripMenuItem.Text = "添加备忘录";
             this.添加备忘录ToolStripMenuItem.Click += new System.EventHandler(this.添加备忘录ToolStripMenuItem_Click);
             // 
             // 管理备忘录ToolStripMenuItem
             // 
             this.管理备忘录ToolStripMenuItem.Name = "管理备忘录ToolStripMenuItem";
-            this.管理备忘录ToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.管理备忘录ToolStripMenuItem.Size = new System.Drawing.Size(148, 24);
             this.管理备忘录ToolStripMenuItem.Text = "管理备忘录";
             this.管理备忘录ToolStripMenuItem.Click += new System.EventHandler(this.管理备忘录ToolStripMenuItem_Click);
             // 
             // 查看备忘录ToolStripMenuItem
             // 
             this.查看备忘录ToolStripMenuItem.Name = "查看备忘录ToolStripMenuItem";
-            this.查看备忘录ToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.查看备忘录ToolStripMenuItem.Size = new System.Drawing.Size(148, 24);
             this.查看备忘录ToolStripMenuItem.Text = "查看备忘录";
             this.查看备忘录ToolStripMenuItem.Click += new System.EventHandler(this.查看备忘录ToolStripMenuItem_Click);
             // 
@@ -220,25 +225,30 @@
             treeNode11.Text = "新建数据表格";
             treeNode12.Name = "删除数据表格";
             treeNode12.Text = "删除数据表格";
-            treeNode13.Name = "管理部门数据表";
-            treeNode13.Text = "管理部门数据表";
-            treeNode14.Name = "录入个人信息";
-            treeNode14.Text = "录入个人信息";
-            treeNode15.Name = "录入个人信息";
-            treeNode15.Text = "录入个人信息";
-            treeNode16.Name = "修改个人信息";
-            treeNode16.Text = "修改个人信息";
-            treeNode17.Name = "修改个人信息";
-            treeNode17.Text = "修改个人信息";
+            treeNode13.Name = "导入数据表";
+            treeNode13.Text = "导入数据表";
+            treeNode14.Name = "导出数据表";
+            treeNode14.Text = "导出数据表";
+            treeNode15.Name = "管理部门数据表";
+            treeNode15.Text = "管理部门数据表";
+            treeNode16.Name = "录入个人信息";
+            treeNode16.Text = "录入个人信息";
+            treeNode17.Name = "录入个人信息";
+            treeNode17.Text = "录入个人信息";
+            treeNode18.Name = "修改个人信息";
+            treeNode18.Text = "修改个人信息";
+            treeNode19.Name = "修改个人信息";
+            treeNode19.Text = "修改个人信息";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode2,
             treeNode7,
             treeNode10,
-            treeNode13,
             treeNode15,
-            treeNode17});
+            treeNode17,
+            treeNode19});
             this.treeView1.Size = new System.Drawing.Size(187, 615);
             this.treeView1.TabIndex = 1;
+            this.treeView1.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeView1_BeforeSelect);
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // label1
@@ -257,7 +267,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.ForeColor = System.Drawing.Color.Coral;
-            this.label2.Location = new System.Drawing.Point(463, 29);
+            this.label2.Location = new System.Drawing.Point(203, 28);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 25);
             this.label2.TabIndex = 3;
@@ -265,9 +275,9 @@
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(187, 70);
+            this.panel1.Location = new System.Drawing.Point(187, 52);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(615, 598);
+            this.panel1.Size = new System.Drawing.Size(615, 616);
             this.panel1.TabIndex = 4;
             // 
             // label3
@@ -303,11 +313,22 @@
             this.label5.TabIndex = 7;
             this.label5.Text = "部门经理";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("幼圆", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label6.Location = new System.Drawing.Point(295, 33);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(49, 14);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "消息：";
+            // 
             // Manager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 692);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -351,5 +372,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }

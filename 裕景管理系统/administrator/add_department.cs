@@ -28,23 +28,21 @@ namespace 裕景管理系统.administrator
             if (!domanage.checkdepartment())
             {
                 domanage.adddepart(textBox1.Text);
-                MessageBox.Show("部门创建成功");
-
+                MessageBox.Show(ShareLib.Add_Success);
             }
             else
             {
                 if (domanage.checkdept(textBox1.Text))
                 {
                     domanage.adddepart(textBox1.Text);
-                    MessageBox.Show("部门创建成功");
+                    MessageBox.Show(ShareLib.Add_Success);
                 }
                 else
                 {
-                    MessageBox.Show("部门已经存在，请重新添加");
+                    MessageBox.Show(ShareLib.Dept_Has_Exsist);
                 }
             }
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             ConstatData.admin.Show();
@@ -53,7 +51,6 @@ namespace 裕景管理系统.administrator
 
         private void add_department_Load(object sender, EventArgs e)
         {
-
         }
     }
 }

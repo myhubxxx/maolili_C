@@ -25,9 +25,8 @@ namespace 裕景管理系统.staff
         private void manage_data_Load(object sender, EventArgs e)
         {
             dostaff dd=new dostaff ();
-            if(dd.checkifcandao_table(ConstatData.department.Dept_name,ConstatData.login.username))
+            if (dd.checkifcandao_table(ConstatData.department.Dept_name, ConstatData.login.username))
             {
-
                 dostaff dst = new dostaff();
                 int dept_userid = dst.getuserid(ConstatData.login.username);
                 List<PurviewTable> table = new List<PurviewTable>();
@@ -40,51 +39,39 @@ namespace 裕景管理系统.staff
                         map.Add(temp.Dept_table, temp.Purview);
                         comboBox1.Items.Add(temp.Dept_table);
                     }
-
                 }
             }
-        else{
-           
-                MessageBox.Show("对不起，经理还未为您分配您的可操作表");
-              }
-
-            
+            else
+            {
+                MessageBox.Show(ShareLib.NotGivenLevel);
+            }
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             ConstatData.tbname = comboBox1.Text;
-
-            dataGridView1.RowsDefaultCellStyle.Font = new Font("微软雅黑", 10, FontStyle.Bold);
+            dataGridView1.RowsDefaultCellStyle.Font = new Font(ShareLib.Font_Type, 10, FontStyle.Bold);
             dataGridView1.RowsDefaultCellStyle.ForeColor = Color.BurlyWood;
             try
             {
                 ConstatData.tbname = comboBox1.Text;
-                dataGridView1.RowsDefaultCellStyle.Font = new Font("微软雅黑", 10, FontStyle.Bold);
-                dataGridView1.RowsDefaultCellStyle.ForeColor = Color.BurlyWood;
+             
                 DoRrealManager drm = new DoRrealManager();
                 OleDbDataAdapter da = new OleDbDataAdapter();
                 this.ds = drm.gettableds(ConstatData.department.Dept_name, ConstatData.tbname);
                 da = drm.gettableda(ConstatData.department.Dept_name, ConstatData.tbname);
                 dataGridView1.DataSource = ds.Tables[ConstatData.tbname];
-
-
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("该部门还未创建任何数据表");
-
+                MessageBox.Show(ShareLib.Dept_No_Table);
             }
-
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             DoRrealManager drm = new DoRrealManager();
             OleDbDataAdapter da = drm.gettableda(ConstatData.department.Dept_name, ConstatData.tbname);
             da.Update(ds, ConstatData.tbname);
         }
-
         private void button3_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < dataGridView1.SelectedRows.Count; i++)
@@ -92,7 +79,6 @@ namespace 裕景管理系统.staff
                 dataGridView1.Rows.Remove(dataGridView1.SelectedRows[i]);
             }
         }
-
         private void button4_Click(object sender, EventArgs e)
         {
             ConstatData.staff.Show();

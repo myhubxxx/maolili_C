@@ -20,38 +20,43 @@ namespace 裕景管理系统.administrator
         {
             InitializeComponent();
         }
-
         private void importtable_Load(object sender, EventArgs e)
         {
             DoManager domanager = new DoManager();
             List<Department> dept = domanager.getalldept_list();
             comboBox1.DataSource = dept.Select(a => a.Dept_name).ToList();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog file = new OpenFileDialog();
             file.InitialDirectory = Application.StartupPath;
-            //file.DefaultExt = "xlsx";
-           // file.Filter = "Excel文件(*.xlsx)|*.xlsx";
             file.Filter = null;
-
-            if (file.ShowDialog() == DialogResult.OK)//在对话框里点了导入
-            {
+            if (file.ShowDialog() == DialogResult.OK)
+            {DoManager domanager=new DoManager ();
                 string filename = file.FileName;
                 string dbname = comboBox1.SelectedItem.ToString();
-                ImportExcel ie = new ImportExcel();
-                ie.importExcelAllTable(dbname, filename);
-               // MessageBox.Show(filename);
-
+                try
+                {
+                    ImportExcel ie = new ImportExcel();
+                    try
+                    {
+                        ie.importExcelAllTable(dbname, filename);
+                    }catch(Exception){
+                        MessageBox.Show(ShareLib.Importtable_Name_Include_Space);
+                    }
+                    MessageBox.Show("导入成功");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show(ShareLib.Importtable_has_exsist);
+                }
+               
             }
             else
             {
                 return;
-
             }
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             ConstatData.admin.Show();

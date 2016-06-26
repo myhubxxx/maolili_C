@@ -135,16 +135,16 @@
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.dataGridView1.Location = new System.Drawing.Point(2, 173);
+            this.dataGridView1.Location = new System.Drawing.Point(2, 155);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(595, 411);
+            this.dataGridView1.Size = new System.Drawing.Size(595, 396);
             this.dataGridView1.TabIndex = 10;
             // 
             // button2
             // 
             this.button2.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.button2.Location = new System.Drawing.Point(16, 590);
+            this.button2.Location = new System.Drawing.Point(16, 557);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 29);
             this.button2.TabIndex = 11;
@@ -155,7 +155,7 @@
             // button3
             // 
             this.button3.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.button3.Location = new System.Drawing.Point(232, 590);
+            this.button3.Location = new System.Drawing.Point(232, 557);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 29);
             this.button3.TabIndex = 12;
@@ -166,7 +166,7 @@
             // button4
             // 
             this.button4.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.button4.Location = new System.Drawing.Point(421, 590);
+            this.button4.Location = new System.Drawing.Point(424, 557);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 29);
             this.button4.TabIndex = 13;
@@ -178,7 +178,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(599, 624);
+            this.ClientSize = new System.Drawing.Size(599, 587);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);

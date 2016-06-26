@@ -68,6 +68,8 @@ namespace DBCon1.Dao
 
             return bean;
         }
+        
+
         // load by name
         public TotalTable loadByName(string dbName,string tableName) {
             string sql = "select * from totaltable where tablename=@tablename";
@@ -131,6 +133,21 @@ namespace DBCon1.Dao
 
             return list;
         }
+        // Similar to Search, 
+        public DataSet darkSearchByTableName(string dbName, string tabName) {
+            string sql = "select * from totaltable where tablename like " + tabName;
+            OleDbConnection con = getCon(dbName);
+
+            OleDbDataAdapter adapter = new OleDbDataAdapter(sql, con);
+            DataSet ds = new DataSet();
+            adapter.Fill(ds);
+
+            // close the con
+            closeAll(con, null, null);
+
+            return ds;
+        }
+
         // find all dataset
         public DataSet findAll_DataSet(string dbName) {
             string sql = "select * from totaltable";

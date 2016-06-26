@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using 裕景管理系统.manager;
 using 裕景管理系统.administrator;
 using 裕景管理系统.staff;
+using 裕景管理系统.top_Manager;
 namespace 裕景管理系统
 {
     static class Program
@@ -18,13 +19,9 @@ namespace 裕景管理系统
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Login ());
-            //Aplication.Run(new Staff_index());
-            Application.Run(new admin());
-
-
-            //class_test.HandleException.HandleExceptionTest();
-            
+           Application.Run(new Login ());
+           // Application.Run(new New_add_level());
+         
         }
     }
 }

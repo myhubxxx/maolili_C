@@ -34,6 +34,7 @@ namespace 裕景管理系统.staff
 
         private void staff_Load(object sender, EventArgs e)
         {
+            label6.ForeColor = Color.Red;
             index index = new index();
             index.TopLevel = false;
             index.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -43,6 +44,21 @@ namespace 裕景管理系统.staff
             index.Show();
             DoRrealManager drm = new DoRrealManager();
             label1.Text = drm.get_depatName(ConstatData.login.username);
+            List<string> mess = new List<string>();
+            mess = drm.check_if_isdate(ConstatData.login.username);
+            for (int i = 0; i < mess.Count; i++)
+            {
+                label6.Text += mess[i] + "  ";
+            }
+            dostaff ds = new dostaff();
+            if (ds.cheke_userinfodetail(ConstatData.login.username))
+            {
+                treeView1.Nodes[1].Nodes[0].ForeColor = Color.Gray;
+            }
+            if (!ds.cheke_userinfodetail(ConstatData.login.username))
+            {
+                treeView1.Nodes[2].Nodes[0].ForeColor = Color.Gray;
+            }
         }
 
         private void 查看共享区ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -53,19 +69,19 @@ namespace 裕景管理系统.staff
 
         private void 上传到共享区ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-             OpenFileDialog file = new OpenFileDialog();
+            OpenFileDialog file = new OpenFileDialog();
             file.InitialDirectory = Application.StartupPath;
             file.DefaultExt = "xls";
-            file.Filter = null;//默认为任何文件
+            file.Filter = null;
 
-            if (file.ShowDialog() == DialogResult.OK)//在对话框里点了导入
+            if (file.ShowDialog() == DialogResult.OK)
             {
                 string filepath = file.FileName;
                 FileInfo fileInfo = new FileInfo(filepath);
 
-                string path1 = @"F:/裕景管理系统/裕景管理系统/Share/";
+                string path1 = System.IO.Directory.GetCurrentDirectory() + "\\Share\\";
                 File.Copy(filepath, path1 + fileInfo.Name);
-                //  File.Copy(filepath, AccessOp.sharePath +'\\' + fileInfo.Name);
+                ////  File.Copy(filepath, AccessOp.sharePath +'\\' + fileInfo.Name);
                 MessageBox.Show("上传成功");
             }
 
@@ -115,10 +131,7 @@ namespace 裕景管理系统.staff
                     panel1.Controls.Add(aui);
                     aui.Show();
                 }
-                else
-                {
-                    MessageBox.Show("您已经录入了个人信息，不用再次录入");
-                }
+               
             }
             if (e.Node.Text.Trim() == "修改个人信息")
             {
@@ -133,10 +146,7 @@ namespace 裕景管理系统.staff
                     panel1.Controls.Add(mi);
                     mi.Show();
                 }
-                else
-                {
-                    MessageBox.Show("对不起，您还没有填写详细信息");
-                }
+              
             }
         }
 

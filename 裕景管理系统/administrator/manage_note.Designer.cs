@@ -38,7 +38,7 @@
             this.标题 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.内容 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.到期时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.提前多少天 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.提前提醒天数 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,7 +63,7 @@
             this.标题,
             this.内容,
             this.到期时间,
-            this.提前多少天});
+            this.提前提醒天数});
             this.dataGridView1.Location = new System.Drawing.Point(3, 95);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
@@ -137,12 +137,12 @@
             this.到期时间.HeaderText = "到期时间";
             this.到期时间.Name = "到期时间";
             // 
-            // 提前多少天
+            // 提前提醒天数
             // 
-            this.提前多少天.DataPropertyName = "beforeDay";
-            this.提前多少天.HeaderText = "提前多少天";
-            this.提前多少天.Name = "提前多少天";
-            this.提前多少天.Width = 50;
+            this.提前提醒天数.DataPropertyName = "beforeDay";
+            this.提前提醒天数.HeaderText = "提前提醒天数";
+            this.提前提醒天数.Name = "提前提醒天数";
+            this.提前提醒天数.Width = 50;
             // 
             // manage_note
             // 
@@ -177,6 +177,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 标题;
         private System.Windows.Forms.DataGridViewTextBoxColumn 内容;
         private System.Windows.Forms.DataGridViewTextBoxColumn 到期时间;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 提前多少天;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 提前提醒天数;
     }
 }

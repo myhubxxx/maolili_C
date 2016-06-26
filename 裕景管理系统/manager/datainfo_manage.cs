@@ -39,35 +39,28 @@ namespace 裕景管理系统.manager
         {
             ConstatData.tbname = comboBox1.Text;
            
-            dataGridView1.RowsDefaultCellStyle.Font = new Font("微软雅黑", 10, FontStyle.Bold);
+            dataGridView1.RowsDefaultCellStyle.Font = new Font(ShareLib.Font_Type, 10, FontStyle.Bold);
             dataGridView1.RowsDefaultCellStyle.ForeColor = Color.BurlyWood;
             try
             {
                 ConstatData.tbname = comboBox1.Text;
-                dataGridView1.RowsDefaultCellStyle.Font = new Font("微软雅黑", 10, FontStyle.Bold);
-                dataGridView1.RowsDefaultCellStyle.ForeColor = Color.BurlyWood;
                 DoRrealManager drm = new DoRrealManager();
                 OleDbDataAdapter da = new OleDbDataAdapter();
                 this.ds = drm.gettableds(ConstatData.department.Dept_name, ConstatData.tbname);
                 da = drm.gettableda(ConstatData.department.Dept_name, ConstatData.tbname);
                 dataGridView1.DataSource = ds.Tables[ConstatData.tbname];
-              
-                
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("该部门还未创建任何数据表");
-
+                MessageBox.Show(ShareLib.Dept_No_Table);
             }
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             DoRrealManager drm = new DoRrealManager();
             OleDbDataAdapter da = drm.gettableda(ConstatData.department.Dept_name, ConstatData.tbname);
             da.Update(ds, ConstatData.tbname);
         }
-
         private void button3_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < dataGridView1.SelectedRows.Count; i++)
@@ -75,16 +68,13 @@ namespace 裕景管理系统.manager
                 dataGridView1.Rows.Remove(dataGridView1.SelectedRows[i]);
             }
         }
-
         private void button4_Click(object sender, EventArgs e)
         {
             ConstatData.manager.Show();
             this.Close();
         }
-
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
-            
             List<TotalTable> list = new List<TotalTable>();
             DoRrealManager drm = new DoRrealManager();
             DateTime t1 = DateTime.Parse(dateTimePicker1.Text);

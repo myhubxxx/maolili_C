@@ -30,7 +30,7 @@
         {
             this.listView1 = new System.Windows.Forms.ListView();
             this.文件名 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.文件路径 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.上传者 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.文件大小 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.创建日期 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
@@ -41,7 +41,7 @@
             // 
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.文件名,
-            this.文件路径,
+            this.上传者,
             this.文件大小,
             this.创建日期});
             this.listView1.Location = new System.Drawing.Point(12, 111);
@@ -57,10 +57,10 @@
             this.文件名.Text = "文件名";
             this.文件名.Width = 350;
             // 
-            // 文件路径
+            // 上传者
             // 
-            this.文件路径.Text = "文件路径";
-            this.文件路径.Width = 120;
+            this.上传者.Text = "上传者";
+            this.上传者.Width = 120;
             // 
             // 文件大小
             // 
@@ -116,7 +116,7 @@
 
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader 文件名;
-        private System.Windows.Forms.ColumnHeader 文件路径;
+        private System.Windows.Forms.ColumnHeader 上传者;
         private System.Windows.Forms.ColumnHeader 文件大小;
         private System.Windows.Forms.ColumnHeader 创建日期;
         private System.Windows.Forms.Label label1;

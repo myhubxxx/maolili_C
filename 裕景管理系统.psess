@@ -36,7 +36,7 @@
   </PostinstrumentEvent>
   <Binaries>
     <ProjBinary>
-      <Path>裕景管理系统\obj\Release\裕景管理系统.exe</Path>
+      <Path>裕景管理系统\obj\Debug\裕景管理系统.exe</Path>
       <ArgumentTimestamp>01/01/0001 00:00:00</ArgumentTimestamp>
       <Instrument>true</Instrument>
       <Sample>true</Sample>
@@ -48,8 +48,8 @@
       <LaunchProject>true</LaunchProject>
       <OverrideProjectSettings>false</OverrideProjectSettings>
       <LaunchMethod>Executable</LaunchMethod>
-      <ExecutablePath>裕景管理系统\bin\Release\裕景管理系统.exe</ExecutablePath>
-      <StartupDirectory>裕景管理系统\bin\Release\</StartupDirectory>
+      <ExecutablePath>裕景管理系统\bin\Debug\裕景管理系统.exe</ExecutablePath>
+      <StartupDirectory>裕景管理系统\bin\Debug\</StartupDirectory>
       <Arguments>
       </Arguments>
       <NetAppHost>IIS</NetAppHost>
@@ -67,6 +67,32 @@
       <ProjName>裕景管理系统</ProjName>
     </ProjBinary>
   </Binaries>
+  <Reports>
+    <Report>
+      <Path>裕景管理系统160515.vsp</Path>
+    </Report>
+    <Report>
+      <Path>裕景管理系统160516.vsp</Path>
+    </Report>
+    <Report>
+      <Path>裕景管理系统160520.vsp</Path>
+    </Report>
+    <Report>
+      <Path>裕景管理系统160523.vsp</Path>
+    </Report>
+    <Report>
+      <Path>裕景管理系统160524.vsp</Path>
+    </Report>
+    <Report>
+      <Path>裕景管理系统160524(1).vsp</Path>
+    </Report>
+    <Report>
+      <Path>裕景管理系统160622.vsp</Path>
+    </Report>
+    <Report>
+      <Path>裕景管理系统160622(1).vsp</Path>
+    </Report>
+  </Reports>
   <Launches>
     <ProjBinary>
       <Path>:PB:{744F091D-ABD7-4573-8CD0-A55D13800BFC}|裕景管理系统\裕景管理系统.csproj</Path>

@@ -20,14 +20,12 @@ namespace 裕景管理系统.administrator
         {
             InitializeComponent();
         }
-
         private void outport_datatable_Load(object sender, EventArgs e)
         {
             DoManager domanager = new DoManager();
             List<Department> list = domanager.getalldept_list();
             comboBox1.DataSource = list.Select(a => a.Dept_name).ToList();
         }
-
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
               DoManager domanager = new DoManager();
@@ -39,30 +37,30 @@ namespace 裕景管理系统.administrator
             }
             else
             {
-                MessageBox.Show("对不起，该部门尚未新建数据表");
+                MessageBox.Show(ShareLib.Dept_No_Table);
                 comboBox2.DataSource = null;
-
             }
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
+
             SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Filter = "Excel文件(*.xlsx)|*.xlsx";
+           // sfd.Filter = ShareLib.Type;
+            sfd.FileName = comboBox2.Text+".xlsx";
+               
+
             if (sfd.ShowDialog() == DialogResult.OK)
             {
                 string localFilePath = sfd.FileName.ToString();
-
                 ImportExcel ie = new ImportExcel();
                 ie.Export(comboBox1.SelectedItem.ToString(), comboBox2.SelectedItem.ToString(), localFilePath);
+                MessageBox.Show("导出成功");
             }
             else
             {
                 return;
-
             }
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             ConstatData.admin.Show();

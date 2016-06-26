@@ -34,33 +34,28 @@ namespace 裕景管理系统.administrator
                     }
                 );
             DataGridViewComboBoxColumn cbx = new DataGridViewComboBoxColumn();
-            
-            cbx.Name = "类型";
+            cbx.Name =ShareLib.Combox_Name;
             cbx.DataSource = typeList;
             this.dataGridView1.Columns.Insert(1, cbx);
             DoManager domanager = new DoManager();
             List<Department> dept = new List<Department>();
             dept = domanager.getalldept_list();
             comboBox1.DataSource = dept.Select(a => a.Dept_name).ToList();
-
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             bool error = false;
             table.TableName = textBox1.Text;
             DoManager domanager = new DoManager();
-            if (MessageBox.Show("确定添加?", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show(ShareLib.Comfoirm_Info, ShareLib.Notification, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (string.IsNullOrEmpty(textBox1.Text))
                 {
-                    MessageBox.Show("请填写要创建的表名", "提示");
+                    MessageBox.Show(ShareLib.Notify_Add_TabName, ShareLib.Notification);
                     return;
                 }
-               
                 if(!domanager.check_department_totaltable(comboBox1.SelectedItem.ToString()))
                 {
-
                     for (int i = 0; i < this.dataGridView1.Rows.Count; i++)
                     {
                         if (!table.Columns.Any(a => a.Key == i))
@@ -77,38 +72,37 @@ namespace 裕景管理系统.administrator
                                 else
                                 {
                                     error = true;
-                                    MessageBox.Show(string.Concat("请填写完整第", (i + 1).ToString(), "行的内容"), "提示");
+                                    MessageBox.Show(string.Concat(ShareLib.Add_Table_notif, (i + 1).ToString(),ShareLib.Row_Content),ShareLib.Notification);
                                     break;
                                 }
                             }
                             else if (type == null && name != null && !string.IsNullOrEmpty(name.ToString()))
                             {
                                 error = true;
-                                MessageBox.Show(string.Concat("请填写第", (i + 1).ToString(), "行的字段类型"), "提示");
+                                MessageBox.Show(string.Concat(ShareLib.Add_Table_notif, (i + 1).ToString(), ShareLib.Feild_Type),ShareLib.Notification);
                                 break;
                             }
                             else if (type != null && name == null)
                             {
                                 error = true;
-                                MessageBox.Show(string.Concat("请填写第", (i + 1).ToString(), "行的字段名称"), "提示");
+                                MessageBox.Show(string.Concat(ShareLib.Add_Table_notif, (i + 1).ToString(), ShareLib.Feild_Name),ShareLib.Notification);
                                 break;
                             }
                         }
                     }
-                    if (error)
-                        return;
+                    if (error)  return;   
                     table.DBName = comboBox1.Text;
                     if (AccessOp.CreateAccessTab(table))
                     {
-                        MessageBox.Show("数据表添加成功");
+                        MessageBox.Show(ShareLib.Add_Table_Success);
                     }
                     else
                     {
-                        MessageBox.Show("数据表添加失败");
+                        MessageBox.Show(ShareLib.Add_Table_Faild);
                     }
-
                 }
-                else{
+                else
+                {
                 if (domanager.checktablename(comboBox1.Text, textBox1.Text))
                 {
                     for (int i = 0; i < this.dataGridView1.Rows.Count; i++)
@@ -127,52 +121,45 @@ namespace 裕景管理系统.administrator
                                 else
                                 {
                                     error = true;
-                                    MessageBox.Show(string.Concat("请填写完整第", (i + 1).ToString(), "行的内容"), "提示");
+                                    MessageBox.Show(string.Concat(ShareLib.Add_Table_notif, (i + 1).ToString(), ShareLib.Row_Content), ShareLib.Notification);
                                     break;
                                 }
                             }
                             else if (type == null && name != null && !string.IsNullOrEmpty(name.ToString()))
                             {
                                 error = true;
-                                MessageBox.Show(string.Concat("请填写第", (i + 1).ToString(), "行的字段类型"), "提示");
+                                MessageBox.Show(string.Concat(ShareLib.Add_Table_notif, (i + 1).ToString(), ShareLib.Feild_Type), ShareLib.Notification);
                                 break;
                             }
                             else if (type != null && name == null)
                             {
                                 error = true;
-                                MessageBox.Show(string.Concat("请填写第", (i + 1).ToString(), "行的字段名称"), "提示");
+                                MessageBox.Show(string.Concat(ShareLib.Add_Table_notif, (i + 1).ToString(),ShareLib.Feild_Name),ShareLib.Notification);
                                 break;
                             }
                         }
                     }
-                    if (error)
-                        return;
+                    if (error)return; 
                     table.DBName = comboBox1.Text;
                     if (AccessOp.CreateAccessTab(table))
                     {
-                        MessageBox.Show("数据表添加成功");
+                        MessageBox.Show(ShareLib.Add_Table_Success);
                     }
                     else
                     {
-                        MessageBox.Show("数据表添加失败");
+                        MessageBox.Show(ShareLib.Add_Table_Faild);
                     }
-
                 }
                 else
                 {
-                    MessageBox.Show("该部门已经有" +textBox1.Text.Trim()+ "这张表，请重新输入表格名称");
-
+                    MessageBox.Show(ShareLib.Table_Has_Exsist_notifi +textBox1.Text.Trim()+ ShareLib.Notifi_Add_NewName);
                 }
-                
-
             }
             }
             else
             {
-        
             }
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             ConstatData.admin.Show();

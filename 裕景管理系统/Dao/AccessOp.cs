@@ -77,20 +77,32 @@ namespace DBCon1.test_dao
         // 释放连接资源
         public static void closeAll(OleDbConnection con, OleDbCommand cmd, OleDbDataReader reader)
         {
-            if (reader != null)
+            try
             {
-                reader.Dispose();
-                reader.Close();
+                if (reader != null)
+                {
+                    reader.Dispose();
+                    reader.Close();
+                }
             }
-            if (cmd != null)
+            finally
             {
-                cmd.Dispose();
+                try
+                {
+                    if (cmd != null)
+                    {
+                        cmd.Dispose();
+                    }
+                }
+                finally {
+                    if (con != null)
+                    {
+                        con.Dispose();
+                        con.Close();
+                    }
+                }
             }
-            if (con != null)
-            {
-                con.Dispose();
-                con.Close();
-            }
+                
         }
 
          /// <summary>
@@ -241,9 +253,12 @@ namespace DBCon1.test_dao
                     Console.Read();
                     return false;
                 }
+                finally {
 
-                // close the con
-                AccessOp.closeAll(con, cmd, null);
+                    // close the con
+                    AccessOp.closeAll(con, cmd, null);
+                }
+
 
             return true;
         }
@@ -266,12 +281,14 @@ namespace DBCon1.test_dao
                 cmd.ExecuteNonQuery();
             }
             catch (SystemException ex)
-            {             
+            {
                 return false;
             }
-
-            // close the con
-            AccessOp.closeAll(con, cmd, null);
+            finally
+            {
+                // close the con
+                AccessOp.closeAll(con, cmd, null);
+            }
 
             return true;
         

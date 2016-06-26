@@ -43,7 +43,7 @@ namespace DBCon1.test_dao
             // importExcel table
             for (int i = 0; i < tabNames.Count; i++ ){
                 
-                importExcel(DBName, excelPath, tabNames[i]);
+                return importExcel(DBName, excelPath, tabNames[i]);
             
             }
 

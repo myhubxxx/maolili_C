@@ -24,7 +24,7 @@ namespace 裕景管理系统.administrator
         {
             try
             {
-                dataGridView1.RowsDefaultCellStyle.Font = new Font("微软雅黑", 10, FontStyle.Bold);
+                dataGridView1.RowsDefaultCellStyle.Font = new Font(ShareLib.Font_Type, 10, FontStyle.Bold);
                 dataGridView1.RowsDefaultCellStyle.ForeColor = Color.BurlyWood;
                 DoManager domanager = new DoManager();
                 this.ds = domanager.getBRds(ConstatData.login.username);
@@ -32,22 +32,17 @@ namespace 裕景管理系统.administrator
                 da = domanager.getBRda(ConstatData.login.username);
                 dataGridView1.DataSource = ds.Tables["BumRemind"];
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-
-                MessageBox.Show("您还没有添加备忘录");
-
+                MessageBox.Show(ShareLib.No_Note);
             }
-            
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             DoManager domanager = new DoManager();
             OleDbDataAdapter da =domanager.getBRda(ConstatData.login.username);
             da.Update(ds, "BumRemind");
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < dataGridView1.SelectedRows.Count; i++)
@@ -55,7 +50,6 @@ namespace 裕景管理系统.administrator
                 dataGridView1.Rows.Remove(dataGridView1.SelectedRows[i]);
             }
         }
-
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();

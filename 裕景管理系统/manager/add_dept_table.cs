@@ -33,7 +33,7 @@ namespace 裕景管理系统.manager
                   );
             DataGridViewComboBoxColumn cbx = new DataGridViewComboBoxColumn();
 
-            cbx.Name = "类型";
+            cbx.Name =ShareLib.Combox_Name;
             cbx.DataSource = typeList;
             this.dataGridView1.Columns.Insert(1, cbx);
 
@@ -45,11 +45,11 @@ namespace 裕景管理系统.manager
             table.TableName = textBox1.Text;
          DoRrealManager drm=new DoRrealManager ();
 
-         if (MessageBox.Show("确定添加?", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+         if (MessageBox.Show(ShareLib.Comfoirm_Info, ShareLib.Notification, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
          {
              if (string.IsNullOrEmpty(textBox1.Text))
              {
-                 MessageBox.Show("请填写要创建的表名", "提示");
+                 MessageBox.Show(ShareLib.Notify_Add_TabName,ShareLib.Notification);
                  return;
              }
              if (!drm.check_department_totaltable(ConstatData.department.Dept_name))
@@ -70,20 +70,20 @@ namespace 裕景管理系统.manager
                              else
                              {
                                  error = true;
-                                 MessageBox.Show(string.Concat("请填写完整第", (i + 1).ToString(), "行的内容"), "提示");
+                                 MessageBox.Show(string.Concat(ShareLib.Add_Table_notif, (i + 1).ToString(),ShareLib.Row_Content), ShareLib.Notification);
                                  break;
                              }
                          }
                          else if (type == null && name != null && !string.IsNullOrEmpty(name.ToString()))
                          {
                              error = true;
-                             MessageBox.Show(string.Concat("请填写第", (i + 1).ToString(), "行的字段类型"), "提示");
+                             MessageBox.Show(string.Concat(ShareLib.Add_Table_notif, (i + 1).ToString(), ShareLib.Feild_Type), ShareLib.Notification);
                              break;
                          }
                          else if (type != null && name == null)
                          {
                              error = true;
-                             MessageBox.Show(string.Concat("请填写第", (i + 1).ToString(), "行的字段名称"), "提示");
+                             MessageBox.Show(string.Concat(ShareLib.Add_Table_notif, (i + 1).ToString(),ShareLib.Feild_Name),ShareLib.Notification);
                              break;
                          }
                      }
@@ -93,11 +93,11 @@ namespace 裕景管理系统.manager
                  table.DBName = ConstatData.department.Dept_name;
                  if (AccessOp.CreateAccessTab(table))
                  {
-                     MessageBox.Show("数据表添加成功");
+                     MessageBox.Show(ShareLib.Add_Table_Success);
                  }
                  else
                  {
-                     MessageBox.Show("数据表添加失败");
+                     MessageBox.Show(ShareLib.Add_Table_Faild);
                  }
                 
              }

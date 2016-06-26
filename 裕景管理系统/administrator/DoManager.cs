@@ -121,13 +121,16 @@ namespace 裕景管理系统.administrator
             OleDbDataAdapter da = dao.findAll_da(dbname);
             return da;
         }
+
+      
+     
         //增加一个部门
         public void adddepart(string newdepartment)
         {
 
             AccessOp.CreateAccessDb(newdepartment);
-            AccessOp.CreateDeptTotalTab(newdepartment);
-            AccessOp.CreatePurviewTab(newdepartment);
+     //       AccessOp.CreateDeptTotalTab(newdepartment);
+     //       AccessOp.CreatePurviewTab(newdepartment);
             DepartmentDao dao = new DepartmentDao();
             Department depe_name = new Department();
             depe_name.Dept_name = newdepartment;
@@ -222,15 +225,19 @@ namespace 裕景管理系统.administrator
             MyUserDao dao = new MyUserDao();
             List<MyUser> myuser = new List<MyUser>();
             myuser = dao.findallmanager_list();
-            foreach (MyUser user in myuser)
-            {
-                if (user.Uname == managername || user.Upass == userpwd)
-                {
-                    isnotexesit_manager = false;
-                    break;
-                }
-
+            if (myuser == null || myuser.Count() == 0) {
+                return true;
             }
+                foreach (MyUser user in myuser)
+                {
+                    if (user.Uname == managername )
+                    {
+                        isnotexesit_manager = false;
+                        break;
+                    }
+
+                }
+            
             return isnotexesit_manager;
         }
 
@@ -292,6 +299,25 @@ namespace 裕景管理系统.administrator
 
 
         }
+        //获得经理的账号信息
+        public DataSet  getmangerusername(int level)
+        {
+            DataSet ds = new DataSet();
+            MyUserDao dao = new MyUserDao();
+            ds = dao.findBylevel(level);
+            return ds;
+
+        }
+
+        public OleDbDataAdapter getmangerusername_da(int level)
+        {
+            OleDbDataAdapter da = new OleDbDataAdapter();
+            MyUserDao dao = new MyUserDao();
+            da = dao.findbylevel_da(level);
+            return da;
+
+
+        }
 
         //获得所有的经理的真实姓名
         public List<UserInfo> getmangername_list(int id)
@@ -306,9 +332,14 @@ namespace 裕景管理系统.administrator
             for (int i = 0; i < listid.Count; i++)
             {
                 UserInfo userInfo = userinfodao.load(listid[i]);
-                infolist.Add(userInfo);
+                if (userInfo!=null)
+                {
+                    infolist.Add(userInfo);
+                }
+               
 
             }
+
             return infolist;
 
         }
@@ -370,8 +401,9 @@ namespace 裕景管理系统.administrator
 
         }
         //检查管理员添加的备忘录是否到期
-        public void check_admin_note(string username)
+        public List< string>  check_admin_note(string username)
         {
+           List<String> notelist = new List<string>();
             DateTime currenttime = DateTime.Now;
             AdminDao admindao = new AdminDao();
             Dictionary<string, string> map = new Dictionary<string, string>();
@@ -391,25 +423,27 @@ namespace 裕景管理系统.administrator
 
             foreach (BumRemind remind in list)
             {
+              
                 int year = remind.EndTime.Year;
                 int month = remind.EndTime.Month;
                 int preday = remind.EndTime.Day;
                 int day = remind.EndTime.Day - remind.BeforeDay;
-
                 int cuday = currenttime.Day;
 
                 string time = year + "/" + month + "/" + preday;
                 if (currenttime >= remind.EndTime)
                 {
-                    MessageBox.Show("您有一项事务到期了,请尽快处理:    " + remind.Content);
                     // 删除该事务
-                     bumdao.deleteById(remind.Id);
+                  bumdao.deleteById(remind.Id);
                 }
                 if (day - cuday <= remind.BeforeDay)
                 {
-                    MessageBox.Show("您将在   " + time + "   有一项事务,请记得处理：    " + remind.Content);
+                   // MessageBox.Show("您将在   " + time + "   有一项事务,请记得处理：    " + remind.Content);
+                    //notifi = "aaaa";
+                    notelist.Add("请您在"  + time + "处理 " + remind.Content);
                 }
             }
+            return notelist;
         }
     }
 }

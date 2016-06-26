@@ -4,9 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
-using System.Windows.Forms;
-using 裕景管理系统.administrator;
-using System.Reflection;
 
 namespace 裕景管理系统
 {
@@ -20,108 +17,130 @@ namespace 裕景管理系统
         {
             return mySelf;
         }
-
-        /// <summary>
-        /// the method main for admin's solve the all Node'click
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        public void AdminGenericMethod(object sender, TreeViewEventArgs e, Panel p)
+        // exception handle
+        public void HandleExcption(Exception ex)
         {
-            string className = "裕景管理系统.administrator.dept_query";//e.Node.Tag.ToString();
-            // create the instance by className
-            Type type = Type.GetType(className);
-            // create instance
-            Object obj = Activator.CreateInstance(type);
-            //now get property TopLevel
-            MethodInfo methodInfo = null;
-            methodInfo = getMethod(type, "set_TopLevel");
-            object[] param = {false};
-            methodInfo.Invoke(obj, param);
-         
-            // get property Dock
-            methodInfo = getMethod(type, "set_Dock");
-            object[] param2 = { System.Windows.Forms.DockStyle.Fill };
-            methodInfo.Invoke(obj, param2);
+            Debug.Assert(false, "%s", ex.ToString());
 
-            //get property FormBorderStyle
-            methodInfo = getMethod(type, "set_FormBorderStyle");
-            object[] param3 = {FormBorderStyle.None};
-            methodInfo.Invoke(obj, param3);
-
-            // the panel 's method
-            p.Controls.Clear();
-            p.Controls.Add((Form)obj);
-
-            // get method Show
-            Type[] typeParam = System.Type.EmptyTypes;
-            MethodInfo method = type.GetMethod("Show", typeParam);
-            method.Invoke(obj, null);
-
-        
-        }
-      
-        private MethodInfo getMethod(Type type, string name) {
-            try
+            switch(ex.GetType().ToString())
             {
-                MethodInfo method = type.GetMethod(name);
-                
-                /*
-                FieldInfo[] fAll = type.GetFields();
-                FieldInfo[] f = type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance
-                                       | BindingFlags.Static | BindingFlags.DeclaredOnly | BindingFlags.IgnoreCase);
-                MethodInfo[] mm = type.GetMethods();
-                //int count = methods.Count();
-                for (int i = 0; i < mm.Count(); i++)
-                {
-                    string temp = mm[i].Name.ToString();
-                    if (temp.IndexOf("Show") != -1)
-                    {
-                        MessageBox.Show(mm[i].ToString() + ":" + temp);
-                    }
-                }
-                */
-
-                return method;
-            }catch(Exception ex){
-                return null;
-            }
-
-        }
-
-        /// <summary>
-        /// not finish
-        ///  this method use to handle all exception.
-        ///  Attention : i just get the exception's message to return, 
-        ///  but i want to found the best solution.
-        /// </summary>
-        /// <param name="ex"></param>
-        public string HandleExcption(Exception ex)
-        {
-            string exceptionType = ex.GetType().ToString();
-            MessageBox.Show(exceptionType);
-
-            switch( exceptionType ){
-                
-                case "" :
+                case "syste.KeyNotFoundException":
                     break;
-                case "-" :
+                case "System.IO.DirectoryNotFoundException":
                     break;
                 default:
+                    //unhandle error ex.GetType().ToString(),please contact dev team. 
                     break;
-
             }
-
-            return null;
-        }       
+        }  
+     
 
         //pulibc string
         //Login:
+        //role
+        public const string Admin = "管理员";
         public const string LOGIN_INPUT_NULL = "账号或密码不能为空";
-        //.....
-
+        public const string Role_Error = "对不起，您的角色选择错误，请重新选择";
+        public const string Pwd_Error = "密码错误请重新输入";
+        public const string Username_Error = "账号有误,请重新输入";
+        public const string Unknow_Nsername = "未知账号";
+        public const string Unknow_Level = "未知角色";
+        public const string Error ="密码或账号错误请重新输入";
+        public const string AsureMess = "确认退出程序?";
+        public const string SystemInform = "系统提示";
         public const string HAVE_NO_ACCESS = "未获取到相应的权限";
-
         //end
+
+        //Administrator:
+        //Add department
+        public const string Add_Success = "部门创建成功";
+        public const string Dept_Has_Exsist = "部门已经存在，请重新添加";
+        //Add Manager
+        public const string Add_Manger_sccess = "部门经理添加成功";
+        public const string Manager_Username_Exsist = "账号或密码已经存在";
+        //Add Note
+        public const string Note_Not_Complete = "请将信息填写完整再提交";
+        public const string Note_Add_Success = "备忘录添加成功";
+        public const string Note_Title_Exsist = "对不起，您添加的备忘录标题已经存在";
+        //Add_Tale
+        public const string Combox_Name = "类型";
+        public const string Comfoirm_Info = "确定添加?";
+        public const string Notification = "提示";
+        public const string Notify_Add_TabName = "请填写要创建的表名";
+        public const string Add_Table_notif = "请填写完整第";
+        public const string Row_Content = "行的内容";
+        public const string Feild_Type = "行的字段类型";
+        public const string Feild_Name = "行的字段名称";
+        public const string Add_Table_Success = "数据表添加成功";
+        public const string Add_Table_Faild = "数据表添加失败";
+        public const string Table_Has_Exsist_notifi = "该部门已经存在";
+        public const string Notifi_Add_NewName = "这张表，请重新输入表格名称";
+        //importtable
+        public const string Importtable_Name_Include_Space = "excel表格底部的Sheet名称不能有空格";
+        public const string Importtable_has_exsist = "该数据表已经存在，无需导入";
+        //Admin index
+        //.....
+        //checkuser
+        public const string Check_pwd = "对不起，操作失败，请确认密码";
+        public const string Comfirm_delete_dept = "确实要删除该部门吗？";
+        public const string Make_Sure = "确认";
+        public const string Delete_Dept_Success = "删除成功";
+        //delet manager
+        public const string Confirm_DeletManager = "确实要删除该经理吗";
+        public const string Mnager_Delete_Success = "经理删除成功";
+        //delete tables
+        public const string Dept_No_Table = "您选择的部门还未创建任何表，请重新选择";
+        public const string Comfirm_Delete_Table = "确实要删除该数据表吗？";
+        public const string Delete_Table_Success = "数据表删除成功";
+        //dept_datainfo
+        public const string Time_Error = "建表时间不能大于当前时间";
+        public const string Font_Type = "微软雅黑";
+        //manage manager
+        public const string No_Manager = "对不起，您还没有添加任何经理";
+        public const string CMB_name = "部门";
+        public const string Confirm_Modify_Manger = "确实要保存修改吗";
+        public const string Modify_Success = "修改成功";
+        //manage_note
+        public const string No_Note = "您还没有添加备忘录";
+        public const string No_Staff = "对不起，当前还未分配员工账号";
+        //manage_staffinfo
+        public const string No_StaffInfo = "对不起，员工信息尚无";
+       public const string Type = "Excel文件(*.xlsx)|*.xlsx";
+        //add_dept_worker
+        public const string Add_Staff_Success = "员工账号添加成功";
+        public const string Staff_Username_Exsist = "账号或密码已经存在";
+        //add level
+        public const string No_Level_tosee = "不可见";
+        public const string Level_tosee = "可见";
+        public const string Can_ReadandWrite = "可见可写";
+        public const string Add_Level_Success = "权限分配成功";
+       //delete staff
+        public const string Comfirm_Delete_Staff = "确实要删除该员工吗";
+        public const string Staff_Delete_Success = "该员工已经被删除";
+        //manage_level
+        public const string Staff_NoLevel_Table = "对不起，该员工尚未被分配可操作表";
+        //add user info
+        public const string Add_User_Info_Success="信息录入成功";
+        public const string Add_Info_Failed = "信息录入失败，请填写完整信息";
+        //manager don't give level to staff
+        public const string NotGivenLevel = "对不起，经理还未为您分配您的可操作表";
+        
+
+
+   
+
+
+
+
+
+
+
+
+
+
+        
+
+       
 
         private static ShareLib mySelf = new ShareLib();
     }

@@ -13,6 +13,7 @@ using DBCon1.Dao;
 using 裕景管理系统.administrator;
 using 裕景管理系统.manager;
 using 裕景管理系统.staff;
+using 裕景管理系统.top_Manager;
 namespace 裕景管理系统
 {
     public partial class Login : Form
@@ -23,8 +24,7 @@ namespace 裕景管理系统
         }
         public string username
         {
-
-            get { return textBox1.Text; }
+          get { return textBox1.Text; }
         }
         public string userpwd
         {
@@ -35,7 +35,6 @@ namespace 裕景管理系统
         {
             ConstatData.login = this;
             comboBox1.SelectedIndex = 1;
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -47,34 +46,42 @@ namespace 裕景管理系统
             else
             {
                 dologic dologicadmin = new dologic();
-                if (comboBox1.Text == "管理员")
+                if (comboBox1.Text == ShareLib.Admin)
                 {
                     Dictionary<string, string> map = dologicadmin.getadmin(textBox1.Text);
                     try
                     {
                         if (map["uname"] == null)
                         {
-                            MessageBox.Show("对不起，您的身份选择错误，请重新选择");
+                           MessageBox.Show(ShareLib.Role_Error);
                         }
                         else
                         {
                             if (map["upass"] == textBox2.Text)
                             {
-                                //this.Hide();
-                                admin admin = new administrator.admin();
+                                if (map["adminlevel"] == "1")
+                                {
+                                    admin admin = new administrator.admin();
+                                    admin.Show();
+                                    this.Hide();
+                                }
+                                else
+                                {
+                                    Top_Manager tm = new Top_Manager();
+                                    tm.Show();
+                                    this.Hide();
 
-                                admin.Show();
-                                this.Hide();
+                                }
                             }
                             else
                             {
-                                MessageBox.Show("密码错误请重新输入");
+                                MessageBox.Show(ShareLib.Pwd_Error);
                             }
                         }
                     }
                     catch (Exception )
                     {
-                        MessageBox.Show("账号有误,请重新输入");
+                      MessageBox.Show(ShareLib.Username_Error);
                     }
                 }
                 else
@@ -82,7 +89,7 @@ namespace 裕景管理系统
                     MyUser user = dologicadmin.getuser(textBox1.Text);
                     if (user == null)
                     {
-                        MessageBox.Show("unknown account!");
+                        MessageBox.Show(ShareLib.Username_Error);
                     }
                     else
                     {
@@ -105,31 +112,26 @@ namespace 裕景管理系统
                                     }
                                     break;
                                 default:
-                                    MessageBox.Show("Unknown access level!");
-                                    break;
-                                        
+                                    MessageBox.Show(ShareLib.Unknow_Level);
+                                    break; 
                             }
                         }
                         else
                         {
-                            MessageBox.Show("密码或账号错误请重新输入");
+                           MessageBox.Show(ShareLib.Error);
                         }
                     }
                 }
             }
         }
-
         private void Login_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("确认退出程序?", "系统提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            if (MessageBox.Show(ShareLib.AsureMess, ShareLib.SystemInform, MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 ConstatData.FormClose();
             }
             else
-                e.Cancel = true;//取消退出事件
+                e.Cancel = true;
         }
-           
-           
-        
     }
 }

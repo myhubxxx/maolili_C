@@ -34,28 +34,36 @@ namespace 裕景管理系统.manager
             }
             catch (Exception ex)
             {
-                MessageBox.Show("该部门尚未建立数据表");
+                MessageBox.Show(ShareLib.Dept_No_Table);
 
             }
-            
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.DialogResult result =
               System.Windows.Forms.MessageBox.Show(
-                      "确实要删除该数据表吗？",
-                      "确认",
+                      ShareLib.Comfirm_Delete_Table,
+                      ShareLib.Make_Sure,
                       MessageBoxButtons.OKCancel,
                       MessageBoxIcon.Question);
             if (result == System.Windows.Forms.DialogResult.OK)
             {
-                //确认处理
-
+                
+                
                 AccessOp.DeleteAccessTab(ConstatData.department.Dept_name, comboBox1.SelectedItem.ToString());
-                MessageBox.Show("数据表删除成功");
+                MessageBox.Show(ShareLib.Delete_Table_Success);
+                DoRrealManager drm = new DoRrealManager();
+                List<TotalTable> list = new List<TotalTable>();
+                list = drm.gettables_list(ConstatData.department.Dept_name);
+                if (list == null || list.Count() == 0)
+                {
+                    comboBox1.DataSource = null;
+                }
+                else
+                {
+                    comboBox1.DataSource = list.Select(a => a.Tablename).ToList();
+                }
             }
-            
         }
     }
 }

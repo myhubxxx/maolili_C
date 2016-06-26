@@ -5,11 +5,13 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using 裕景管理系统.Domain;
 using 裕景管理系统.manager;
+
 
 namespace 裕景管理系统.administrator
 {
@@ -22,8 +24,16 @@ namespace 裕景管理系统.administrator
 
         private void admin_Load(object sender, EventArgs e)
         {
+            label5.ForeColor = Color.Red;
             DoManager domanger = new DoManager();
-            domanger.check_admin_note("test");//ConstatData.login.username);
+            List<string> messge = new List<string>();
+           messge=domanger.check_admin_note(ConstatData.login.username);
+         // label5.Text += messge;
+           for (int i = 0; i < messge.Count; i++)
+           {
+               label5.Text += messge[i]+"   ";
+
+           }
             ConstatData.admin = this;
             index index = new index();
             index.TopLevel = false;
@@ -33,37 +43,29 @@ namespace 裕景管理系统.administrator
             panel1.Controls.Add(index);
             index.Show();
         }
-        /// <summary>
-        /// this method must be Reconstruction,the if-else is so toning,
-        /// must to make it small.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
             DoManager domanager = new DoManager();
-             if (e.Node.Text.Trim() == "查询所有部门")
-                {
+            if (e.Node.Text.Trim() == "查询所有部门")
+               {
                     if (domanager.checkdepartment())
                     {
-                        
                         dept_query dept = new dept_query();
-
-                        dept.TopLevel = false;
-                        dept.Dock = System.Windows.Forms.DockStyle.Fill;
-                        dept.FormBorderStyle = FormBorderStyle.None;
-                        panel1.Controls.Clear();
-                        panel1.Controls.Add(dept);
-                        dept.Show();
-                         
-                        ShareLib.Instance().AdminGenericMethod(sender, e, panel1);
+                       dept.TopLevel = false;
+                       dept.Dock = System.Windows.Forms.DockStyle.Fill;
+                       dept.FormBorderStyle = FormBorderStyle.None;
+                       panel1.Controls.Clear();
+                       panel1.Controls.Add(dept);
+                       dept.Show();
+                    
                     }
                     else
                     {
                         MessageBox.Show("对不起，您当前未创建任何部门，无法查询");
                     }
 
-                }
+               }
             
             if (e.Node.Text.Trim() == "查询部门下的数据表")
             {

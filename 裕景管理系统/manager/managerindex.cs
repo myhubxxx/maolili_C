@@ -25,6 +25,7 @@ namespace 裕景管理系统.manager
 
         private void manager_Load(object sender, EventArgs e)
         {
+            label6.ForeColor = Color.Red;
             ConstatData.manager = this;
             index index = new index();
             index.TopLevel = false;
@@ -35,10 +36,22 @@ namespace 裕景管理系统.manager
             index.Show();
 
             DoRrealManager drm = new DoRrealManager();
-            drm.check_if_isdate(ConstatData.login.username);
+            List<string> mess = new List<string>();
+           mess=drm.check_if_isdate(ConstatData.login.username);
+           for (int i = 0; i < mess.Count; i++)
+           {
+               label6.Text += mess[i]+"  ";
+           }
             label2.Text = drm.get_depatName(ConstatData.login.username);
 
-
+            if (drm.cheke_userinfodetail(ConstatData.login.username))
+            {
+                treeView1.Nodes[4].Nodes[0].ForeColor = Color.Gray;
+            }
+            if (!drm.cheke_userinfodetail(ConstatData.login.username))
+            {
+                treeView1.Nodes[5].Nodes[0].ForeColor = Color.Gray;
+            }
             
         }
 
@@ -112,7 +125,7 @@ namespace 裕景管理系统.manager
                 {
 
 
-                    add_level al = new add_level();
+                    New_add_level al = new New_add_level();
                     al.TopLevel = false;
                     al.Dock = System.Windows.Forms.DockStyle.Fill;
                     al.FormBorderStyle = FormBorderStyle.None;
@@ -175,14 +188,34 @@ namespace 裕景管理系统.manager
                     panel1.Controls.Add(aui);
                     aui.Show();
                 }
+            }
+            if (e.Node.Text.Trim() == "导入数据表")
+            {
+                OpenFileDialog file = new OpenFileDialog();
+                file.InitialDirectory = Application.StartupPath;
+                file.Filter = null;
+                if (file.ShowDialog() == DialogResult.OK)
+                {
+                    string filename = file.FileName;
+                   
+                    ImportExcel ie = new ImportExcel();
+                    ie.importExcelAllTable(ConstatData.department.Dept_name, filename);
+                    MessageBox.Show("导入成功");
+                }
                 else
                 {
-                    MessageBox.Show("您已经录入了个人信息，不用再次录入");
-
+                    return;
                 }
-
-
-
+            }
+            if (e.Node.Text.Trim() == "导出数据表")
+            {
+                M_output_table mot = new M_output_table();
+                mot.TopLevel = false;
+                mot.Dock = System.Windows.Forms.DockStyle.Fill;
+                mot.FormBorderStyle = FormBorderStyle.None;
+                panel1.Controls.Clear();
+                panel1.Controls.Add(mot);
+                mot.Show();
             }
             if (e.Node.Text.Trim() == "修改个人信息")
             {
@@ -198,13 +231,7 @@ namespace 裕景管理系统.manager
                     mi.Show();
 
                 }
-                else
-                {
-
-                    MessageBox.Show("对不起，您还没有录入个人信息，无法修改个人信息");
-
-                }
-
+               
             }
             if (e.Node.Text.Trim() == "删除数据表格")
             {
@@ -233,16 +260,16 @@ namespace 裕景管理系统.manager
             OpenFileDialog file = new OpenFileDialog();
             file.InitialDirectory = Application.StartupPath;
             file.DefaultExt = "xls";
-            file.Filter = null;//默认为任何文件
+            file.Filter = null;
 
-            if (file.ShowDialog() == DialogResult.OK)//在对话框里点了导入
+            if (file.ShowDialog() == DialogResult.OK)
             {
                 string filepath = file.FileName;
                 FileInfo fileInfo = new FileInfo(filepath);
 
-                string path1 = @"F:/裕景管理系统/裕景管理系统/Share/";
+                string path1 = System.IO.Directory.GetCurrentDirectory() + "\\Share\\";
                 File.Copy(filepath, path1 + fileInfo.Name);
-                //  File.Copy(filepath, AccessOp.sharePath +'\\' + fileInfo.Name);
+                ////  File.Copy(filepath, AccessOp.sharePath +'\\' + fileInfo.Name);
                 MessageBox.Show("上传成功");
 
 
@@ -276,6 +303,17 @@ namespace 裕景管理系统.manager
         {
             manage_notes mn = new manage_notes();
             mn.Show();
+        }
+
+        private void treeView1_BeforeSelect(object sender, TreeViewCancelEventArgs e)
+        {
+            if (e.Node != null)
+            {
+                if (e.Node.ForeColor == SystemColors.Control)
+                {
+                    e.Cancel = true;  //不让选中禁用节点
+                }
+            }
         }
     }
 }

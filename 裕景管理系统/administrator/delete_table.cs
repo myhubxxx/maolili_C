@@ -20,20 +20,18 @@ namespace 裕景管理系统.administrator
         {
             InitializeComponent();
         }
-
         private void delete_table_Load(object sender, EventArgs e)
         {
             DoManager domanager=new DoManager ();
             List<Department> dept = domanager.getalldept_list();
             comboBox1.DataSource = dept.Select(a => a.Dept_name).ToList();
         }
-
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             DoManager DM = new DoManager();
             if (!DM.check_department_totaltable(comboBox1.SelectedItem.ToString()))
             {
-                MessageBox.Show("您选择的部门还未创建任何表，请重新选择");
+                MessageBox.Show(ShareLib.Dept_No_Table);
             }
             else
             {
@@ -42,25 +40,32 @@ namespace 裕景管理系统.administrator
                 comboBox2.DataSource = table.Select(a => a.Tablename).ToList();
             }
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
              System.Windows.Forms.DialogResult result =
                System.Windows.Forms.MessageBox.Show(
-                       "确实要删除该数据表吗？",
-                       "确认",
+                       ShareLib.Comfirm_Delete_Table,
+                       ShareLib.Make_Sure,
                        MessageBoxButtons.OKCancel,
                        MessageBoxIcon.Question);
              if (result == System.Windows.Forms.DialogResult.OK)
              {
-                 //确认处理
-
                  AccessOp.DeleteAccessTab(comboBox1.SelectedItem.ToString(), comboBox2.SelectedItem.ToString());
-                 MessageBox.Show("数据表删除成功");
+                 MessageBox.Show(ShareLib.Delete_Table_Success);
+                
+                  DoManager domanager = new DoManager();
+                  if (domanager.check_department_totaltable(comboBox1.SelectedItem.ToString()))
+                  {
+                      List<TotalTable> table = domanager.get_alltable_list(comboBox1.Text);
+                      comboBox2.DataSource = table.Select(a => a.Tablename).ToList();
+                  }
+                  else
+                  {
+                      comboBox2.DataSource = null;
+                  }
+                 
              }
-            
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             ConstatData.admin.Show();

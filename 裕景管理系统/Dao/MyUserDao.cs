@@ -163,6 +163,14 @@ namespace DBCon1.Dao
 
 
         }
+        public OleDbDataAdapter findbylevel_da(int id)
+        {
+
+            string sql = "select * from myuser where userlevel=" + id;
+            OleDbConnection con = getCon(null);
+            OleDbDataAdapter da = new OleDbDataAdapter(sql, con);
+            return da;
+        }
         // find by userlevel
         public List<MyUser> findBylevelList(int id) {
             string sql = "select * from myuser where userlevel=" + id;

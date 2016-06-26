@@ -138,14 +138,21 @@ namespace 裕景管理系统.manager
             MyUserDao dao = new MyUserDao();
             List<MyUser> myuser = new List<MyUser>();
             myuser = dao.findalldept_worker();
-            foreach (MyUser user in myuser)
+            if (myuser == null || myuser.Count() == 0)
             {
-                if (user.Uname == managername || user.Upass == userpwd)
+                return true;
+            }
+            else
+            {
+                foreach (MyUser user in myuser)
                 {
-                    isnotexesit_manager = false;
-                    break;
-                }
+                    if (user.Uname == managername)
+                    {
+                        isnotexesit_manager = false;
+                        break;
+                    }
 
+                }
             }
             return isnotexesit_manager;
         }
@@ -162,8 +169,12 @@ namespace 裕景管理系统.manager
             List<int> listId = user.Select(a => a.Id).ToList();
             for (int i = 0; i < listId.Count; i++)
             {
+
                 UserInfo bean = d.load(listId[i]);
-                list.Add(bean);
+                if (bean != null)
+                {
+                    list.Add(bean);
+                }
             }
             return list;
 
@@ -187,6 +198,31 @@ namespace 裕景管理系统.manager
 
 
         }
+        //检查某个员工是否已经被分配了权限
+        public PurviewTable if_has_allocated( string dbname,int dept_user, string tablename)
+        {
+            //bool has_allocated = true;
+            
+              PurviewTableDao dao=new PurviewTableDao ();
+              PurviewTable bean = dao.loadbyallinfomation(dbname, tablename, dept_user);
+              if (bean != null)
+              {// mean this user has the purview to the table,must check the Purview'value is same as the From'value,Same do no nothing, Not Same update Purivew'value
+
+
+                  return bean;
+                  
+              }
+              return null;
+
+        }
+        //修改用户权限
+        public void changepurview(string dbname, PurviewTable table)
+        {
+            PurviewTableDao dao = new PurviewTableDao();
+            dao.updatepur(dbname, table);
+
+        }
+
 
         //获得purviewtable的dept_userid
         public int  gettable_dept_userid(string username)
@@ -337,8 +373,9 @@ namespace 裕景管理系统.manager
 
         }
         //检测是否备忘录中的时间到期
-        public void check_if_isdate(string username)
+        public List<string > check_if_isdate(string username)
         {
+            List<string> listnote = new List<string>();
             DateTime currenttime = DateTime.Now;  
             MyUserDao dao = new MyUserDao();
             MyUser myuser = new MyUser();
@@ -358,25 +395,16 @@ namespace 裕景管理系统.manager
                 string time = year + "/" + month + "/" + preday;
                 if (currenttime >= remind.EndTime)
                 {
-                    MessageBox.Show("您有一项事务到期了,请尽快处理:    " + remind.Content);
                    //  删除该事务
-                   bumdao.deleteById(remind.Id);
-
+                    bumdao.deleteById(remind.Id);
 
                 }
                 if (day - cuday <= remind.BeforeDay)
                 {
-                    MessageBox.Show("您将在   " + time + "   有一项事务,请记得处理：    " + remind.Content);
-
+                    listnote.Add("请您在" + time + "处理 " + remind.Content);
                 }
             }
-
-
-
-
-
-
-
+            return listnote;
         }
 
        

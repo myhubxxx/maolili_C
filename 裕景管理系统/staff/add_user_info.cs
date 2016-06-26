@@ -19,15 +19,12 @@ namespace 裕景管理系统.staff
         {
             InitializeComponent();
         }
-
         private void add_user_info_Load(object sender, EventArgs e)
         {
-           
             DoManager domanager = new DoManager();
             List<Department> list = domanager.getalldept_list();
             comboBox1.DataSource = list.Select(a => a.Dept_name).ToList();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -60,13 +57,11 @@ namespace 裕景管理系统.staff
                 DateTime startwork = DateTime.Parse(dateTimePicker2.Text);
                 DateTime joincompay = DateTime.Parse(dateTimePicker3.Text);
                 DST.addinfo(ConstatData.login.username, name, sex, dbnae, nation, jiguan, birthday, startwork, joincompay, idcard, zhiwu, zhiyezhuce, biyeyuanxiao, xueli, jaitingzhizhi, ssn, zhiochengzheng, beizhu,tele);
-
-                MessageBox.Show("信息录入成功");
+                MessageBox.Show(ShareLib.Add_User_Info_Success);
             }
-
             catch(Exception)
             {
-                MessageBox.Show("请先填写相关信息");
+                MessageBox.Show(ShareLib.Add_Info_Failed);
             }
         }
     }

@@ -31,9 +31,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Interop.ADOX">
       <HintPath>obj\Debug\Interop.ADOX.dll</HintPath>
@@ -161,14 +158,18 @@
     <Compile Include="administrator\show.Designer.cs">
       <DependentUpon>show.cs</DependentUpon>
     </Compile>
+    <Compile Include="administrator\show_table_infomation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="administrator\show_table_infomation.Designer.cs">
+      <DependentUpon>show_table_infomation.cs</DependentUpon>
+    </Compile>
     <Compile Include="administrator\table_query.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="administrator\table_query.Designer.cs">
       <DependentUpon>table_query.cs</DependentUpon>
     </Compile>
-    <Compile Include="class_test\HandleException.cs" />
-    <Compile Include="class_test\TestAdmin.cs" />
     <Compile Include="Dao\AbstractDao.cs" />
     <Compile Include="Dao\AccessOp.cs" />
     <Compile Include="Dao\AdminDao.cs" />
@@ -285,6 +286,24 @@
     <Compile Include="manager\mannage_levels.Designer.cs">
       <DependentUpon>mannage_levels.cs</DependentUpon>
     </Compile>
+    <Compile Include="manager\M_inputtable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="manager\M_inputtable.Designer.cs">
+      <DependentUpon>M_inputtable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="manager\M_output table.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="manager\M_output table.Designer.cs">
+      <DependentUpon>M_output table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="manager\New_add_level.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="manager\New_add_level.Designer.cs">
+      <DependentUpon>New_add_level.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShareLib.cs" />
@@ -312,6 +331,42 @@
     </Compile>
     <Compile Include="staff\staff.Designer.cs">
       <DependentUpon>staff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="top Manager\TM_search_manager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="top Manager\TM_search_manager.Designer.cs">
+      <DependentUpon>TM_search_manager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="top Manager\TM_search_staff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="top Manager\TM_search_staff.Designer.cs">
+      <DependentUpon>TM_search_staff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="top Manager\TM_search_staffinfomation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="top Manager\TM_search_staffinfomation.Designer.cs">
+      <DependentUpon>TM_search_staffinfomation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="top Manager\TM_show_table_info.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="top Manager\TM_show_table_info.Designer.cs">
+      <DependentUpon>TM_show_table_info.cs</DependentUpon>
+    </Compile>
+    <Compile Include="top Manager\TM_table_query.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="top Manager\TM_table_query.Designer.cs">
+      <DependentUpon>TM_table_query.cs</DependentUpon>
+    </Compile>
+    <Compile Include="top Manager\Top_Manager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="top Manager\Top_Manager.Designer.cs">
+      <DependentUpon>Top_Manager.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="administrator\add_department.resx">
       <DependentUpon>add_department.cs</DependentUpon>
@@ -367,6 +422,9 @@
     <EmbeddedResource Include="administrator\show.resx">
       <DependentUpon>show.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="administrator\show_table_infomation.resx">
+      <DependentUpon>show_table_infomation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="administrator\table_query.resx">
       <DependentUpon>table_query.cs</DependentUpon>
     </EmbeddedResource>
@@ -412,6 +470,15 @@
     <EmbeddedResource Include="manager\mannage_levels.resx">
       <DependentUpon>mannage_levels.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="manager\M_inputtable.resx">
+      <DependentUpon>M_inputtable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="manager\M_output table.resx">
+      <DependentUpon>M_output table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="manager\New_add_level.resx">
+      <DependentUpon>New_add_level.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -432,6 +499,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="staff\staff.resx">
       <DependentUpon>staff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="top Manager\TM_search_manager.resx">
+      <DependentUpon>TM_search_manager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="top Manager\TM_search_staff.resx">
+      <DependentUpon>TM_search_staff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="top Manager\TM_search_staffinfomation.resx">
+      <DependentUpon>TM_search_staffinfomation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="top Manager\TM_show_table_info.resx">
+      <DependentUpon>TM_show_table_info.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="top Manager\TM_table_query.resx">
+      <DependentUpon>TM_table_query.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="top Manager\Top_Manager.resx">
+      <DependentUpon>Top_Manager.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

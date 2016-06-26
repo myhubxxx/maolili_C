@@ -26,14 +26,11 @@ namespace 裕景管理系统.administrator
         private System.Data.OleDb.OleDbDataAdapter da = null;
         public string dbname
         {
-
             get { return comboBox1.SelectedItem.ToString(); }
         }
         public string tbname
         {
-
             get { return comboBox2.SelectedItem.ToString(); }
-
         }
         private void dept_datainfo_Load(object sender, EventArgs e)
         {
@@ -42,60 +39,48 @@ namespace 裕景管理系统.administrator
             List<Department> list = domanager.getalldept_list();
             comboBox1.DataSource = list.Select(a => a.Dept_name).ToList();
         }
-
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             string db = comboBox1.SelectedItem.ToString(); 
             DateTime t1 = DateTime.Parse(dateTimePicker1.Text);
             DateTime t2 = DateTime.Parse(dateTimePicker2.Text);
             DoManager domanager = new DoManager();
-
             try
             {
                 List<TotalTable> alltable = domanager.getalltable_list(db, t1, t2);
                 comboBox2.DataSource = alltable.Select(a => a.Tablename).ToList();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
-                MessageBox.Show("开始时间不能大于结束时间");
-
-
+                MessageBox.Show(ShareLib.Time_Error);
             }
-         
-
-
         }
-
         private void button1_Click(object sender, EventArgs e)
         {     
             ConstatData.tbname = comboBox2.Text;
             ConstatData.dbname = comboBox1.Text;
-            dataGridView1.RowsDefaultCellStyle.Font = new Font("微软雅黑", 10, FontStyle.Bold);
+            dataGridView1.RowsDefaultCellStyle.Font = new Font(ShareLib.Font_Type, 10, FontStyle.Bold);
             dataGridView1.RowsDefaultCellStyle.ForeColor = Color.BurlyWood;
-
             try
             {
                 DoManager domanager = new DoManager();
-                OleDbDataAdapter da = new OleDbDataAdapter();
-                this.ds = domanager.gettableds(ConstatData.dbname, ConstatData.tbname);
+               OleDbDataAdapter da = new OleDbDataAdapter();
+               this.ds = domanager.gettableds(ConstatData.dbname, ConstatData.tbname);
                 da = domanager.gettableda(ConstatData.dbname, ConstatData.tbname);
-
                 dataGridView1.DataSource = ds.Tables[ConstatData.tbname];
             }
-            catch (Exception ex)
+            catch (Exception )
             {
-                MessageBox.Show("该部门还未创建任何数据表");
+                MessageBox.Show(ShareLib.Dept_No_Table);
             }
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             //karas: i suggest we don't call DB function in this layer.
             DoManager domanager = new DoManager();
             OleDbDataAdapter da = domanager.gettableda(ConstatData.dbname, ConstatData.tbname);
-            da.Update(ds,ConstatData.tbname);
+            da.Update(this.ds,ConstatData.tbname);
         }
-
         private void button3_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < dataGridView1.SelectedRows.Count; i++)
@@ -103,7 +88,6 @@ namespace 裕景管理系统.administrator
                 dataGridView1.Rows.Remove(dataGridView1.SelectedRows[i]);
             }
         }
-
         private void button4_Click(object sender, EventArgs e)
         {
             ConstatData.admin.Show();

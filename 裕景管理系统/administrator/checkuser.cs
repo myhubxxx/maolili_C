@@ -21,51 +21,37 @@ namespace 裕景管理系统.administrator
         {
             InitializeComponent();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             if (textBox1.Text!= ConstatData.login.userpwd)
             {
-                MessageBox.Show("对不起，操作失败，请确认密码");
-
+                MessageBox.Show(ShareLib.Check_pwd);
             }
             else
             {
                      System.Windows.Forms.DialogResult result =
                     System.Windows.Forms.MessageBox.Show(
-                            "确实要删除该部门吗？",
-                            "确认",
+                            ShareLib.Comfirm_delete_dept,
+                            ShareLib.Make_Sure,
                             MessageBoxButtons.OKCancel,
                             MessageBoxIcon.Question);
                      if (result == System.Windows.Forms.DialogResult.OK)
                      {
                          DoManager domanager = new DoManager();
                          domanager.delete_dept(ConstatData.dele_dept.dele_dept_name);
-                         MessageBox.Show("删除成功");
-                       
+                         MessageBox.Show(ShareLib.Delete_Dept_Success);
                      }
-
                      else
                      {
                          return;
-
                      }
-
-
-
-
-            }
-                
+            } 
         }
-
         private void checkuser_Load(object sender, EventArgs e)
         {
-
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
-      
             this.Close();
         }
     }

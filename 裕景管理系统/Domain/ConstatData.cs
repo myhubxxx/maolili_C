@@ -9,6 +9,7 @@ using 裕景管理系统.staff;
 using 裕景管理系统.Domain;
 using 裕景管理系统.administrator;
 using 裕景管理系统.manager;
+using 裕景管理系统.top_Manager;
 namespace 裕景管理系统.Domain
 {
    public class ConstatData
@@ -102,6 +103,7 @@ namespace 裕景管理系统.Domain
        ///
        public static Manager manager{get;set;}
        
+       
      
        ///员工登录首页
        ///
@@ -114,6 +116,14 @@ namespace 裕景管理系统.Domain
        public static Department department { get; set; }
 
 
+       public static table_query tab_query { get; set; }
+       public static string DEPART_NAME { get; set; }
+       public static string ck_name { get; set; }
+
+
+       public static TM_table_query TM_TB { get; set; }
+       public static string TM_deptname { get; set; }
+       public static string TM_tbname { get; set; }
 
        /// <summary>
        /// 关闭程序并结束进程

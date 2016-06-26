@@ -27,23 +27,19 @@ namespace 裕景管理系统.administrator
             dept = domanager.getalldept_list();
             comboBox1.DataSource = dept.Select(a => a.Dept_name).ToList();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             DoManager domanager = new DoManager();
             if (domanager.checkmanager(textBox1.Text, textBox2.Text))
             {
                 domanager.add_manager(textBox1.Text, textBox2.Text, comboBox1.Text);
-                MessageBox.Show("部门经理添加成功");
-
+                MessageBox.Show(ShareLib.Add_Manger_sccess);
             }
             else
             {
-
-                MessageBox.Show("账号或密码已经存在");
+                MessageBox.Show(ShareLib.Manager_Username_Exsist);
             }
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             ConstatData.admin.Show();

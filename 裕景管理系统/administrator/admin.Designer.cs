@@ -80,6 +80,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -203,6 +204,7 @@
             this.treeView1.Location = new System.Drawing.Point(0, 61);
             this.treeView1.Name = "treeView1";
             treeNode1.Name = "节点5";
+            treeNode1.Tag = "dept_query";
             treeNode1.Text = "查询所有部门";
             treeNode2.Name = "节点6";
             treeNode2.Text = "查询部门下的数据表";
@@ -283,9 +285,9 @@
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(185, 31);
+            this.panel1.Location = new System.Drawing.Point(185, 61);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(772, 618);
+            this.panel1.Size = new System.Drawing.Size(772, 588);
             this.panel1.TabIndex = 5;
             // 
             // label4
@@ -300,6 +302,16 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "功     能     菜     单";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("幼圆", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label5.Location = new System.Drawing.Point(195, 42);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(49, 14);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "消息：";
+            // 
             // admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -307,6 +319,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(957, 684);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label3);
@@ -350,5 +363,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ToolStripMenuItem 添加备忘录ToolStripMenuItem;
+        private System.Windows.Forms.Label label5;
     }
 }

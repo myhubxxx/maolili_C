@@ -34,6 +34,7 @@ namespace 裕景管理系统.administrator
                 {
                     DirectoryInfo dirinfo = new DirectoryInfo(fs.FullName);
                     listView1.Items.Add(dirinfo.Name);
+                   
                     listView1.Items[listView1.Items.Count - 1].SubItems.Add(dirinfo.FullName);
                     listView1.Items[listView1.Items.Count - 1].SubItems.Add("");
                     listView1.Items[listView1.Items.Count - 1].SubItems.Add(dirinfo.CreationTime.ToShortDateString());
@@ -46,6 +47,7 @@ namespace 裕景管理系统.administrator
                     listView1.Items[listView1.Items.Count - 1].SubItems.Add(finfo.FullName);
                     listView1.Items[listView1.Items.Count - 1].SubItems.Add(finfo.Length.ToString());
                     listView1.Items[listView1.Items.Count - 1].SubItems.Add(finfo.CreationTime.ToShortDateString());
+                  
                 }
             }
         }
