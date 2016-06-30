@@ -86,7 +86,7 @@ namespace 裕景管理系统.manager
             }
             if (e.Node.Text.Trim() == "删除部门员工账号")
             {
-                delete_dept_worker ddw = new delete_dept_worker();
+                New_delete_dept_worker ddw = new New_delete_dept_worker();
                 ddw.TopLevel = false;
                 ddw.Dock = System.Windows.Forms.DockStyle.Fill;
                 ddw.FormBorderStyle = FormBorderStyle.None;
@@ -235,7 +235,7 @@ namespace 裕景管理系统.manager
             }
             if (e.Node.Text.Trim() == "删除数据表格")
             {
-                delete_dept_table ddt = new delete_dept_table();
+                New_delete_dept_table ddt = new New_delete_dept_table();
                 ddt.TopLevel = false;
                 ddt.Dock = System.Windows.Forms.DockStyle.Fill;
                 ddt.FormBorderStyle = FormBorderStyle.None;
@@ -314,6 +314,12 @@ namespace 裕景管理系统.manager
                     e.Cancel = true;  //不让选中禁用节点
                 }
             }
+        }
+
+        private void 查看帮助说明ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            test te = new test();
+            te.Show();
         }
     }
 }

@@ -20,8 +20,8 @@ namespace 裕景管理系统
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
            Application.Run(new Login ());
-           // Application.Run(new New_add_level());
-         
+          // Application.Run(new TM_search_staffinfomation());
+           // Application.Run(new  New_delete_manager ());
         }
     }
 }

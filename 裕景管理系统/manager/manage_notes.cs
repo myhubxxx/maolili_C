@@ -39,9 +39,14 @@ namespace 裕景管理系统.manager
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            DoRrealManager drm = new DoRrealManager();
-            OleDbDataAdapter da = drm.getBRda(ConstatData.login.username);
-            da.Update(ds, "BumRemind");
+            if (dataGridView1.DataSource == null)
+            { return; }
+            else
+            {
+                DoRrealManager drm = new DoRrealManager();
+                OleDbDataAdapter da = drm.getBRda(ConstatData.login.username);
+                da.Update(ds, "BumRemind");
+            }
         }
         private void button2_Click(object sender, EventArgs e)
         {

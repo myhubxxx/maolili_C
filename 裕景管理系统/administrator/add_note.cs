@@ -26,6 +26,7 @@ namespace 裕景管理系统.administrator
             else
             {
                 DoManager domanger = new DoManager();
+            //check if the admin has add the same title
                 if (domanger.check_manager_note(ConstatData.login.username, textBox1.Text))
                 {
                     domanger.add_note(ConstatData.login.username, textBox1.Text, richTextBox1.Text, DateTime.Parse(dateTimePicker1.Text), int.Parse(textBox2.Text));
@@ -48,7 +49,7 @@ namespace 裕景管理系统.administrator
         {
             if (!(char.IsNumber(e.KeyChar)) && e.KeyChar != (char)8)
             {
-                e.Handled = true;
+                e.Handled = true;// make sure it can only accept number not string and other
             }
         }
     }

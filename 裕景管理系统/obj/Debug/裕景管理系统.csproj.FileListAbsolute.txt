@@ -249,6 +249,7 @@ C:\Users\cj\Desktop\裕景管理系统（已有总经理模块）2016.6.24_17\�
 C:\Users\cj\Desktop\裕景管理系统（已有总经理模块）2016.6.24_17\裕景管理系统\obj\Debug\裕景管理系统.top_Manager.Top_Manager.resources
 C:\Users\cj\Desktop\裕景管理系统（已有总经理模块）2016.6.24_17\裕景管理系统\obj\Debug\裕景管理系统.csproj.GenerateResource.Cache
 C:\Users\cj\Desktop\裕景管理系统（已有总经理模块）2016.6.24_17\裕景管理系统\obj\Debug\裕景管理系统.manager.New_add_level.resources
-G:\C#_program\mao_li_li\DBCon1\maolili_C\裕景管理系统\bin\Debug\裕景管理系统.exe.config
-G:\C#_program\mao_li_li\DBCon1\maolili_C\裕景管理系统\obj\Debug\裕景管理系统.exe
-G:\C#_program\mao_li_li\DBCon1\maolili_C\裕景管理系统\obj\Debug\裕景管理系统.pdb
+C:\Users\cj\Desktop\裕景管理系统（已有总经理模块）2016.6.24_17\裕景管理系统\obj\Debug\裕景管理系统.csprojResolveAssemblyReference.cache
+C:\Users\cj\Desktop\裕景管理系统（已有总经理模块）2016.6.24_17\裕景管理系统\obj\Debug\裕景管理系统.manager.M_show_table_information.resources
+C:\Users\cj\Desktop\裕景管理系统（已有总经理模块）2016.6.24_17\裕景管理系统\obj\Debug\裕景管理系统.administrator.paper_manage.resources
+C:\Users\cj\Desktop\裕景管理系统（已有总经理模块）2016.6.24_17\裕景管理系统\obj\Debug\裕景管理系统.administrator.test.resources

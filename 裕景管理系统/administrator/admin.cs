@@ -11,8 +11,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using 裕景管理系统.Domain;
 using 裕景管理系统.manager;
-
-
 namespace 裕景管理系统.administrator
 {
     public partial class admin : Form
@@ -27,8 +25,8 @@ namespace 裕景管理系统.administrator
             label5.ForeColor = Color.Red;
             DoManager domanger = new DoManager();
             List<string> messge = new List<string>();
+            // show the note on label5
            messge=domanger.check_admin_note(ConstatData.login.username);
-         // label5.Text += messge;
            for (int i = 0; i < messge.Count; i++)
            {
                label5.Text += messge[i]+"   ";
@@ -43,7 +41,6 @@ namespace 裕景管理系统.administrator
             panel1.Controls.Add(index);
             index.Show();
         }
-
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
             DoManager domanager = new DoManager();
@@ -51,22 +48,19 @@ namespace 裕景管理系统.administrator
                {
                     if (domanager.checkdepartment())
                     {
-                        dept_query dept = new dept_query();
+                       dept_query dept = new dept_query();
                        dept.TopLevel = false;
                        dept.Dock = System.Windows.Forms.DockStyle.Fill;
                        dept.FormBorderStyle = FormBorderStyle.None;
                        panel1.Controls.Clear();
                        panel1.Controls.Add(dept);
                        dept.Show();
-                    
                     }
                     else
                     {
                         MessageBox.Show("对不起，您当前未创建任何部门，无法查询");
                     }
-
                }
-            
             if (e.Node.Text.Trim() == "查询部门下的数据表")
             {
                 if (domanager.checkdepartment())
@@ -86,7 +80,7 @@ namespace 裕景管理系统.administrator
 
             }
             if (e.Node.Text.Trim() == "管理经理账号信息")
-            {
+            {//if there is no dept in table of Department ,so should inform the user
                 if (domanager.checkdepartment())
                 {
                     manage_manager mm = new manage_manager();
@@ -104,7 +98,7 @@ namespace 裕景管理系统.administrator
 
             }
             if (e.Node.Text.Trim() == "管理员工账号信息")
-            {
+            {//if there is no department  so  the you can not manage the manager's username and pwd
                  if (domanager.checkdepartment())
                 {
                 manage_staff staff = new manage_staff();
@@ -130,10 +124,11 @@ namespace 裕景管理系统.administrator
                 info.FormBorderStyle = FormBorderStyle.None;
                 panel1.Controls.Clear();
                 panel1.Controls.Add(info);
-                info.Show();}
+                info.Show();
+                }
                 else
                 {
-                    MessageBox.Show("对不起，您当前未创建任何部门，无法管理经理账号");
+                    MessageBox.Show("对不起，您当前未创建任何部门，无法管理员工详细信息");
                 }
             }
             if (e.Node.Text.Trim() == "增加部门")
@@ -147,7 +142,7 @@ namespace 裕景管理系统.administrator
                 adddept.Show();
             }
             if (e.Node.Text.Trim() == "删除部门")
-            {
+            {//check if there have dept in the table of Department
                 if (domanager.checkdepartment())
                 {
                     delete_department de_dept = new delete_department();
@@ -160,7 +155,6 @@ namespace 裕景管理系统.administrator
                 }
                 else
                 {
-
                     MessageBox.Show("对不起，您未创建任何部门，无法删除");
                 }
             }
@@ -285,14 +279,11 @@ namespace 裕景管理系统.administrator
                     MessageBox.Show("对不起，您尚未创建部门，无法删除数据表");
                 }
             }
-
         }
-
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-
+            // this can not delete ,you can ignore it;
         }
-
         private void admin_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (MessageBox.Show("确认退出程序?", "系统提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
@@ -308,64 +299,61 @@ namespace 裕景管理系统.administrator
             Login lo = new Login();
             lo.Show();
             this.Hide();
-
         }
-
         private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConstatData.FormClose();
         }
-
         private void 上传共享区ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog file = new OpenFileDialog();
             file.InitialDirectory = Application.StartupPath;
-
-            //karas: here, DefualtExt just split from Filter.
-            //file.DefaultExt = "xls";
             file.Filter = null;//默认为任何文件
 
-            if (file.ShowDialog() == DialogResult.OK)//在对话框里点了导入
+            if (file.ShowDialog() == DialogResult.OK)
             {
-                //karas: becareful, when you handle file, you must know error about it.
                 try
                 {
                     string filepath = file.FileName;
                     FileInfo fileInfo = new FileInfo(filepath);
                     string path1 = System.IO.Directory.GetCurrentDirectory() + "\\Share\\";
-
                     File.Copy(filepath, path1 + fileInfo.Name);
                     MessageBox.Show("上传成功");
                 }
                 catch(Exception ex)
                 {
-                    ShareLib.Instance().HandleExcption(ex);
+                    string res=ShareLib.Instance().HandleExcption(ex);
+                    MessageBox.Show(res);
                 }
             } 
         }
-
         private void 查看共享区ToolStripMenuItem_Click(object sender, EventArgs e)
         {
              show show=new show ();
              show.Show();
         }
-
         private void 查看备忘录ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             manage_note mn = new manage_note();
             mn.Show();
         }
-
         private void 添加备忘录ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             add_note an = new add_note();
             an.Show();
         }
-
         private void 管理备忘录ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             manage_note mn = new manage_note();
             mn.Show();
+        }
+        private void 帮助ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+        }
+        private void 查看帮助信息ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            test te = new test();
+            te.Show();
         }
     }
 }

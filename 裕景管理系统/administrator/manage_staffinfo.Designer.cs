@@ -95,7 +95,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(7, 56);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(886, 496);
+            this.dataGridView1.Size = new System.Drawing.Size(890, 500);
             this.dataGridView1.TabIndex = 1;
             // 
             // 序号
@@ -264,7 +264,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(898, 585);
+            this.ClientSize = new System.Drawing.Size(898, 550);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);

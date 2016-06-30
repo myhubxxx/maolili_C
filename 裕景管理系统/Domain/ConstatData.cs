@@ -120,6 +120,9 @@ namespace 裕景管理系统.Domain
        public static string DEPART_NAME { get; set; }
        public static string ck_name { get; set; }
 
+       public static datainfo_manage dataInfo_Manage { get; set; }
+       public static string M_ck_tbname { get; set; }
+
 
        public static TM_table_query TM_TB { get; set; }
        public static string TM_deptname { get; set; }

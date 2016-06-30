@@ -39,6 +39,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -146,11 +147,29 @@
     <Compile Include="administrator\manage_staffinfo.Designer.cs">
       <DependentUpon>manage_staffinfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="administrator\New_delete_manager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="administrator\New_delete_manager.Designer.cs">
+      <DependentUpon>New_delete_manager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="administrator\New_delete_table.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="administrator\New_delete_table.Designer.cs">
+      <DependentUpon>New_delete_table.cs</DependentUpon>
+    </Compile>
     <Compile Include="administrator\outport_datatable.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="administrator\outport_datatable.Designer.cs">
       <DependentUpon>outport_datatable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="administrator\paper_manage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="administrator\paper_manage.Designer.cs">
+      <DependentUpon>paper_manage.cs</DependentUpon>
     </Compile>
     <Compile Include="administrator\show.cs">
       <SubType>Form</SubType>
@@ -169,6 +188,12 @@
     </Compile>
     <Compile Include="administrator\table_query.Designer.cs">
       <DependentUpon>table_query.cs</DependentUpon>
+    </Compile>
+    <Compile Include="administrator\test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="administrator\test.Designer.cs">
+      <DependentUpon>test.cs</DependentUpon>
     </Compile>
     <Compile Include="Dao\AbstractDao.cs" />
     <Compile Include="Dao\AccessOp.cs" />
@@ -300,11 +325,29 @@
     <Compile Include="manager\M_output table.Designer.cs">
       <DependentUpon>M_output table.cs</DependentUpon>
     </Compile>
+    <Compile Include="manager\M_show_table_information.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="manager\M_show_table_information.Designer.cs">
+      <DependentUpon>M_show_table_information.cs</DependentUpon>
+    </Compile>
     <Compile Include="manager\New_add_level.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="manager\New_add_level.Designer.cs">
       <DependentUpon>New_add_level.cs</DependentUpon>
+    </Compile>
+    <Compile Include="manager\New_delete_dept_table.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="manager\New_delete_dept_table.Designer.cs">
+      <DependentUpon>New_delete_dept_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="manager\New_delete_dept_worker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="manager\New_delete_dept_worker.Designer.cs">
+      <DependentUpon>New_delete_dept_worker.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -418,8 +461,17 @@
     <EmbeddedResource Include="administrator\manage_staffinfo.resx">
       <DependentUpon>manage_staffinfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="administrator\New_delete_manager.resx">
+      <DependentUpon>New_delete_manager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="administrator\New_delete_table.resx">
+      <DependentUpon>New_delete_table.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="administrator\outport_datatable.resx">
       <DependentUpon>outport_datatable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="administrator\paper_manage.resx">
+      <DependentUpon>paper_manage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="administrator\show.resx">
       <DependentUpon>show.cs</DependentUpon>
@@ -429,6 +481,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="administrator\table_query.resx">
       <DependentUpon>table_query.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="administrator\test.resx">
+      <DependentUpon>test.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="index.resx">
       <DependentUpon>index.cs</DependentUpon>
@@ -478,8 +533,17 @@
     <EmbeddedResource Include="manager\M_output table.resx">
       <DependentUpon>M_output table.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="manager\M_show_table_information.resx">
+      <DependentUpon>M_show_table_information.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="manager\New_add_level.resx">
       <DependentUpon>New_add_level.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="manager\New_delete_dept_table.resx">
+      <DependentUpon>New_delete_dept_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="manager\New_delete_dept_worker.resx">
+      <DependentUpon>New_delete_dept_worker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

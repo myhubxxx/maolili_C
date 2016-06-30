@@ -20,17 +20,24 @@ namespace 裕景管理系统.manager
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DoRrealManager drm = new DoRrealManager();
-            if (drm.check_dept_worker(textBox1.Text, textBox2.Text))
+            if (textBox1.Text =="" || textBox2.Text == "")
             {
-                drm.add_dept_worker(textBox1.Text, textBox2.Text, ConstatData.department.Dept_name);
-                MessageBox.Show(ShareLib.Add_Staff_Success);
-
+                MessageBox.Show(ShareLib.No_Username_dept);
             }
             else
             {
+                DoRrealManager drm = new DoRrealManager();
+                if (drm.check_dept_worker(textBox1.Text, textBox2.Text))
+                {
+                    drm.add_dept_worker(textBox1.Text, textBox2.Text, ConstatData.department.Dept_name);
+                    MessageBox.Show(ShareLib.Add_Staff_Success);
 
-                MessageBox.Show(ShareLib.Staff_Username_Exsist);
+                }
+                else
+                {
+
+                    MessageBox.Show(ShareLib.Staff_Username_Exsist);
+                }
             }
         }
 

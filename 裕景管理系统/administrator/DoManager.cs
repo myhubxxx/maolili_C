@@ -46,7 +46,7 @@ namespace 裕景管理系统.administrator
 
         }
 
-
+        
 
 
        //按时间查询某不们下的某个表
@@ -71,6 +71,13 @@ namespace 裕景管理系统.administrator
         {
             TableDao dao = new TableDao();
             DataSet ds = dao.get_tableds(dbname, tbname);
+            return ds;
+        }
+        // 根据表名模糊查询所有totaltable 中的表格
+        public DataSet darkSearchByTableName(string dbname, string tbname)
+        {
+            TotalTableDao dao = new TotalTableDao();
+            DataSet ds = dao.darkSearchByTableName(dbname, tbname);
             return ds;
         }
 
@@ -151,14 +158,21 @@ namespace 裕景管理系统.administrator
             List<Department> list = new List<Department>();
             list = getalldept_list();
             bool isnotexsit =true;
-            foreach (Department e in list)
+            if (list == null || list.Count == 0)
             {
-                if (e.Dept_name == newdept)
+                isnotexsit = true;
+            }
+            else
+            {
+                foreach (Department e in list)
                 {
-                    isnotexsit = false;
-                    break;
+                    if (e.Dept_name == newdept)
+                    {
+                        isnotexsit = false;
+                        break;
+                    }
+
                 }
-                
             }
             return isnotexsit;
            
@@ -218,7 +232,7 @@ namespace 裕景管理系统.administrator
             userdao.add(myuser);
 
         }
-        //检查是否经理的名字和密码是否已经有分配了
+        //检查是否经理的名字是否已经有分配了
         public bool checkmanager(string managername,string userpwd)
         {
             bool isnotexesit_manager = true;
@@ -392,6 +406,7 @@ namespace 裕景管理系统.administrator
             Dictionary<string, string> map = new Dictionary<string, string>();
             map = adao.loadByName(userna);
             remind = dao.getByUserIdList((int.Parse(map["ID"])));
+            if (remind == null || remind.Count() == 0) { return true; }
             foreach (BumRemind e in remind)
             {if(e.Title==title)
                 is_not_same = false;

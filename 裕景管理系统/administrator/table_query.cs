@@ -67,5 +67,17 @@ namespace 裕景管理系统.administrator
             sh.Show();
            
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            dataGridView1.RowsDefaultCellStyle.Font = new Font(ShareLib.Font_Type, 10, FontStyle.Bold);
+            dataGridView1.RowsDefaultCellStyle.ForeColor = Color.BurlyWood;
+            DoManager domanager = new DoManager();
+            this.ds = domanager.darkSearchByTableName(comboBox1.Text, textBox1.Text);
+            //OleDbDataAdapter da = new OleDbDataAdapter();
+            //da = domanager.gettotaltable_da(comboBox1.Text);
+            //da.Fill(ds, comboBox1.Text);
+            this.dataGridView1.DataSource = ds.Tables[comboBox1.Text];
+        }
     }
 }

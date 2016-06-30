@@ -41,6 +41,11 @@ namespace 裕景管理系统.administrator
             DoManager domanager = new DoManager();
             List<Department> list = new List<Department>();
             list = domanager.getalldept_list();
+            if (list == null || list.Count == 0)
+            {
+                comboBox1.DataSource = null;
+            }
+            else
             comboBox1.DataSource = list.Select(a => a.Dept_name).ToList();
         }
     }

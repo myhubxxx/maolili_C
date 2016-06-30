@@ -35,7 +35,7 @@ namespace 裕景管理系统.top_Manager
                  {
                      if (Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value) > 10)
                      {
-                         dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                         dataGridView1.Rows[i].DefaultCellStyle.BackColor= Color.Red;
 
 
                      }

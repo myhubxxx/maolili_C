@@ -47,6 +47,7 @@ namespace 裕景管理系统.administrator
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if(dataGridView1.DataSource == null) { return; }
             DoManager domanager = new DoManager();
             OleDbDataAdapter da = domanager.gettableda(ConstatData.tab_query.DEPART_NAME, ConstatData.tab_query.ck_name);
             da.Update(this.ds, ConstatData.tab_query.ck_name);

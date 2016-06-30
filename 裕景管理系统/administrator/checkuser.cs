@@ -37,9 +37,16 @@ namespace 裕景管理系统.administrator
                             MessageBoxIcon.Question);
                      if (result == System.Windows.Forms.DialogResult.OK)
                      {
-                         DoManager domanager = new DoManager();
-                         domanager.delete_dept(ConstatData.dele_dept.dele_dept_name);
-                         MessageBox.Show(ShareLib.Delete_Dept_Success);
+                         try
+                         {
+                             DoManager domanager = new DoManager();
+                             domanager.delete_dept(ConstatData.dele_dept.dele_dept_name);
+                             MessageBox.Show(ShareLib.Delete_Dept_Success);
+                         }
+                         catch (Exception)
+                         {
+                             MessageBox.Show(ShareLib.Delete_Dept_Success);
+                         }
                      }
                      else
                      {

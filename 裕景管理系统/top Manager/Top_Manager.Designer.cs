@@ -28,17 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("查询所有部门");
-            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("查询部门下所有数据表");
-            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("查询经理账号信息");
-            System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("查询员工账号信息");
-            System.Windows.Forms.TreeNode treeNode47 = new System.Windows.Forms.TreeNode("查询员工详细信息");
-            System.Windows.Forms.TreeNode treeNode48 = new System.Windows.Forms.TreeNode("查询", new System.Windows.Forms.TreeNode[] {
-            treeNode43,
-            treeNode44,
-            treeNode45,
-            treeNode46,
-            treeNode47});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("查询所有部门");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("查询部门下所有数据表");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("查询经理账号信息");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("查询员工账号信息");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("查询", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4});
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.共享区ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查看共享区ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -83,7 +81,7 @@
             // 查看共享区ToolStripMenuItem
             // 
             this.查看共享区ToolStripMenuItem.Name = "查看共享区ToolStripMenuItem";
-            this.查看共享区ToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.查看共享区ToolStripMenuItem.Size = new System.Drawing.Size(148, 24);
             this.查看共享区ToolStripMenuItem.Text = "查看共享区";
             this.查看共享区ToolStripMenuItem.Click += new System.EventHandler(this.查看共享区ToolStripMenuItem_Click);
             // 
@@ -101,14 +99,14 @@
             // 重新登录ToolStripMenuItem
             // 
             this.重新登录ToolStripMenuItem.Name = "重新登录ToolStripMenuItem";
-            this.重新登录ToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.重新登录ToolStripMenuItem.Size = new System.Drawing.Size(134, 24);
             this.重新登录ToolStripMenuItem.Text = "重新登录";
             this.重新登录ToolStripMenuItem.Click += new System.EventHandler(this.重新登录ToolStripMenuItem_Click);
             // 
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(134, 24);
             this.退出ToolStripMenuItem.Text = "退出";
             this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
             // 
@@ -147,20 +145,18 @@
             this.treeView1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.treeView1.Location = new System.Drawing.Point(0, 56);
             this.treeView1.Name = "treeView1";
-            treeNode43.Name = "节点4";
-            treeNode43.Text = "查询所有部门";
-            treeNode44.Name = "节点5";
-            treeNode44.Text = "查询部门下所有数据表";
-            treeNode45.Name = "查询经理账号信息";
-            treeNode45.Text = "查询经理账号信息";
-            treeNode46.Name = "查询员工信息";
-            treeNode46.Text = "查询员工账号信息";
-            treeNode47.Name = "查询员工详细信息";
-            treeNode47.Text = "查询员工详细信息";
-            treeNode48.Name = "查询";
-            treeNode48.Text = "查询";
+            treeNode1.Name = "节点4";
+            treeNode1.Text = "查询所有部门";
+            treeNode2.Name = "节点5";
+            treeNode2.Text = "查询部门下所有数据表";
+            treeNode3.Name = "查询经理账号信息";
+            treeNode3.Text = "查询经理账号信息";
+            treeNode4.Name = "查询员工信息";
+            treeNode4.Text = "查询员工账号信息";
+            treeNode5.Name = "查询";
+            treeNode5.Text = "查询";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode48});
+            treeNode5});
             this.treeView1.Size = new System.Drawing.Size(192, 417);
             this.treeView1.TabIndex = 2;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);

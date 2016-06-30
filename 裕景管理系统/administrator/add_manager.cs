@@ -29,15 +29,21 @@ namespace 裕景管理系统.administrator
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            DoManager domanager = new DoManager();
-            if (domanager.checkmanager(textBox1.Text, textBox2.Text))
-            {
-                domanager.add_manager(textBox1.Text, textBox2.Text, comboBox1.Text);
-                MessageBox.Show(ShareLib.Add_Manger_sccess);
-            }
+            if (textBox1.Text =="" || textBox2.Text =="" || comboBox1.Text =="")
+            { MessageBox.Show(ShareLib.No_Username_dept); }
             else
             {
-                MessageBox.Show(ShareLib.Manager_Username_Exsist);
+                DoManager domanager = new DoManager();
+                //check if has allocated the same manager'username and pwd
+                if (domanager.checkmanager(textBox1.Text, textBox2.Text))
+                {
+                    domanager.add_manager(textBox1.Text, textBox2.Text, comboBox1.Text);
+                    MessageBox.Show(ShareLib.Add_Manger_sccess);
+                }
+                else
+                {
+                    MessageBox.Show(ShareLib.Manager_Username_Exsist);
+                }
             }
         }
         private void button2_Click(object sender, EventArgs e)

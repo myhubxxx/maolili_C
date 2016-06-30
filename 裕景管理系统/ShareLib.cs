@@ -18,20 +18,23 @@ namespace 裕景管理系统
             return mySelf;
         }
         // exception handle
-        public void HandleExcption(Exception ex)
+        public string  HandleExcption(Exception ex)
         {
-            Debug.Assert(false, "%s", ex.ToString());
+            //Debug.Assert(false, "%s", ex.ToString());
+            string result = "";
+
+
 
             switch(ex.GetType().ToString())
             {
-                case "syste.KeyNotFoundException":
-                    break;
-                case "System.IO.DirectoryNotFoundException":
-                    break;
+                case " System.NotSupportedException": result= "文件格式无效";break;
+                case "System.IO.FileNotFoundException:": result ="源文件未找到"; break;
                 default:
-                    //unhandle error ex.GetType().ToString(),please contact dev team. 
-                    break;
+                    //unhandle error ex.GetType().ToString(),please contact dev team.
+                    result = "出现未处理错误，请重新操作......";break;
+                    
             }
+            return result;
         }  
      
 
@@ -92,6 +95,7 @@ namespace 裕景管理系统
         public const string Dept_No_Table = "您选择的部门还未创建任何表，请重新选择";
         public const string Comfirm_Delete_Table = "确实要删除该数据表吗？";
         public const string Delete_Table_Success = "数据表删除成功";
+        public const string No_Select_deletedept = "请选择要删除的数据表";
         //dept_datainfo
         public const string Time_Error = "建表时间不能大于当前时间";
         public const string Font_Type = "微软雅黑";
@@ -117,6 +121,7 @@ namespace 裕景管理系统
        //delete staff
         public const string Comfirm_Delete_Staff = "确实要删除该员工吗";
         public const string Staff_Delete_Success = "该员工已经被删除";
+        public const string No_select_delteworker = "请选择要删除的员工";
         //manage_level
         public const string Staff_NoLevel_Table = "对不起，该员工尚未被分配可操作表";
         //add user info
@@ -124,6 +129,12 @@ namespace 裕景管理系统
         public const string Add_Info_Failed = "信息录入失败，请填写完整信息";
         //manager don't give level to staff
         public const string NotGivenLevel = "对不起，经理还未为您分配您的可操作表";
+
+
+        //some button's notification
+        public const string No_Fill_dept = "请填写要创建的部门名";
+        public const string No_Username_dept = "请填写要添加的账号和密码";
+        public const string No_Staff_nolevel = "请选择完整信息";
         
 
 

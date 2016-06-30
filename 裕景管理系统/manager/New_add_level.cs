@@ -91,7 +91,8 @@ namespace 裕景管理系统.manager
         private void button1_Click(object sender, EventArgs e)
         {   
             if(listView1.CheckedItems.Count==0 || listView2.CheckedItems.Count==0)
-            { MessageBox.Show("请选择员工和数据表");
+            {
+                MessageBox.Show(ShareLib.No_Staff_nolevel);
                 return;
             }
                 foreach (ListViewItem it in listView1.CheckedItems)
@@ -135,6 +136,11 @@ namespace 裕景管理系统.manager
           
         
         private void listView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void New_add_level_Load(object sender, EventArgs e)
         {
 
         }

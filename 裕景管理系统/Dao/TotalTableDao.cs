@@ -68,8 +68,6 @@ namespace DBCon1.Dao
 
             return bean;
         }
-        
-
         // load by name
         public TotalTable loadByName(string dbName,string tableName) {
             string sql = "select * from totaltable where tablename=@tablename";
@@ -95,6 +93,24 @@ namespace DBCon1.Dao
 
             return bean;
         }
+        // Similar to Search, 
+        public DataSet darkSearchByTableName(string dbName, string tabName)
+        {
+            string sql = "SELECT * FROM totaltable WHERE tablename LIKE '%"+ tabName +"%'";
+            OleDbConnection con = getCon(dbName);
+
+            OleDbDataAdapter adapter = new OleDbDataAdapter(sql, con);
+            DataSet ds = new DataSet();
+            adapter.Fill(ds, dbName);
+
+            // close the con
+            closeAll(con, null, null);
+
+            return ds;
+        }
+
+
+
         // delete
         public void delete(string dbName,int id){
             string sql = "delete from totaltable where id=@id";
@@ -133,21 +149,6 @@ namespace DBCon1.Dao
 
             return list;
         }
-        // Similar to Search, 
-        public DataSet darkSearchByTableName(string dbName, string tabName) {
-            string sql = "select * from totaltable where tablename like " + tabName;
-            OleDbConnection con = getCon(dbName);
-
-            OleDbDataAdapter adapter = new OleDbDataAdapter(sql, con);
-            DataSet ds = new DataSet();
-            adapter.Fill(ds);
-
-            // close the con
-            closeAll(con, null, null);
-
-            return ds;
-        }
-
         // find all dataset
         public DataSet findAll_DataSet(string dbName) {
             string sql = "select * from totaltable";
@@ -172,6 +173,7 @@ namespace DBCon1.Dao
             return adapter;
 
         }
+       
 
         // get the data in the startTime and endTime
         public List<TotalTable> getByDate(string DBName, DateTime startTime, DateTime endTime) {
@@ -207,6 +209,36 @@ namespace DBCon1.Dao
 
             return list;
         
+        }
+
+        public DataSet getByDateDS(string DBName, DateTime startTime, DateTime endTime)
+        {
+            // check the date is right
+            if (startTime > endTime)
+            {
+                //return null; 
+                throw new Exception("the startTime is bigger than the endTime,please check your time");
+            }          
+
+            //get the connect
+            OleDbConnection con = getCon(DBName);
+            string sql = "select * from totaltable where (createTime >= @starttime and createTime <= @endTime)";
+            OleDbCommand cmd = new OleDbCommand(sql, con);
+
+            OleDbParameter[] param = {new OleDbParameter("@startTime", startTime.ToString("d")),
+                                        new OleDbParameter("@endTime", endTime.ToString("d"))  };
+            cmd.Parameters.AddRange(param);
+
+            OleDbDataAdapter adapter = new OleDbDataAdapter(cmd);            
+            DataSet ds = new DataSet();
+            adapter.Fill(ds, DBName);
+
+
+            // close the all connect
+            closeAll(con, cmd, null);
+
+            return ds;
+
         }
 
     }

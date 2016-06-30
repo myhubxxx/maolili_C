@@ -36,6 +36,9 @@
             this.序号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.表格名称 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.建表时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -92,11 +95,11 @@
             this.表格名称,
             this.建表时间});
             this.dataGridView1.GridColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.dataGridView1.Location = new System.Drawing.Point(2, 119);
+            this.dataGridView1.Location = new System.Drawing.Point(2, 148);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(595, 449);
+            this.dataGridView1.Size = new System.Drawing.Size(680, 449);
             this.dataGridView1.TabIndex = 4;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
@@ -125,6 +128,35 @@
             this.建表时间.ReadOnly = true;
             this.建表时间.Width = 130;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label4.Location = new System.Drawing.Point(12, 116);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(121, 20);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "请输入表的关键字";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox1.Location = new System.Drawing.Point(139, 115);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(121, 23);
+            this.textBox1.TabIndex = 7;
+            // 
+            // button2
+            // 
+            this.button2.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.button2.Location = new System.Drawing.Point(298, 108);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(146, 30);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "查询";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -139,7 +171,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(599, 580);
+            this.ClientSize = new System.Drawing.Size(694, 628);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
@@ -165,6 +200,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 序号;
         private System.Windows.Forms.DataGridViewTextBoxColumn 表格名称;
         private System.Windows.Forms.DataGridViewTextBoxColumn 建表时间;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label3;
     }
 }

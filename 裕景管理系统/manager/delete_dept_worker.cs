@@ -33,34 +33,41 @@ namespace 裕景管理系统.manager
         }
         private void button1_Click(object sender, EventArgs e)
         {
-             System.Windows.Forms.DialogResult result =
-                 System.Windows.Forms.MessageBox.Show(
-                      ShareLib.Comfirm_Delete_Staff,
-                         ShareLib.Make_Sure,
-                         MessageBoxButtons.OKCancel,
-                         MessageBoxIcon.Question);
-             if (result == System.Windows.Forms.DialogResult.OK)
-             {
-                 DoRrealManager drm = new DoRrealManager();
-                 drm.delete_worker(comboBox1.Text);
-                 MessageBox.Show(ShareLib.Staff_Delete_Success);
-                 int level = 0;
-                // DoRrealManager drm = new DoRrealManager();
-                 List<UserInfo> list = drm.getallworkername(level);
-                 if (list == null || list.Count == 0)
-                 {
-                     comboBox1.DataSource = null;
-                 }
-                 else
-                 {
-                     comboBox1.DataSource = list.Select(a => a.Name).ToList();
-                 }
+            if (comboBox1.Text == "")
+            {
+                MessageBox.Show(ShareLib.No_select_delteworker);
+            }
+            else
+            {
+                System.Windows.Forms.DialogResult result =
+                    System.Windows.Forms.MessageBox.Show(
+                         ShareLib.Comfirm_Delete_Staff,
+                            ShareLib.Make_Sure,
+                            MessageBoxButtons.OKCancel,
+                            MessageBoxIcon.Question);
+                if (result == System.Windows.Forms.DialogResult.OK)
+                {
+                    DoRrealManager drm = new DoRrealManager();
+                    drm.delete_worker(comboBox1.Text);
+                    MessageBox.Show(ShareLib.Staff_Delete_Success);
+                    int level = 0;
+                    // DoRrealManager drm = new DoRrealManager();
+                    List<UserInfo> list = drm.getallworkername(level);
+                    if (list == null || list.Count == 0)
+                    {
+                        comboBox1.DataSource = null;
+                    }
+                    else
+                    {
+                        comboBox1.DataSource = list.Select(a => a.Name).ToList();
+                    }
 
-             }
-             else
-             {
-                 return;
-             }
+                }
+                else
+                {
+                    return;
+                }
+            }
         }
         private void button2_Click(object sender, EventArgs e)
         {

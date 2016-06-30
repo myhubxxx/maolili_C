@@ -28,38 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("管理数据信息");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("管理部门数据信息", new System.Windows.Forms.TreeNode[] {
-            treeNode1});
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("添加部门员工账号");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("删除部门员工账号");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("管理部门员工账号信息");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("管理部门员工详细信息");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("管理部门员工", new System.Windows.Forms.TreeNode[] {
-            treeNode3,
-            treeNode4,
-            treeNode5,
-            treeNode6});
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("分配部门员工权限");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("管理部门员工权限");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("权限", new System.Windows.Forms.TreeNode[] {
-            treeNode8,
-            treeNode9});
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("新建数据表格");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("删除数据表格");
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("导入数据表");
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("导出数据表");
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("管理部门数据表", new System.Windows.Forms.TreeNode[] {
-            treeNode11,
-            treeNode12,
-            treeNode13,
-            treeNode14});
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("录入个人信息");
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("录入个人信息", new System.Windows.Forms.TreeNode[] {
-            treeNode16});
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("修改个人信息");
-            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("修改个人信息", new System.Windows.Forms.TreeNode[] {
-            treeNode18});
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("管理数据信息");
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("管理部门数据信息", new System.Windows.Forms.TreeNode[] {
+            treeNode20});
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("添加部门员工账号");
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("删除部门员工账号");
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("管理部门员工账号信息");
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("管理部门员工详细信息");
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("管理部门员工", new System.Windows.Forms.TreeNode[] {
+            treeNode22,
+            treeNode23,
+            treeNode24,
+            treeNode25});
+            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("分配部门员工权限");
+            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("管理部门员工权限");
+            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("权限", new System.Windows.Forms.TreeNode[] {
+            treeNode27,
+            treeNode28});
+            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("新建数据表格");
+            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("删除数据表格");
+            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("导入数据表");
+            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("导出数据表");
+            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("管理部门数据表", new System.Windows.Forms.TreeNode[] {
+            treeNode30,
+            treeNode31,
+            treeNode32,
+            treeNode33});
+            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("录入个人信息");
+            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("录入个人信息", new System.Windows.Forms.TreeNode[] {
+            treeNode35});
+            System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("修改个人信息");
+            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("修改个人信息", new System.Windows.Forms.TreeNode[] {
+            treeNode37});
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.共享区ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查看共享区ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -81,6 +81,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.帮助ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.查看帮助说明ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,11 +92,12 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.共享区ToolStripMenuItem,
             this.备忘录ToolStripMenuItem,
+            this.帮助ToolStripMenuItem,
             this.系统管理ToolStripMenuItem,
-            this.帮助ToolStripMenuItem});
+            this.帮助ToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1107, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -167,14 +170,14 @@
             // 重新登录ToolStripMenuItem
             // 
             this.重新登录ToolStripMenuItem.Name = "重新登录ToolStripMenuItem";
-            this.重新登录ToolStripMenuItem.Size = new System.Drawing.Size(134, 24);
+            this.重新登录ToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.重新登录ToolStripMenuItem.Text = "重新登录";
             this.重新登录ToolStripMenuItem.Click += new System.EventHandler(this.重新登录ToolStripMenuItem_Click);
             // 
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(134, 24);
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.退出ToolStripMenuItem.Text = "退出";
             this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
             // 
@@ -184,14 +187,15 @@
             this.查看帮助说明ToolStripMenuItem});
             this.帮助ToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.帮助ToolStripMenuItem.Name = "帮助ToolStripMenuItem";
-            this.帮助ToolStripMenuItem.Size = new System.Drawing.Size(49, 24);
-            this.帮助ToolStripMenuItem.Text = "帮助";
+            this.帮助ToolStripMenuItem.Size = new System.Drawing.Size(105, 24);
+            this.帮助ToolStripMenuItem.Text = "管理员工证书";
             // 
             // 查看帮助说明ToolStripMenuItem
             // 
             this.查看帮助说明ToolStripMenuItem.Name = "查看帮助说明ToolStripMenuItem";
             this.查看帮助说明ToolStripMenuItem.Size = new System.Drawing.Size(162, 24);
-            this.查看帮助说明ToolStripMenuItem.Text = "查看帮助说明";
+            this.查看帮助说明ToolStripMenuItem.Text = "管理员工证书";
+            this.查看帮助说明ToolStripMenuItem.Click += new System.EventHandler(this.查看帮助说明ToolStripMenuItem_Click);
             // 
             // treeView1
             // 
@@ -201,52 +205,52 @@
             this.treeView1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.treeView1.Location = new System.Drawing.Point(0, 53);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "管理数据信息";
-            treeNode1.Text = "管理数据信息";
-            treeNode2.Name = "管理部门数据信息";
-            treeNode2.Text = "管理部门数据信息";
-            treeNode3.Name = "添加部门员工账号";
-            treeNode3.Text = "添加部门员工账号";
-            treeNode4.Name = "删除部门员工账号";
-            treeNode4.Text = "删除部门员工账号";
-            treeNode5.Name = "管理部门员工账号信息";
-            treeNode5.Text = "管理部门员工账号信息";
-            treeNode6.Name = "管理部门员工详细信息";
-            treeNode6.Text = "管理部门员工详细信息";
-            treeNode7.Name = "管理部门员工";
-            treeNode7.Text = "管理部门员工";
-            treeNode8.Name = "分配部门员工权限";
-            treeNode8.Text = "分配部门员工权限";
-            treeNode9.Name = "管理部门员工权限";
-            treeNode9.Text = "管理部门员工权限";
-            treeNode10.Name = "权限";
-            treeNode10.Text = "权限";
-            treeNode11.Name = "新建数据表格";
-            treeNode11.Text = "新建数据表格";
-            treeNode12.Name = "删除数据表格";
-            treeNode12.Text = "删除数据表格";
-            treeNode13.Name = "导入数据表";
-            treeNode13.Text = "导入数据表";
-            treeNode14.Name = "导出数据表";
-            treeNode14.Text = "导出数据表";
-            treeNode15.Name = "管理部门数据表";
-            treeNode15.Text = "管理部门数据表";
-            treeNode16.Name = "录入个人信息";
-            treeNode16.Text = "录入个人信息";
-            treeNode17.Name = "录入个人信息";
-            treeNode17.Text = "录入个人信息";
-            treeNode18.Name = "修改个人信息";
-            treeNode18.Text = "修改个人信息";
-            treeNode19.Name = "修改个人信息";
-            treeNode19.Text = "修改个人信息";
+            treeNode20.Name = "管理数据信息";
+            treeNode20.Text = "管理数据信息";
+            treeNode21.Name = "管理部门数据信息";
+            treeNode21.Text = "管理部门数据信息";
+            treeNode22.Name = "添加部门员工账号";
+            treeNode22.Text = "添加部门员工账号";
+            treeNode23.Name = "删除部门员工账号";
+            treeNode23.Text = "删除部门员工账号";
+            treeNode24.Name = "管理部门员工账号信息";
+            treeNode24.Text = "管理部门员工账号信息";
+            treeNode25.Name = "管理部门员工详细信息";
+            treeNode25.Text = "管理部门员工详细信息";
+            treeNode26.Name = "管理部门员工";
+            treeNode26.Text = "管理部门员工";
+            treeNode27.Name = "分配部门员工权限";
+            treeNode27.Text = "分配部门员工权限";
+            treeNode28.Name = "管理部门员工权限";
+            treeNode28.Text = "管理部门员工权限";
+            treeNode29.Name = "权限";
+            treeNode29.Text = "权限";
+            treeNode30.Name = "新建数据表格";
+            treeNode30.Text = "新建数据表格";
+            treeNode31.Name = "删除数据表格";
+            treeNode31.Text = "删除数据表格";
+            treeNode32.Name = "导入数据表";
+            treeNode32.Text = "导入数据表";
+            treeNode33.Name = "导出数据表";
+            treeNode33.Text = "导出数据表";
+            treeNode34.Name = "管理部门数据表";
+            treeNode34.Text = "管理部门数据表";
+            treeNode35.Name = "录入个人信息";
+            treeNode35.Text = "录入个人信息";
+            treeNode36.Name = "录入个人信息";
+            treeNode36.Text = "录入个人信息";
+            treeNode37.Name = "修改个人信息";
+            treeNode37.Text = "修改个人信息";
+            treeNode38.Name = "修改个人信息";
+            treeNode38.Text = "修改个人信息";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2,
-            treeNode7,
-            treeNode10,
-            treeNode15,
-            treeNode17,
-            treeNode19});
-            this.treeView1.Size = new System.Drawing.Size(187, 615);
+            treeNode21,
+            treeNode26,
+            treeNode29,
+            treeNode34,
+            treeNode36,
+            treeNode38});
+            this.treeView1.Size = new System.Drawing.Size(187, 601);
             this.treeView1.TabIndex = 1;
             this.treeView1.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeView1_BeforeSelect);
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -267,7 +271,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.ForeColor = System.Drawing.Color.Coral;
-            this.label2.Location = new System.Drawing.Point(203, 28);
+            this.label2.Location = new System.Drawing.Point(584, 28);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 25);
             this.label2.TabIndex = 3;
@@ -275,9 +279,9 @@
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(187, 52);
+            this.panel1.Location = new System.Drawing.Point(187, 66);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(615, 616);
+            this.panel1.Size = new System.Drawing.Size(914, 588);
             this.panel1.TabIndex = 4;
             // 
             // label3
@@ -285,7 +289,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label3.Location = new System.Drawing.Point(-3, 671);
+            this.label3.Location = new System.Drawing.Point(-3, 657);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(253, 20);
             this.label3.TabIndex = 5;
@@ -296,7 +300,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label4.Location = new System.Drawing.Point(294, 671);
+            this.label4.Location = new System.Drawing.Point(298, 657);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 20);
             this.label4.TabIndex = 6;
@@ -307,7 +311,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label5.Location = new System.Drawing.Point(422, 671);
+            this.label5.Location = new System.Drawing.Point(434, 657);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 20);
             this.label5.TabIndex = 7;
@@ -317,17 +321,31 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("幼圆", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label6.Location = new System.Drawing.Point(295, 33);
+            this.label6.Location = new System.Drawing.Point(193, 49);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(49, 14);
             this.label6.TabIndex = 8;
             this.label6.Text = "消息：";
             // 
+            // 帮助ToolStripMenuItem1
+            // 
+            this.帮助ToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.查看帮助说明ToolStripMenuItem1});
+            this.帮助ToolStripMenuItem1.Name = "帮助ToolStripMenuItem1";
+            this.帮助ToolStripMenuItem1.Size = new System.Drawing.Size(44, 24);
+            this.帮助ToolStripMenuItem1.Text = "帮助";
+            // 
+            // 查看帮助说明ToolStripMenuItem1
+            // 
+            this.查看帮助说明ToolStripMenuItem1.Name = "查看帮助说明ToolStripMenuItem1";
+            this.查看帮助说明ToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.查看帮助说明ToolStripMenuItem1.Text = "查看帮助说明";
+            // 
             // Manager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 692);
+            this.ClientSize = new System.Drawing.Size(1107, 684);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -373,5 +391,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ToolStripMenuItem 帮助ToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem 查看帮助说明ToolStripMenuItem1;
     }
 }

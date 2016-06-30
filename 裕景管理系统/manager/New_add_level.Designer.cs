@@ -69,7 +69,7 @@
             this.表格名称});
             this.listView2.Location = new System.Drawing.Point(188, 44);
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(338, 439);
+            this.listView2.Size = new System.Drawing.Size(476, 439);
             this.listView2.TabIndex = 1;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.SelectedIndexChanged += new System.EventHandler(this.listView2_SelectedIndexChanged);
@@ -179,7 +179,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(599, 578);
+            this.ClientSize = new System.Drawing.Size(697, 580);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
@@ -192,7 +192,8 @@
             this.Controls.Add(this.listView2);
             this.Controls.Add(this.listView1);
             this.Name = "New_add_level";
-            this.Text = "New_add_level";
+            this.Text = "裕锦公司----分配用户权限";
+            this.Load += new System.EventHandler(this.New_add_level_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

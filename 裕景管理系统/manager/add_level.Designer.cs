@@ -44,7 +44,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label1.Location = new System.Drawing.Point(220, 52);
+            this.label1.Location = new System.Drawing.Point(418, 111);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(106, 21);
             this.label1.TabIndex = 0;
@@ -55,7 +55,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label2.Location = new System.Drawing.Point(127, 144);
+            this.label2.Location = new System.Drawing.Point(300, 180);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(147, 14);
             this.label2.TabIndex = 1;
@@ -65,7 +65,7 @@
             // 
             this.comboBox1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(280, 143);
+            this.comboBox1.Location = new System.Drawing.Point(496, 173);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(179, 28);
             this.comboBox1.TabIndex = 2;
@@ -76,7 +76,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label3.Location = new System.Drawing.Point(57, 205);
+            this.label3.Location = new System.Drawing.Point(242, 236);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(217, 14);
             this.label3.TabIndex = 3;
@@ -86,7 +86,7 @@
             // 
             this.comboBox2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(280, 205);
+            this.comboBox2.Location = new System.Drawing.Point(496, 229);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(179, 28);
             this.comboBox2.TabIndex = 4;
@@ -96,7 +96,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label4.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label4.Location = new System.Drawing.Point(183, 260);
+            this.label4.Location = new System.Drawing.Point(368, 293);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(91, 14);
             this.label4.TabIndex = 5;
@@ -110,7 +110,7 @@
             "不可见",
             "可见",
             "可写可见"});
-            this.comboBox3.Location = new System.Drawing.Point(280, 260);
+            this.comboBox3.Location = new System.Drawing.Point(496, 279);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(179, 28);
             this.comboBox3.TabIndex = 6;
@@ -118,7 +118,7 @@
             // button1
             // 
             this.button1.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.button1.Location = new System.Drawing.Point(171, 320);
+            this.button1.Location = new System.Drawing.Point(327, 361);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(85, 32);
             this.button1.TabIndex = 7;
@@ -129,7 +129,7 @@
             // button2
             // 
             this.button2.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.button2.Location = new System.Drawing.Point(350, 321);
+            this.button2.Location = new System.Drawing.Point(506, 362);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(83, 31);
             this.button2.TabIndex = 8;
@@ -142,7 +142,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FloralWhite;
-            this.ClientSize = new System.Drawing.Size(599, 413);
+            this.ClientSize = new System.Drawing.Size(697, 580);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox3);

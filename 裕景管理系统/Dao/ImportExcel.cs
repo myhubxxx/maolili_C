@@ -43,7 +43,7 @@ namespace DBCon1.test_dao
             // importExcel table
             for (int i = 0; i < tabNames.Count; i++ ){
                 
-                return importExcel(DBName, excelPath, tabNames[i]);
+                 importExcel(DBName, excelPath, tabNames[i]);
             
             }
 
@@ -94,7 +94,7 @@ namespace DBCon1.test_dao
             /*if the excel.Table has data,then delete the Table data, There are must appear a very important Problem. this is no data,but has a Table columns is "ID F1".
              * so this IF is to solve the Situation. if the MyDatabase.Columns just has 1 clomu And the column is F1, mean the is't table.
              */
-            if( bean.Columns.Count == 1 || bean.Columns[0].FieldName.Equals("F1") ){
+            if( bean.Columns.Count == 1 && bean.Columns[0].FieldName.Equals("F1") ){
                 // just has 1 column And the column is F1
                 throw new Exception("the Table is Null,has not column");
             }

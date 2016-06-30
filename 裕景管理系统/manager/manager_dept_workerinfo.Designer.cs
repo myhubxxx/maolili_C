@@ -51,14 +51,14 @@
             this.dataGridView1.Location = new System.Drawing.Point(12, 106);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(631, 326);
+            this.dataGridView1.Size = new System.Drawing.Size(643, 399);
             this.dataGridView1.TabIndex = 1;
             // 
             // manager_dept_workerinfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(655, 487);
+            this.ClientSize = new System.Drawing.Size(667, 566);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.Name = "manager_dept_workerinfo";

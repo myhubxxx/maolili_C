@@ -40,27 +40,34 @@ namespace 裕景管理系统.manager
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            PurviewTable table = new PurviewTable();
-           DoRrealManager drm=new DoRrealManager ();
-           table.Dept_userid = drm.gettable_dept_userid(comboBox1.SelectedItem.ToString());
-            table.Dept_table = comboBox2.SelectedItem.ToString();
-            if (comboBox3.SelectedItem.ToString() ==ShareLib.Level_tosee)
+            if (comboBox1.Text == "" || comboBox2.Text == "" || comboBox3.Text == "")
             {
-                table.Purview = 1;
-                drm.addlevel(ConstatData.department.Dept_name, table);
-                MessageBox.Show(ShareLib.Add_Level_Success);
+                MessageBox.Show(ShareLib.No_Staff_nolevel);
             }
-            if (comboBox3.SelectedItem.ToString() == ShareLib.No_Level_tosee)
+            else
             {
-                table.Purview = 0;
-                drm.addlevel(ConstatData.department.Dept_name, table);
-                MessageBox.Show(ShareLib.Add_Level_Success);
-            }
-            if (comboBox3.SelectedItem.ToString() == ShareLib.Can_ReadandWrite)
-            {
-                table.Purview = 2;
-                drm.addlevel(ConstatData.department.Dept_name, table);
-                MessageBox.Show(ShareLib.Add_Level_Success);
+                PurviewTable table = new PurviewTable();
+                DoRrealManager drm = new DoRrealManager();
+                table.Dept_userid = drm.gettable_dept_userid(comboBox1.SelectedItem.ToString());
+                table.Dept_table = comboBox2.SelectedItem.ToString();
+                if (comboBox3.SelectedItem.ToString() == ShareLib.Level_tosee)
+                {
+                    table.Purview = 1;
+                    drm.addlevel(ConstatData.department.Dept_name, table);
+                    MessageBox.Show(ShareLib.Add_Level_Success);
+                }
+                if (comboBox3.SelectedItem.ToString() == ShareLib.No_Level_tosee)
+                {
+                    table.Purview = 0;
+                    drm.addlevel(ConstatData.department.Dept_name, table);
+                    MessageBox.Show(ShareLib.Add_Level_Success);
+                }
+                if (comboBox3.SelectedItem.ToString() == ShareLib.Can_ReadandWrite)
+                {
+                    table.Purview = 2;
+                    drm.addlevel(ConstatData.department.Dept_name, table);
+                    MessageBox.Show(ShareLib.Add_Level_Success);
+                }
             }
         }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

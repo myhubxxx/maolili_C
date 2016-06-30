@@ -78,7 +78,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(4, 169);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(591, 346);
+            this.dataGridView1.Size = new System.Drawing.Size(681, 346);
             this.dataGridView1.TabIndex = 3;
             // 
             // 表头名称
@@ -102,7 +102,7 @@
             // button2
             // 
             this.button2.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.button2.Location = new System.Drawing.Point(371, 538);
+            this.button2.Location = new System.Drawing.Point(448, 538);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(92, 30);
             this.button2.TabIndex = 5;
@@ -124,7 +124,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(599, 580);
+            this.ClientSize = new System.Drawing.Size(697, 580);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);

@@ -56,7 +56,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(12, 69);
+            this.label2.Location = new System.Drawing.Point(12, 77);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 20);
             this.label2.TabIndex = 1;
@@ -67,7 +67,7 @@
             this.comboBox1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.comboBox1.ForeColor = System.Drawing.SystemColors.MenuText;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(100, 69);
+            this.comboBox1.Location = new System.Drawing.Point(124, 75);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 28);
             this.comboBox1.TabIndex = 2;
@@ -76,7 +76,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(267, 72);
+            this.label3.Location = new System.Drawing.Point(295, 75);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 20);
             this.label3.TabIndex = 3;
@@ -84,7 +84,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(352, 69);
+            this.textBox1.Location = new System.Drawing.Point(380, 69);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(235, 28);
@@ -101,7 +101,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(2, 109);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(585, 401);
+            this.dataGridView1.Size = new System.Drawing.Size(680, 401);
             this.dataGridView1.TabIndex = 5;
             // 
             // 表头名称
@@ -114,7 +114,7 @@
             // 
             this.button1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button1.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.button1.Location = new System.Drawing.Point(139, 535);
+            this.button1.Location = new System.Drawing.Point(134, 535);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(93, 33);
             this.button1.TabIndex = 6;
@@ -126,7 +126,7 @@
             // 
             this.button2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button2.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.button2.Location = new System.Drawing.Point(320, 535);
+            this.button2.Location = new System.Drawing.Point(471, 535);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(95, 33);
             this.button2.TabIndex = 7;
@@ -149,7 +149,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(599, 580);
+            this.ClientSize = new System.Drawing.Size(694, 628);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);

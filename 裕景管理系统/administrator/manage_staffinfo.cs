@@ -48,11 +48,23 @@ namespace 裕景管理系统.administrator
             this.Close();
         }
         private void button1_Click(object sender, EventArgs e)
+        {System.Windows.Forms.DialogResult result =
+                 System.Windows.Forms.MessageBox.Show(
+                         ShareLib.Confirm_Modify_Manger,
+                         ShareLib.Make_Sure,
+                         MessageBoxButtons.OKCancel,
+                         MessageBoxIcon.Question);
+        if (result == System.Windows.Forms.DialogResult.OK)
         {
             DoManager domanger = new DoManager();
             OleDbDataAdapter da = new OleDbDataAdapter();
             da = domanger.getinfo_da();
-            da.Update(ds,"userinfo");
+            da.Update(ds, "userinfo");
+        }
+        else
+        {
+            return;
+        }
         }
         private void button3_Click(object sender, EventArgs e)
         {

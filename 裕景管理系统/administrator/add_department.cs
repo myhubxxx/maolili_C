@@ -24,22 +24,31 @@ namespace 裕景管理系统.administrator
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DoManager domanage = new DoManager();
-            if (!domanage.checkdepartment())
+            if (textBox1.Text =="")
             {
-                domanage.adddepart(textBox1.Text);
-                MessageBox.Show(ShareLib.Add_Success);
+                MessageBox.Show(ShareLib.No_Fill_dept);
             }
             else
             {
-                if (domanage.checkdept(textBox1.Text))
+                DoManager domanage = new DoManager();
+                //check if has had dept,if not had you can add directly ,if has had added 
+                //already you shou avoid adding the same dept name
+                if (!domanage.checkdepartment())
                 {
                     domanage.adddepart(textBox1.Text);
                     MessageBox.Show(ShareLib.Add_Success);
                 }
                 else
-                {
-                    MessageBox.Show(ShareLib.Dept_Has_Exsist);
+                {//check if have the same dept name
+                    if (domanage.checkdept(textBox1.Text))
+                    {
+                        domanage.adddepart(textBox1.Text);
+                        MessageBox.Show(ShareLib.Add_Success);
+                    }
+                    else
+                    {
+                        MessageBox.Show(ShareLib.Dept_Has_Exsist);
+                    }
                 }
             }
         }
@@ -48,7 +57,6 @@ namespace 裕景管理系统.administrator
             ConstatData.admin.Show();
             this.Close();
         }
-
         private void add_department_Load(object sender, EventArgs e)
         {
         }

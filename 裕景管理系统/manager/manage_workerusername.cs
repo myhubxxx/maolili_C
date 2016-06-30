@@ -25,6 +25,10 @@ namespace 裕景管理系统.manager
         }
         private void button1_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.DataSource == null)
+            {
+                return;
+            }
              System.Windows.Forms.DialogResult result =
                  System.Windows.Forms.MessageBox.Show(
                         ShareLib.Confirm_Modify_Manger,

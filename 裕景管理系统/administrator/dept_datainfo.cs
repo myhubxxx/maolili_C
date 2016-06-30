@@ -77,9 +77,14 @@ namespace 裕景管理系统.administrator
         private void button2_Click(object sender, EventArgs e)
         {
             //karas: i suggest we don't call DB function in this layer.
-            DoManager domanager = new DoManager();
-            OleDbDataAdapter da = domanager.gettableda(ConstatData.dbname, ConstatData.tbname);
-            da.Update(this.ds,ConstatData.tbname);
+            if (dataGridView1.DataSource == null)
+            { return; }
+            else
+            {
+                DoManager domanager = new DoManager();
+                OleDbDataAdapter da = domanager.gettableda(ConstatData.dbname, ConstatData.tbname);
+                da.Update(this.ds, ConstatData.tbname);
+            }
         }
         private void button3_Click(object sender, EventArgs e)
         {

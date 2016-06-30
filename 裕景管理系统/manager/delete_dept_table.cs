@@ -40,6 +40,11 @@ namespace 裕景管理系统.manager
         }
         private void button1_Click(object sender, EventArgs e)
         {
+            if (comboBox1.Text == "")
+            {
+                MessageBox.Show(ShareLib.No_Select_deletedept);
+            }
+            else{
             System.Windows.Forms.DialogResult result =
               System.Windows.Forms.MessageBox.Show(
                       ShareLib.Comfirm_Delete_Table,
@@ -48,8 +53,8 @@ namespace 裕景管理系统.manager
                       MessageBoxIcon.Question);
             if (result == System.Windows.Forms.DialogResult.OK)
             {
-                
-                
+
+
                 AccessOp.DeleteAccessTab(ConstatData.department.Dept_name, comboBox1.SelectedItem.ToString());
                 MessageBox.Show(ShareLib.Delete_Table_Success);
                 DoRrealManager drm = new DoRrealManager();
@@ -63,6 +68,7 @@ namespace 裕景管理系统.manager
                 {
                     comboBox1.DataSource = list.Select(a => a.Tablename).ToList();
                 }
+            }
             }
         }
     }

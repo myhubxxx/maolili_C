@@ -54,6 +54,7 @@ namespace 裕景管理系统.administrator
                     MessageBox.Show(ShareLib.Notify_Add_TabName, ShareLib.Notification);
                     return;
                 }
+                //check totaltable whether have tables if no ,just add directly
                 if(!domanager.check_department_totaltable(comboBox1.SelectedItem.ToString()))
                 {
                     for (int i = 0; i < this.dataGridView1.Rows.Count; i++)
@@ -103,6 +104,7 @@ namespace 裕景管理系统.administrator
                 }
                 else
                 {
+                    //or check if  the tablename has been added 
                 if (domanager.checktablename(comboBox1.Text, textBox1.Text))
                 {
                     for (int i = 0; i < this.dataGridView1.Rows.Count; i++)
