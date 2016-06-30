@@ -177,6 +177,7 @@
     <Compile Include="Dao\DepartmentDao.cs" />
     <Compile Include="Dao\doentity.cs" />
     <Compile Include="Dao\dopriview.cs" />
+    <Compile Include="Dao\EmployeeCertificateDao.cs" />
     <Compile Include="Dao\entity.cs" />
     <Compile Include="Dao\ImportExcel.cs" />
     <Compile Include="Dao\MyDatabase.cs" />
@@ -194,6 +195,7 @@
     <Compile Include="Domain\DisplayEntity.cs" />
     <Compile Include="Domain\DisplayEntity1.cs" />
     <Compile Include="Domain\doinfo.cs" />
+    <Compile Include="Domain\EmployeeCertificate.cs" />
     <Compile Include="Domain\MyUser.cs" />
     <Compile Include="Domain\PurviewTable.cs" />
     <Compile Include="Domain\showinfo.cs" />
